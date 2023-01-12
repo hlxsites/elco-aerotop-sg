@@ -527,8 +527,8 @@ export async function waitForLCP(lcpBlocks) {
 /**
  * loads a block named 'header' into header
  */
-export function loadHeader(header) {
-  const headerBlock = buildBlock('header', '');
+export function loadHeader(header, content = '') {
+  const headerBlock = buildBlock('header', content);
   header.append(headerBlock);
   decorateBlock(headerBlock);
   return loadBlock(headerBlock);

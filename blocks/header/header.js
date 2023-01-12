@@ -1,4 +1,5 @@
 import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
+import { wrapImgsInLinks } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const MQ = window.matchMedia('(min-width: 900px)');
@@ -138,6 +139,7 @@ export default async function decorate(block) {
     toggleMenu(nav, navSections, MQ.matches);
     MQ.addEventListener('change', () => toggleMenu(nav, navSections, MQ.matches));
 
+    wrapImgsInLinks(nav);
     decorateIcons(nav);
     block.append(nav);
   }
