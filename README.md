@@ -1,9 +1,9 @@
-# Your Project's Title...
-Your project's description...
+# Aerotop SG Site
+TBD
 
 ## Environments
-- Preview: https://main--{repo}--{owner}.hlx.page/
-- Live: https://main--{repo}--{owner}.hlx.live/
+- Preview: https://main--elco-aerotop-sg--hlxsites.hlx.page/
+- Live: https://main--elco-aerotop-sg--hlxsites.hlx.live/
 
 ## Installation
 
