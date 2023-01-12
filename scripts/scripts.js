@@ -14,7 +14,10 @@ import {
 } from './lib-franklin.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
-window.hlx.RUM_GENERATION = 'project-1'; // add your RUM generation information here
+window.hlx.RUM_GENERATION = 'elco-aerotop-sg'; // add your RUM generation information here
+
+const SUPPORTED_LANGUAGES = ['de', 'en', 'fr', 'it'];
+const DEFAULT_LANGUAGE = 'en';
 
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
@@ -25,6 +28,23 @@ function buildHeroBlock(main) {
     section.append(buildBlock('hero', { elems: [picture, h1] }));
     main.prepend(section);
   }
+}
+
+/**
+ * Wraps images followed by links within a matching <a> tag.
+ * @param {Element} container The container element
+ */
+export function wrapImgsInLinks(container) {
+  const pictures = container.querySelectorAll('p picture');
+  pictures.forEach((pic) => {
+    const parent = pic.parentNode;
+    const link = parent.nextElementSibling.querySelector('a');
+    if (link && link.textContent.includes(link.getAttribute('href'))) {
+      link.parentElement.remove();
+      link.innerHTML = pic.outerHTML;
+      parent.replaceWith(link);
+    }
+  });
 }
 
 /**
@@ -58,7 +78,16 @@ export function decorateMain(main) {
  * loads everything needed to get to LCP.
  */
 async function loadEager(doc) {
-  document.documentElement.lang = 'en';
+  const preferredLanguage = navigator.languages.find(
+    (l) => SUPPORTED_LANGUAGES.includes(l),
+  ) || DEFAULT_LANGUAGE;
+  if (window.location.pathname === '/' && window.location.origin.match(/\.hlx\.(page|live)$/)) {
+    window.location.replace(`/${preferredLanguage}/`);
+  }
+
+  const [, lang] = window.location.pathname.split('/');
+  document.documentElement.lang = lang;
+
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
@@ -95,7 +124,7 @@ async function loadLazy(doc) {
   const element = hash ? main.querySelector(hash) : false;
   if (hash && element) element.scrollIntoView();
 
-  loadHeader(doc.querySelector('header'));
+  loadHeader(doc.querySelector('header'), [['nav', `/${document.documentElement.lang}/nav`]]);
   loadFooter(doc.querySelector('footer'));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
