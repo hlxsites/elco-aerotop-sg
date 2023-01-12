@@ -17,7 +17,7 @@ const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'elco-aerotop-sg'; // add your RUM generation information here
 
 const SUPPORTED_LANGUAGES = ['de', 'en', 'fr', 'it'];
-const DEFAULT_LANGUAGE = 'en';
+const DEFAULT_LANGUAGE = 'de';
 
 function buildHeroBlock(main) {
   const h1 = main.querySelector('h1');
