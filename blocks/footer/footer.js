@@ -1,5 +1,4 @@
 import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
-import { wrapImgsInLinks } from '../../scripts/scripts.js';
 
 /**
  * loads and decorates the footer
