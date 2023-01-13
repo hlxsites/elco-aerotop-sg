@@ -16,6 +16,5 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   footer.innerHTML = html;
   await decorateIcons(footer);
-  wrapImgsInLinks(footer);
   block.append(footer);
 }
