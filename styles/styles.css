@@ -1,5 +1,5 @@
 /*
- * Copyright 2020 Adobe. All rights reserved.
+ * Copyright 2023 Adobe. All rights reserved.
  * This file is licensed to you under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License. You may obtain a copy
  * of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -10,46 +10,101 @@
  * governing permissions and limitations under the License.
  */
 
- :root {
-  /* colors */
-  --link-color: #035fe6;
-  --link-hover-color: #136ff6;
-  --background-color: #fff;
-  --overlay-background-color: #eee;
+@font-face {
+  font-family: AvenirNextLTPro-Regular;
+  src: url("/fonts/AvenirNextLTPro-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: OpenSans-Regular;
+  src: url("/fonts/OpenSans-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: PTSans-Regular;
+  src: url("/fonts/PTSans-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+:root {
+  /* base colors */
+  --primary-color: #bd3826bf;
+  --primary-color-active: #bd3826;
+  --primary-background-color: #fff;
+  --primary-text-color: #1d1d1b;
+  --primary-border-color: #cc3939;
+  --primary-border-color-active: #d2d2d27f;
+  --secondary-color: #000;
+  --secondary-color-active: #f4f4f4;
+  --secondary-background-color: #000;
+  --secondary-text-color: #fff;
+  --secondary-border-color: #f4f4f4;
+
+  /* feature colors */
+  --primary-button-background-color: var(--primary-color);
+  --primary-button-border-color: var(--primary-background-color);
+  --secondary-button-background-color: var(--secondary-color);
+  --secondary-button-border-color: var(--primary-background-color);
+  --link-color: #333;
+  --link-hover-color: var(--primary-color-active);
+  --overlay-background-color: #f0f0f0;
   --highlight-background-color: #ccc;
-  --text-color: #000;
 
   /* fonts */
-  --body-font-family: 'helvetica neue', helvetica, ubuntu, roboto, noto, sans-serif;
+  --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;
   --heading-font-family: var(--body-font-family);
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
-  /* body sizes */
-  --body-font-size-m: 22px;
-  --body-font-size-s: 18px;
-  --body-font-size-xs: 16px;
+  /* body font sizes */
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
 
-  /* heading sizes */
-  --heading-font-size-xxl: 48px;
+  /* heading font sizes */
+  --heading-font-size-xxl: 60px;
   --heading-font-size-xl: 40px;
-  --heading-font-size-l: 32px;
-  --heading-font-size-m: 24px;
-  --heading-font-size-s: 20px;
-  --heading-font-size-xs: 18px;
+  --heading-font-size-l: 26px;
+  --heading-font-size-m: 16px;
+  --heading-font-size-s: 12px;
+  --heading-font-size-xs: 12px;
+
+  /* heading font weights */
+  --heading-font-weight: 400;
+  --heading-font-weight-m: 400;
+  --heading-font-weight-s: 400;
+
+  /* heading line heights */
+  --heading-line-height-xxl: 1.4em;
+  --heading-line-height-xl: 1.4em;
+  --heading-line-height-l: 1.5em;
+  --heading-line-height-m: 1.5em;
+  --heading-line-height-s: 1.5em;
+  --heading-line-height-xs: 1.5em;
+
+  /* button sizes */
+  --button-border-size: 2px;
+  --button-font-size: var(--body-font-size-s);
+  --button-line-height: 1em;
 
   /* nav height */
-  --nav-height: 64px;
-
+  --nav-height: 65px;
 }
 
 body {
-  font-size: var(--body-font-size-m);
-  margin: 0;
-  font-family: var(--body-font-family);
-  line-height: 1.6;
-  color: var(--text-color);
-  background-color: var(--background-color);
+  color: var(--primary-text-color);
   display: none;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 1.6;
+  margin: 0;
 }
 
 body.appear {
@@ -63,19 +118,45 @@ header {
 h1, h2, h3,
 h4, h5, h6 {
   font-family: var(--heading-font-family);
-  font-weight: 600;
-  line-height: 1.25;
-  margin-top: 1em;
-  margin-bottom: .5em;
+  font-weight: var(--heading-font-weight);
+  letter-spacing: normal;
+  margin: 0;
+  padding: 0;
   scroll-margin: calc(var(--nav-height) + 1em);
 }
 
-h1 { font-size: var(--heading-font-size-xxl) }
-h2 { font-size: var(--heading-font-size-xl) }
-h3 { font-size: var(--heading-font-size-l) }
-h4 { font-size: var(--heading-font-size-m) }
-h5 { font-size: var(--heading-font-size-s) }
-h6 { font-size: var(--heading-font-size-xs) }
+h1 {
+  font-size: var(--heading-font-size-xxl);
+  line-height: var(--heading-line-height-xxl);
+  text-align: center;
+}
+
+h2 {
+  font-size: var(--heading-font-size-xl);
+  line-height: var(--heading-line-height-xl);
+}
+
+h3 {
+  font-size: var(--heading-font-size-l);
+  line-height: var(--heading-line-height-l);
+}
+
+h4 {
+  font-size: var(--heading-font-size-m);
+  font-weight: var(--heading-font-weight-m);
+  line-height: var(--heading-line-height-m);
+}
+
+h5 {
+  font-size: var(--heading-font-size-s);
+  font-weight: var(--heading-font-weight-s);
+  line-height: var(--heading-line-height-s);
+}
+
+h6 {
+  font-size: var(--heading-font-size-xs);
+  line-height: var(--heading-line-height-xs);
+}
 
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
@@ -88,7 +169,6 @@ a:any-link {
 }
 
 a:hover {
-  text-decoration: underline;
   color: var(--link-hover-color);
 }
 
@@ -108,26 +188,30 @@ pre {
 /* buttons */
 
 a.button:any-link, button {
-  font-family: var(--body-font-family);
-  display: inline-block;
+  background-color: var(--primary-button-background-color);
+  border: var(--button-border-size) solid var(--primary-button-border-color);
   box-sizing: border-box;
-  text-decoration: none;
-  border: 2px solid transparent;
-  padding: 5px 30px;
-  text-align: center;
-  font-style: normal; 
-  font-weight: 600;
+  color: var(--primary-background-color);
   cursor: pointer;
-  color: var(--background-color);
-  background-color: var(--link-color);
-  margin: 16px 0;
-  white-space: nowrap;
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-style: normal;
+  line-height: var(--button-line-height);
+  margin: 0;
   overflow: hidden;
+  padding: 13px 29px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
   text-overflow: ellipsis;
-  border-radius: 30px;
+  transition-duration: .2s;
+  transition-property: all;
+  transition-timing-function: ease;
+  white-space: nowrap;
 }
 
-a.button:hover, a.button:focus, button:hover, button:focus  {
+a.button:hover, a.button:focus, button:hover, button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
@@ -137,11 +221,23 @@ button:disabled, button:disabled:hover {
   cursor: unset;
 }
 
+.section.dark a.button:any-link, .section.dark button {
+  background-color: var(--secondary-button-background-color);
+  border: var(--button-border-size) solid var(--secondary-button-border-color);
+  color: var(--primary-background-color);
+}
+
+.section.dark a.button:hover, .section.dark a.button:focus, .section.dark button:hover, .section.dark button:focus {
+  background-color: var(--primary-background-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
 a.button.secondary, button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
-  color: var(--text-color)
-} 
+  color: var(--primary-text-color)
+}
 
 
 main input {
@@ -150,16 +246,16 @@ main input {
   max-width: 50rem;
   display: block;
   margin-bottom: 1rem;
-  padding: 0.75rem 0.6rem;    
+  padding: 0.75rem 0.6rem;
   border-radius: 0.25rem;
   box-sizing: border-box;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
-  background-color: var(--background-color);
+  border: 1px solid var(--primary-text-color);
+  color: var(--primary-text-color);
+  background-color: var(--primary-background-color);
 }
 
 main input:hover {
-  border: 1px solid var(--text-color);
+  border: 1px solid var(--primary-text-color);
 }
 
 main .section {
@@ -207,7 +303,7 @@ main img {
 @media (min-width: 600px) {
   main .section {
     padding: 64px 32px;
-  }  
+  }
 }
 
 @media (min-width: 900px) {
@@ -217,9 +313,9 @@ main img {
     --heading-font-size-l: 36px;
     --heading-font-size-m: 30px;
     --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;  
+    --heading-font-size-xs: 22px;
   }
-  
+
   .section > div {
     max-width: 1200px;
     margin: auto;
