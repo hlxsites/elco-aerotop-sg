@@ -65,6 +65,8 @@
   --link-hover-color: var(--primary-color-active);
   --overlay-background-color: #f0f0f0;
   --highlight-background-color: #ccc;
+  --navigation-dropdown-background-color: #f2efef;
+  --navigation-dropdown-border-color: #dcdadb;
 
   /* fonts */
   --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;

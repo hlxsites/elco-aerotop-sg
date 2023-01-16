@@ -194,8 +194,8 @@ header nav .nav-sections ul li.nav-drop {
 header nav .nav-sections ul li.active a,
 header nav .nav-sections ul li a:hover,
 header nav .nav-sections ul li.nav-drop:hover {
-  color: #bd3826;
-  border-color: #bd3826;
+  color: var(--primary-color-active);
+  border-color: var(--primary-color-active);
   border-top-width: 3px;
   border-top-style: solid;
 }
@@ -261,8 +261,8 @@ header nav .nav-sections ul > li > ul > li {
     right: 0;
     width: 180px;
     padding: 0;
-    background-color: #f2efef;
-    border-top: 3px solid #bd3826;
+    background-color: var(--navigation-dropdown-background-color);
+    border-top: 3px solid var(--primary-color-active);
     box-shadow: 1px 1px 30px rgb(0 0 0 / 6%);
     opacity: 1;
     visibility: visible;
@@ -275,7 +275,7 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections > ul > li > ul > li > a {
     padding: 7px 20px;
     border-top: none;
-    border-bottom: 1px solid #dcdadb;
+    border-bottom: 1px solid var(--navigation-dropdown-border-color);
     font-size: 13px;
     height: auto;
     transition: color .2s ease-in-out,background-color .2s ease-in-out,border-color .2s ease-in-out,height 0s,line-height 0s;

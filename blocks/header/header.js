@@ -118,7 +118,11 @@ export default async function decorate(block) {
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
         const isDropdownList = navSection.querySelector('ul');
-        if (isDropdownList) navSection.classList.add('nav-drop');
+
+        if (isDropdownList) {
+          navSection.classList.add('nav-drop');
+        }
+
         navSection.addEventListener('mouseenter', () => {
           if (MQ.matches && isDropdownList) {
             toggleAllNavSections(navSections);
@@ -134,9 +138,9 @@ export default async function decorate(block) {
         });
 
         // adds current css class to the current page in the navbar
-        const anchor = navSection.querySelector(':scope > a');
-        if (anchor) {
-          const href = anchor.getAttribute('href');
+        const navLink = navSection.querySelector(':scope > a');
+        if (navLink) {
+          const href = navLink.getAttribute('href');
           if (href === pathName) {
             navSection.classList.add('active');
           }
