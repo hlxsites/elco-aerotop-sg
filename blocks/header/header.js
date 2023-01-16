@@ -117,12 +117,19 @@ export default async function decorate(block) {
     const navSections = nav.querySelector('.nav-sections');
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-        navSection.addEventListener('click', () => {
-          if (MQ.matches) {
-            const expanded = navSection.getAttribute('aria-expanded') === 'true';
+        const isDropdownList = navSection.querySelector('ul');
+        if (isDropdownList) navSection.classList.add('nav-drop');
+        navSection.addEventListener('mouseenter', (e) => {
+          if (MQ.matches && isDropdownList) {
             toggleAllNavSections(navSections);
-            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            navSection.setAttribute('aria-expanded', 'true');
+          }
+        });
+
+        navSection.addEventListener('mouseleave', (e) => {
+          if (MQ.matches && isDropdownList) {
+            toggleAllNavSections(navSections);
+            navSection.setAttribute('aria-expanded', 'false');
           }
         });
 
