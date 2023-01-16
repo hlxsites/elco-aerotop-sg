@@ -16,6 +16,10 @@ export default async function decorate(block) {
   footer.innerHTML = html;
   await decorateIcons(footer);
   block.append(footer);
+  changeActiveLinksToRed();
+}
+
+function changeActiveLinksToRed(){
   const links = document.querySelectorAll('.footer a');
   links.forEach((link) => {
     const href = link.getAttribute('href');
