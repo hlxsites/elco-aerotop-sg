@@ -170,10 +170,34 @@ header nav .nav-sections ul  {
   padding-left: 0;
   font-size: var(--body-font-size-s);
   font-weight: 500;
+  padding-top: 9px;
 }
 
-header nav .nav-sections ul > li {
-  font-weight: 700;
+header nav .nav-sections > ul > li.nav-drop {
+  padding-right: 0;
+}
+
+header nav .nav-sections ul li a,
+header nav .nav-sections ul li.nav-drop {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  border-color: transparent;
+  border-top-width: 3px;
+  border-top-style: solid;
+  transition-property: color,background-color,border-color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+}
+
+header nav .nav-sections ul li.active a,
+header nav .nav-sections ul li a:hover,
+header nav .nav-sections ul li.nav-drop:hover {
+  color: #bd3826;
+  border-color: #bd3826;
+  border-top-width: 3px;
+  border-top-style: solid;
 }
 
 header nav .nav-sections ul > li > ul {
@@ -217,41 +241,44 @@ header nav .nav-sections ul > li > ul > li {
     font-weight: 500;
     padding-right: 60px;
     cursor: pointer;
-    height: 72px;
+    height: 63px;
     display: flex;
     align-items: center;
   }
 
   header nav .nav-sections > ul > li > ul {
-    display: none;
-    position: relative;
+    overflow: hidden;
+    visibility: hidden;
+    position: absolute;
+    transition: opacity 0.2s ease-in;
+    opacity: 0;
   }
 
   header nav .nav-sections > ul > li[aria-expanded=true] > ul {
     display: block;
     position: absolute;
     top: 100%;
-    left: -1em;
-    width: 200px;
-    padding: 1em;
-    background-color: var(--highlight-background-color);
-    white-space: initial;
-  }
-
-  header nav .nav-sections > ul > li > ul::before {
-    content: '';
-    position: absolute;
-    top: -8px;
-    left: 8px;
-    width: 0;
-    height: 0;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-bottom: 8px solid var(--highlight-background-color);
+    right: 0;
+    width: 180px;
+    padding: 0;
+    background-color: #f2efef;
+    border-top: 3px solid #bd3826;
+    box-shadow: 1px 1px 30px rgb(0 0 0 / 6%);
+    opacity: 1;
+    visibility: visible;
   }
 
   header nav .nav-sections > ul > li > ul > li {
-    padding: 8px 0;
+    padding: 0;
+  }
+
+  header nav .nav-sections > ul > li > ul > li > a {
+    padding: 7px 20px;
+    border-top: none;
+    border-bottom: 1px solid #dcdadb;
+    font-size: 13px;
+    height: auto;
+    transition: color .2s ease-in-out,background-color .2s ease-in-out,border-color .2s ease-in-out,height 0s,line-height 0s;
   }
 }
 

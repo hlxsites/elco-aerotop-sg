@@ -138,7 +138,7 @@ export default async function decorate(block) {
         if (anchor) {
           const href = anchor.getAttribute('href');
           if (href === pathName) {
-            navSection.classList.add('current');
+            navSection.classList.add('active');
           }
         }
       });
