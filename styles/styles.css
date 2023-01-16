@@ -128,8 +128,12 @@ body.appear {
 }
 
 body .dark {
-  background-color: black;
-  color: white;    
+  background-color: var(--secondary-background-color);
+  color: var(--secondary-text-color);    
+}
+
+body .dark a {
+  color: var(--primary-color-active);    
 }
 
 header {
