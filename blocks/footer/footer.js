@@ -15,13 +15,14 @@ export default async function decorate(block) {
   const footer = document.createElement('div');
   footer.innerHTML = html;
   await decorateIcons(footer);
-    
+  block.append(footer);
   const links = document.querySelectorAll('.footer a');
+  console.log(links.length);
   links.forEach(link => {
     const href = link.getAttribute('href');
     if (href === window.location.pathname) {
+
       link.classList.add('active');
     }
   });
-  block.append(footer);
 }
