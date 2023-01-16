@@ -27,7 +27,7 @@ footer .footer ul {
 }
 
 footer .footer li {
-  border:0; margin:0px; 
+  border:0; margin:0; 
   font-size: 14px;
   padding: 0 2em;
   text-align: center;
@@ -69,8 +69,12 @@ footer .footer p {
 }
 
 @media only screen and (max-width: 781px) {
-  footer .footer p {padding-left: 0px;}
-  footer .footer ul {margin-left: 0;justify-content:center;}
-
+  footer .footer p {padding-left: 0;}
+  
+  footer .footer ul {
+    margin-left: 0;
+    justify-content: center;
+  }
 }
+
 
