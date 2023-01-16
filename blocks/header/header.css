@@ -232,7 +232,7 @@ header nav .nav-sections ul > li > ul > li {
     position: absolute;
     left: -1em;
     width: 200px;
-    margin-top: 12px;
+    margin-top: 200px;
     padding: 1em;
     background-color: var(--highlight-background-color);
     white-space: initial;
