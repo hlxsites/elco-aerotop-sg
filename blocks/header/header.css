@@ -230,9 +230,9 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections > ul > li[aria-expanded=true] > ul {
     display: block;
     position: absolute;
+    top: 100%;
     left: -1em;
     width: 200px;
-    margin-top: 200px;
     padding: 1em;
     background-color: var(--highlight-background-color);
     white-space: initial;
