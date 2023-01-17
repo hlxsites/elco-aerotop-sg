@@ -8,6 +8,10 @@ header {
   z-index: 1;
 }
 
+html:not([data-scroll='0']) header{
+  box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
+}
+
 header nav {
   box-sizing: border-box;
   display: grid;
