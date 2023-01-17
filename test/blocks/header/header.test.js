@@ -38,9 +38,9 @@ describe('Header block', () => {
     await setViewport({ width: 900, height: 640 });
     const sections = document.querySelector('.header .nav-sections');
     const title = sections.querySelector(':scope li');
-    title.click();
+    title.dispatchEvent(new Event('mouseenter'));
     expect(title.getAttribute('aria-expanded')).to.equal('true');
-    title.click();
+    title.dispatchEvent(new Event('mouseleave'));
     expect(title.getAttribute('aria-expanded')).to.equal('false');
   });
 });
