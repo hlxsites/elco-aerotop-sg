@@ -127,15 +127,6 @@ body.appear {
   display: unset;
 }
 
-body .dark {
-  background-color: var(--secondary-background-color);
-  color: var(--secondary-text-color);    
-}
-
-body .dark a {
-  color: var(--primary-color-active);    
-}
-
 header {
   height: var(--nav-height);
 }
@@ -285,7 +276,7 @@ main input:hover {
 }
 
 main {
-  margin-top: 75px;
+  margin-top: 0;
 }
 
 main .section {
@@ -346,4 +337,17 @@ main .section[data-section-status='initialized'] {
 
 main .section.highlight {
   background-color: var(--highlight-background-color);
+}
+
+.section.dark {
+  background-color: var(--secondary-background-color);
+  color: var(--secondary-text-color);    
+}
+
+.section.dark a {
+  color: var(--primary-color-active);    
+}
+
+body > main > div > div {
+  padding-top: 75px;
 }
