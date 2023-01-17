@@ -8,7 +8,7 @@ header {
   z-index: 1;
 }
 
-html:not([data-scroll='0']) header{
+html:not([data-topposition='true']) header{
   box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
 }
 
