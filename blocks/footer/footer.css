@@ -4,15 +4,67 @@ footer {
   font-size: var(--body-font-size-s);
 }
 
-footer .footer {
+.footer {
   max-width: 1200px;
-  margin: auto;
+  border: 0;
+  margin: 0 auto;
+  padding: 0;
 }
 
-footer .footer p {
+.footer > div > div {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer ul {
+  list-style: none;
+  display: flex;
+  overflow: hidden;
+  padding: 0;
   margin: 0;
+  justify-content: center;
+  flex-flow: wrap;
 }
 
-footer .footer a {
+.footer li {
+  border: 0;
+  margin: 0;
+  font-size: var(--body-font-size-s);
+  padding: 0 2em;
+  text-align: center;
+  border-right: 1px solid black;
+}
+
+.footer li:last-child {
+  border: 0;
+}
+
+.footer a {
+  font-size: var(--body-font-size-s);
+  text-decoration: none;
+  color: var(--secondary-color);
   text-transform: uppercase;
+}
+
+.footer a:hover {
+  color: var(--primary-color-active);
+}
+
+.footer a.active {
+  color: var(--primary-color-active);;
+}
+
+.footer a:focus {
+  color: var(--primary-color-active);
+  outline: none;
+}
+
+.footer p {
+  line-height: 2rem;
+  vertical-align: middle;
+  font-size: var(--body-font-size-s);
+  text-align: center;
+  flex-grow: 1;
 }
