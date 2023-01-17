@@ -10,6 +10,7 @@ header {
 
 html[data-topposition='false'] header{
   box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
+  transition: box-shadow 0.3s ease-out;
 }
 
 header nav {
