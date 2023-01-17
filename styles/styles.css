@@ -377,6 +377,14 @@ body.home a {
   padding-bottom: 65px;    
 }
 
+.section.dark.center {
+text-align: center; 
+}
+
+.section.dark.center h2 {
+  text-align: center; 
+  }
+
 .section.dark a {
   color: var(--primary-color-active);    
 }
