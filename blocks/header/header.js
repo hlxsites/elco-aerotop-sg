@@ -112,17 +112,39 @@ export default async function decorate(block) {
       if (section) section.classList.add(`nav-${c}`);
     });
 
+    const pathName = window.location.pathname;
+
     const navSections = nav.querySelector('.nav-sections');
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-        if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
-        navSection.addEventListener('click', () => {
-          if (MQ.matches) {
-            const expanded = navSection.getAttribute('aria-expanded') === 'true';
+        const isDropdownList = navSection.querySelector('ul');
+
+        if (isDropdownList) {
+          navSection.classList.add('nav-drop');
+        }
+
+        navSection.addEventListener('mouseenter', () => {
+          if (MQ.matches && isDropdownList) {
             toggleAllNavSections(navSections);
-            navSection.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+            navSection.setAttribute('aria-expanded', 'true');
           }
         });
+
+        navSection.addEventListener('mouseleave', () => {
+          if (MQ.matches && isDropdownList) {
+            toggleAllNavSections(navSections);
+            navSection.setAttribute('aria-expanded', 'false');
+          }
+        });
+
+        // adds current css class to the current page in the navbar
+        const navLink = navSection.querySelector(':scope > a');
+        if (navLink) {
+          const href = navLink.getAttribute('href');
+          if (href === pathName) {
+            navSection.classList.add('active');
+          }
+        }
       });
     }
 
