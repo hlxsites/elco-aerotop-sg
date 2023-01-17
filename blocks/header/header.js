@@ -174,7 +174,6 @@ export default async function decorate(block) {
         frame = requestAnimationFrame(() => {
           fn(...params);
         });
-
       };
     };
 
@@ -187,6 +186,5 @@ export default async function decorate(block) {
     document.addEventListener('scroll', debounce(storeScroll), { passive: true });
 
     storeScroll();
-
   }
 }
