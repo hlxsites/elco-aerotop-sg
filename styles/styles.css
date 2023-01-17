@@ -109,6 +109,7 @@
 
   /* nav height */
   --nav-height: 72px;
+  --nav-shrinked-height: 65px;
   --nav-dropdown-font-size: 13px;
   --nav-dropdown-font-weight: 500;
   --nav-dropdown-element-font-weight: 400;

@@ -14,6 +14,8 @@ html[data-topposition='false'] header > div.header {
   top: 0;
   z-index: 2;
   background-color: white;
+  max-height: var(--nav-shrinked-height);
+  transition: max-height 0.3s ease-in;
 }
 
 header nav {
@@ -30,6 +32,10 @@ header nav {
   padding: 0 1rem;
   background-color: var(--primary-background-color);
   font-family: var(--nav-font-family);
+}
+
+html[data-topposition='false'] header nav {
+  height: var(--nav-shrinked-height);
 }
 
 header nav[aria-expanded=true] {
@@ -257,7 +263,7 @@ header nav .nav-sections ul > li > ul > li {
     font-weight: var(--nav-dropdown-font-weight);
     padding-right: 60px;
     cursor: pointer;
-    height: 72px;
+    height: var(--nav-height);
     display: flex;
     align-items: center;
   }
@@ -289,6 +295,10 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections > ul > li > ul > li {
     box-sizing: border-box;
     padding: 0;
+  }
+
+  html[data-topposition='false'] header nav .nav-sections > ul > li {
+    height: var(--nav-shrinked-height);
   }
 
   header nav .nav-sections > ul > li > ul > li > a {
