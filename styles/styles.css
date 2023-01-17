@@ -65,12 +65,16 @@
   --link-hover-color: var(--primary-color-active);
   --overlay-background-color: #f0f0f0;
   --highlight-background-color: #ccc;
+  --navigation-dropdown-background-color: #f2efef;
+  --navigation-dropdown-border-color: #dcdadb;
+  --navigation-dropdown-hover-color: #f8f8f8;
 
   /* fonts */
   --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;
   --heading-font-family: var(--body-font-family);
   --secondary-heading-font-family: 'AvenirNextLTPro-Demi', arial, helvetica, sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
+  --nav-font-family: 'OpenSans-Regular', arial, helvetica, sans-serif;
 
   /* body font sizes */
   --body-font-size-m: 16px;
@@ -104,7 +108,10 @@
   --button-line-height: 1em;
 
   /* nav height */
-  --nav-height: 65px;
+  --nav-height: 72px;
+  --nav-dropdown-font-size: 13px;
+  --nav-dropdown-font-weight: 500;
+  --nav-dropdown-element-font-weight: 400;
 }
 
 body {
