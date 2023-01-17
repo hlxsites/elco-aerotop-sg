@@ -11,6 +11,14 @@
  */
 
 @font-face {
+  font-family: AvenirNextLTPro-Demi;
+  src: url("/fonts/AvenirNextLTPro-Demi.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
   font-family: AvenirNextLTPro-Regular;
   src: url("/fonts/AvenirNextLTPro-Regular.woff2") format("woff2");
   font-display: swap;
@@ -61,6 +69,7 @@
   /* fonts */
   --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;
   --heading-font-family: var(--body-font-family);
+  --secondary-heading-font-family: 'AvenirNextLTPro-Demi', arial, helvetica, sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
 
   /* body font sizes */
@@ -141,6 +150,7 @@ h1 {
 }
 
 h2 {
+  font-family: var(--secondary-heading-font-family);
   font-size: var(--heading-font-size-xl);
   line-height: var(--heading-line-height-xl);
 }
@@ -267,8 +277,13 @@ main input:hover {
   border: 1px solid var(--primary-text-color);
 }
 
+main {
+  margin-top: 75px;
+}
+
 main .section {
-  padding: 64px 16px;
+  padding: 0 30px;
+  margin-bottom: 100px;
 }
 
 main pre {
@@ -309,22 +324,7 @@ main img {
   height: auto;
 }
 
-@media (min-width: 600px) {
-  main .section {
-    padding: 64px 32px;
-  }
-}
-
 @media (min-width: 900px) {
-  :root {
-    --heading-font-size-xxl: 60px;
-    --heading-font-size-xl: 48px;
-    --heading-font-size-l: 36px;
-    --heading-font-size-m: 30px;
-    --heading-font-size-s: 24px;
-    --heading-font-size-xs: 22px;
-  }
-
   .section > div {
     max-width: 1200px;
     margin: auto;
