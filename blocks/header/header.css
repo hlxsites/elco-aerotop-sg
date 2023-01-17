@@ -3,8 +3,7 @@ header {
   box-sizing: border-box;
   box-shadow: 0 10px 50px -2px rgb(0 0 0 / 14%);
   width: 100%;
-  position: fixed;
-  top: 0;
+  position: static;
   z-index: 1;
 }
 

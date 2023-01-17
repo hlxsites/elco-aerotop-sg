@@ -180,8 +180,6 @@ export default async function decorate(block) {
     // adds scroll position to html tag
     // see. https://css-tricks.com/styling-based-on-scroll-position/
     const storeScroll = () => {
-      const header = document.querySelector('header');
-      header.style.top = `${-window.scrollY}px`;
       document.documentElement.dataset.topposition = window.scrollY === 0;
     };
 
