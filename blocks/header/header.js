@@ -181,9 +181,7 @@ export default async function decorate(block) {
     // see. https://css-tricks.com/styling-based-on-scroll-position/
     const storeScroll = () => {
       const header = document.querySelector('header');
-      if (window.scrollY < 72) {
-        header.style.top = `${-window.scrollY}px`;
-      }
+      header.style.top = `${-window.scrollY}px`;
       document.documentElement.dataset.topposition = window.scrollY === 0;
     };
 
