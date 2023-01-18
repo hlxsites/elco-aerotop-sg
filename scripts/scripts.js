@@ -46,144 +46,116 @@ export function wrapImgsInLinks(container) {
   });
 }
 
-
 function buildProgressBar(main) {
-  var elements = main.querySelectorAll('.progressbartable div div');
-  var sizel = elements.length;
-  var title;
-  var description;
-  var size;
-  var units;
-  var subtitle;
-  //var number 
-  //var subelements = elements.querySelector('div div');
-  for (var i = 0; i < (sizel / 5); i++) {
-    var j = 0;
+  const elements = main.querySelectorAll('.progressbartable div div');
+  const sizel = elements.length;
+  let title;
+  let description;
+  let size;
+  let units;
+  let subtitle;
+  for (let i = 0; i < (sizel / 5); i++) {
+    let j = 0;
     elements.forEach((element, index) => {
       if (index >= i * 5 && index < (i + 1) * 5) {
-        if (j == 0) {
+        if (j === 0) {
           title = element.textContent;
-        }
-        else if (j == 1) {
+        } else if (j === 1) {
           description = element.textContent;
-        }
-        else if (j == 2) {
+        } else if (j === 2) {
           size = element.textContent;
-        }
-        else if (j == 3) {
+        } else if (j === 3) {
           units = element.textContent;
-        }
-        else if (j == 4) {
+        } else if (j === 4) {
           subtitle = element.textContent;
         }
         j++;
-        var p2 = document.createElement('p');
+        const p2 = document.createElement('p');
         p2.innerHTML = element.textContent;
-        console.log("el p2+k2 es " + p2.innerHTML);
-        element.style.display = "none";
-
-
-        //progresstable.append(p2);
+        element.style.display = 'none';
       }
-
     });
 
-    var progresstable = document.getElementsByClassName('progressbartable')[i];
+    const progresstable = document.getElementsByClassName('progressbartable')[i];
     const mainTable = document.createElement('div');
-    const progressTitle=document.createElement('h3');
-    const progressAside1=document.createElement('aside');
-    const progressAside2=document.createElement('aside');
-    const progressSubtitle=document.createElement('div');
+    const progressTitle = document.createElement('h3');
+    const progressDescription = document.createElement('p');
+    const progressAside1 = document.createElement('aside');
+    const progressAside2 = document.createElement('aside');
+    const progressSubtitle = document.createElement('div');
     mainTable.classList.add('progress-wrapper');
     progressTitle.classList.add('progress-title');
+    progressDescription.classList.add('progress-description');
     progressAside1.classList.add('progress-aside-1');
     progressAside2.classList.add('progress-aside-2');
     progressAside1.classList.add('aside');
     progressAside2.classList.add('aside');
     progressSubtitle.classList.add('progress-subtitle');
     mainTable.appendChild(progressTitle);
-    var style = document.createElement('style');
+    mainTable.appendChild(progressDescription);
+    const style = document.createElement('style');
     style.type = 'text/css';
-    style.innerHTML = '.progress-value'+i+' { animation: load'+i+' 3s normal forwards; box-shadow: 0 10px 40px -10px #fff; border-radius: 100px; background: blue; height: 30px; width: 0;}';
+    style.innerHTML = '.progress-value' + i + ' { animation: load' + i + ' 3s normal forwards; box-shadow: 0 10px 40px -10px #fff; border-radius: 100px; background: blue; height: 30px; width: 0;}';
     document.getElementsByTagName('head')[0].appendChild(style);
-    var style2 = document.createElement('style');
+    const style2 = document.createElement('style');
     style2.type = 'text/css';
-    style2.innerHTML = '@keyframes load'+i+' { 0% { width: 0; } 100% { width: '+size+'%; }}';
-    console.log(style2.innerHTML);
+    style2.innerHTML = '@keyframes load' + i + ' { 0% { width: 0; } 100% { width: ' + size + '%; }}';
     document.getElementsByTagName('head')[0].appendChild(style2);
-
-
     const progress1 = document.createElement('div');
     progress1.classList.add('progress');
     const progress2 = document.createElement('div');
-    progress2.classList.add('progress-value'+i);
+    progress2.classList.add('hidden');
     progress1.appendChild(progress2);
-    //progress1.innerHTML = '<div class="progress-value"></div>';
-    //progressAside1.innerHTML = '<div class="progress"> <div class="progress-value"></div>';
     progressAside1.appendChild(progress1);
-    console.log(progress1);
-    console.log(progressAside1);
     mainTable.appendChild(progressAside1);
     mainTable.appendChild(progressAside2);
-    if(subtitle != '')
+    if (subtitle !== '') {
       mainTable.appendChild(progressSubtitle);
-    progressTitle.textContent=title;
-
-    progressAside2.textContent=size+" "+units;
-    if(subtitle != '')
-      progressSubtitle.textContent=subtitle;
-    progresstable.prepend(mainTable);
-    var elementsTohide = main.querySelectorAll('.progressbartable .block');
-
-    /** const progress = document.createElement('div');
-    progress.classList.add('progress');
-    progress.innerHTML = '<div class="progress-value"></div>';
-    progresstable.prepend(progress); */
-
-
-    //div.prepend(header);
-
+    } progressTitle.textContent = title;
+    progressDescription.textContent = description;
+    progressAside2.textContent = size + ' ' + units;
+    if (subtitle !== '') {
+      progressSubtitle.textContent = subtitle;
+    } progresstable.prepend(mainTable);
+    // const elementsTohide = main.querySelectorAll('.progressbartable .block');
   }
-  console.log(elements);
-/**
-
-  elements.forEach((div) => {
-    const p=document.createElement('p');
-    p.innerText=div.innerText;
-    console.log("this is "+div.textContent);
-    div.prepend(p);
-  var second=div.c000000;
-  console.log("second is"+second.innerText);
-
-  const p1=document.createElement('p');
-    p1.innerText=second.innerText;
-    console.log("this is "+p1.textContent);
-
-  var elementsDiv=div.children;  
-  console.log(elementsDiv);
-
-  console.log('second '+second);
-  var arraydiv = Array.prototype.slice.call( elementsDiv )
-  var elementNumber=0;
-  const firstdiv=arraydiv[0].children;
-  for (let i = 0; i < firstdiv.length; i++) {
-    console.log(i+firstdiv[i]);
+  // console.log(elements);
 }
-  arraydiv.forEach((div) => {
-    console.log(div);
-    for (let i = 0; i < div.length; i++) {
-      console.log(div[1].textContent)
-      header.innerHTML=div[0].innerHTML;
+
+function addDynamic(main) {
+  let elements;
+  let windowHeight;
+  let first = 0;
+
+  function init() {
+    elements = main.querySelectorAll('.hidden');
+    // console.log(elements);
+    windowHeight = window.innerHeight;
   }
-  });
-    //div.setAttribute('hidden','');
-    const progress = document.createElement('div');
-    progress.classList.add('progress');
-    progress.innerHTML = '<div class="progress-value"></div>';
-    div.prepend(progress);
-    //div.prepend(header);
-    
-  }); */
+
+  function checkPosition() {
+    for (let i = 0; i < elements.length; i++) {
+      const element = elements[i];
+      const positionFromTop = elements[i].getBoundingClientRect().top;
+      // console.log('elements is ' + elements.length)
+
+      if ((positionFromTop - windowHeight) <= 0) {
+        if (first > elements.length) {
+          // alert(positionFromTop - windowHeight);
+          element.classList.add('progress-value' + i);
+          element.classList.remove('hidden');
+        } else {
+          first++;
+        }
+      }
+    }
+  }
+
+  window.addEventListener('scroll', checkPosition);
+  window.addEventListener('resize', init);
+
+  init();
+  checkPosition();
 }
 
 /**
@@ -211,6 +183,7 @@ export function decorateMain(main) {
   decorateSections(main);
   decorateBlocks(main);
   buildProgressBar(main);
+  addDynamic(main);
 }
 
 /**

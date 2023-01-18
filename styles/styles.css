@@ -443,6 +443,14 @@ body.home .section.dark a {
     text-align: left;
 }
 
+.progress-description {
+  background: tomato;
+    text-align: left;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
 .progress-subtitle {
   background: lightgreen;
     text-align: left;
