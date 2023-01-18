@@ -410,7 +410,7 @@ body.home .section.dark a {
   padding: 0 5px;
   display: flex;
   height: 20px;
-  width: 500px;
+  width: auto;
 }
 
 .progress-value {
@@ -459,7 +459,10 @@ body.home .section.dark a {
 
 @media all and (min-width: 600px) {
   .aside { flex: 1 0 0 ; }
+  .progress-aside-2{ flex: 0.2 0 0 ; }
 }
+
+
 
 
 

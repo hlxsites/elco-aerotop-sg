@@ -80,6 +80,7 @@ function buildProgressBar(main) {
         var p2 = document.createElement('p');
         p2.innerHTML = element.textContent;
         console.log("el p2+k2 es " + p2.innerHTML);
+        element.style.display = "none";
 
 
         //progresstable.append(p2);
@@ -124,12 +125,15 @@ function buildProgressBar(main) {
     console.log(progressAside1);
     mainTable.appendChild(progressAside1);
     mainTable.appendChild(progressAside2);
-    mainTable.appendChild(progressSubtitle);
+    if(subtitle != '')
+      mainTable.appendChild(progressSubtitle);
     progressTitle.textContent=title;
-    //progressAside1.textContent=title;
+
     progressAside2.textContent=size+" "+units;
-    progressSubtitle.textContent=subtitle;
+    if(subtitle != '')
+      progressSubtitle.textContent=subtitle;
     progresstable.prepend(mainTable);
+    var elementsTohide = main.querySelectorAll('.progressbartable .block');
 
     /** const progress = document.createElement('div');
     progress.classList.add('progress');
