@@ -164,5 +164,27 @@ export default async function decorate(block) {
     wrapImgsInLinks(nav);
     decorateIcons(nav);
     block.append(nav);
+
+    const debounce = (fn) => {
+      let frame;
+      return (...params) => {
+        if (frame) {
+          cancelAnimationFrame(frame);
+        }
+        frame = requestAnimationFrame(() => {
+          fn(...params);
+        });
+      };
+    };
+
+    // adds scroll position to html tag
+    // see. https://css-tricks.com/styling-based-on-scroll-position/
+    const storeScroll = () => {
+      document.documentElement.dataset.topposition = window.scrollY === 0;
+    };
+
+    document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+
+    storeScroll();
   }
 }

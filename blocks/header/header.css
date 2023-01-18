@@ -2,6 +2,32 @@
 header {
   box-sizing: border-box;
   box-shadow: 0 10px 50px -2px rgb(0 0 0 / 14%);
+  width: 100%;
+  position: static;
+  z-index: 1;
+  height: var(--nav-height);
+}
+
+html[data-topposition='false'] header {
+  height: var(--nav-shrinked-height);
+}
+
+header > div.header {
+  box-sizing: border-box;
+  width: 100%;
+  position: static;
+  z-index: 2;
+  height: inherit;
+  transition: height .200s ease;
+}
+
+html[data-topposition='false'] header > div.header {
+  box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  background-color: white;
+  height: inherit;
 }
 
 header nav {
@@ -12,16 +38,16 @@ header nav {
     'sections sections sections' 1fr / auto 1fr auto;
   align-items: center;
   gap: 0 2em;
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 1;
-  width: 100%;
+  margin: 0 auto;
   max-width: 1264px;
-  height: var(--nav-height);
+  height: inherit;
   padding: 0 1rem;
   background-color: var(--primary-background-color);
   font-family: var(--nav-font-family);
+}
+
+html[data-topposition='false'] header nav {
+  height: inherit;
 }
 
 header nav[aria-expanded=true] {
@@ -205,6 +231,10 @@ header nav .nav-sections > ul > li.nav-drop:hover {
   border-top-style: solid;
 }
 
+html[data-topposition='false'] header nav .nav-sections > ul > li.nav-drop {
+  padding-right: 0;
+}
+
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
 }
@@ -249,7 +279,7 @@ header nav .nav-sections ul > li > ul > li {
     font-weight: var(--nav-dropdown-font-weight);
     padding-right: 60px;
     cursor: pointer;
-    height: 72px;
+    height: var(--nav-height);
     display: flex;
     align-items: center;
   }
@@ -281,6 +311,11 @@ header nav .nav-sections ul > li > ul > li {
   header nav .nav-sections > ul > li > ul > li {
     box-sizing: border-box;
     padding: 0;
+  }
+
+  html[data-topposition='false'] header nav .nav-sections > ul > li {
+    height: var(--nav-shrinked-height);
+    padding-right: 45px;
   }
 
   header nav .nav-sections > ul > li > ul > li > a {
