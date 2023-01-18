@@ -338,12 +338,12 @@ main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 
-body > main > div> div {
-  padding-top: 45px;
-}
-
 body > main > div:last-child {
   margin-bottom: 0;
+}
+
+body > main > div.section > div {
+  padding-top: 45px;
 }
 
 body > main > div:first-child > div {
@@ -378,12 +378,12 @@ body.home a {
 }
 
 .section.dark.center {
-text-align: center; 
+  text-align: center; 
 }
 
 .section.dark.center h2 {
   text-align: center; 
-  }
+}
 
 .section.dark a {
   color: var(--primary-color-active);    
