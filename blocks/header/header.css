@@ -231,6 +231,10 @@ header nav .nav-sections > ul > li.nav-drop:hover {
   border-top-style: solid;
 }
 
+html[data-topposition='false'] header nav .nav-sections > ul > li.nav-drop {
+  padding-right: 0;
+}
+
 header nav .nav-sections ul > li > ul {
   margin-top: 0;
 }
@@ -311,6 +315,7 @@ header nav .nav-sections ul > li > ul > li {
 
   html[data-topposition='false'] header nav .nav-sections > ul > li {
     height: var(--nav-shrinked-height);
+    padding-right: 45px;
   }
 
   header nav .nav-sections > ul > li > ul > li > a {
