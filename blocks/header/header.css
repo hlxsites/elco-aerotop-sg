@@ -207,6 +207,10 @@ header nav .nav-sections > ul > li.nav-drop {
   padding-right: 0;
 }
 
+header nav .nav-brand a {
+  padding: 0;
+}
+
 header nav .nav-sections ul li a,
 header nav .nav-sections ul li.nav-drop {
   height: 100%;
@@ -219,6 +223,10 @@ header nav .nav-sections ul li.nav-drop {
   transition-property: color,background-color,border-color;
   transition-duration: .2s;
   transition-timing-function: linear;
+  font-family: var(--nav-font-family);
+  font-size: var(--body-font-size-s);
+  font-weight: var(--nav-dropdown-element-font-weight);
+  padding: 0;
 }
 
 header nav .nav-sections > ul > li.active > a,
