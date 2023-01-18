@@ -48,29 +48,123 @@ export function wrapImgsInLinks(container) {
 
 
 function buildProgressBar(main) {
-  var elements = main.querySelectorAll('.progressbartable');
+  var elements = main.querySelectorAll('.progressbartable div div');
+  var sizel = elements.length;
+  var title;
+  var description;
+  var size;
+  var units;
+  var subtitle;
+  //var number 
+  //var subelements = elements.querySelector('div div');
+  for (var i = 0; i < (sizel / 5); i++) {
+    var j = 0;
+    elements.forEach((element, index) => {
+      if (index >= i * 5 && index < (i + 1) * 5) {
+        if (j == 0) {
+          title = element.textContent;
+        }
+        else if (j == 1) {
+          description = element.textContent;
+        }
+        else if (j == 2) {
+          size = element.textContent;
+        }
+        else if (j == 3) {
+          units = element.textContent;
+        }
+        else if (j == 4) {
+          subtitle = element.textContent;
+        }
+        j++;
+        var p2 = document.createElement('p');
+        p2.innerHTML = element.textContent;
+        console.log("el p2+k2 es " + p2.innerHTML);
+
+
+        //progresstable.append(p2);
+      }
+
+    });
+
+    var progresstable = document.getElementsByClassName('progressbartable')[i];
+    const mainTable = document.createElement('div');
+    const progressTitle=document.createElement('h3');
+    const progressAside1=document.createElement('aside');
+    const progressAside2=document.createElement('aside');
+    const progressSubtitle=document.createElement('div');
+    mainTable.classList.add('progress-wrapper');
+    progressTitle.classList.add('progress-title');
+    progressAside1.classList.add('progress-aside-1');
+    progressAside2.classList.add('progress-aside-2');
+    progressAside1.classList.add('aside');
+    progressAside2.classList.add('aside');
+    progressSubtitle.classList.add('progress-subtitle');
+    mainTable.appendChild(progressTitle);
+    const progress1 = document.createElement('div');
+    progress1.classList.add('progress');
+    progress1.innerHTML = '<div class="progress-value"></div>';
+    progressAside1.appendChild(progress1);
+    console.log(progress1);
+    console.log(progressAside1);
+    mainTable.appendChild(progressAside1);
+    mainTable.appendChild(progressAside2);
+    mainTable.appendChild(progressSubtitle);
+    progressTitle.textContent=title;
+    progressAside1.textContent=title;
+    progressAside2.textContent=size+" "+units;
+    progressSubtitle.textContent=subtitle;
+    progresstable.prepend(mainTable);
+
+    const progress = document.createElement('div');
+    progress.classList.add('progress');
+    progress.innerHTML = '<div class="progress-value"></div>';
+    progresstable.prepend(progress);
+
+
+    //div.prepend(header);
+
+  }
   console.log(elements);
-  var header;
+/**
+
   elements.forEach((div) => {
+    const p=document.createElement('p');
+    p.innerText=div.innerText;
+    console.log("this is "+div.textContent);
+    div.prepend(p);
+  var second=div.c000000;
+  console.log("second is"+second.innerText);
+
+  const p1=document.createElement('p');
+    p1.innerText=second.innerText;
+    console.log("this is "+p1.textContent);
+
   var elementsDiv=div.children;  
   console.log(elementsDiv);
+
+  console.log('second '+second);
   var arraydiv = Array.prototype.slice.call( elementsDiv )
   var elementNumber=0;
+  const firstdiv=arraydiv[0].children;
+  for (let i = 0; i < firstdiv.length; i++) {
+    console.log(i+firstdiv[i]);
+}
   arraydiv.forEach((div) => {
-    switch (elementNumber){
-      case 0:
-        header=div.children;
-        elementNumber++;
-        break;    
-    }
+    console.log(div);
+    for (let i = 0; i < div.length; i++) {
+      console.log(div[1].textContent)
+      header.innerHTML=div[0].innerHTML;
+  }
   });
     //div.setAttribute('hidden','');
     const progress = document.createElement('div');
     progress.classList.add('progress');
     progress.innerHTML = '<div class="progress-value"></div>';
-    div.prepend(header.toString());
     div.prepend(progress);
-  });
+    //div.prepend(header);
+    
+  }); */
 }
 
 /**

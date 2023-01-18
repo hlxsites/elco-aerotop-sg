@@ -422,6 +422,40 @@ body.home .section.dark a {
   width: 0;
 }
 
+.progress-wrapper {
+  display: flex;  
+  flex-flow: row wrap;
+  text-align: center; 
+}
+
+.progress-wrapper > * {
+  padding: 10px;
+  flex: 100%;
+}
+
+.progress-title {
+  background: tomato;
+    text-align: left;
+}
+
+.progress-subtitle {
+  background: lightgreen;
+    text-align: left;
+}
+
+.progress-aside-1 {
+  background: gold;
+}
+
+.progress-aside-2 {
+  background: hotpink;
+    text-align: left;
+}
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 0 0 ; }
+}
+
 @keyframes load {
   0% { width: 0; }
   100% { width: 68%; }
