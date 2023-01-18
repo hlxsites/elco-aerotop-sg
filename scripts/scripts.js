@@ -46,6 +46,33 @@ export function wrapImgsInLinks(container) {
   });
 }
 
+
+function buildProgressBar(main) {
+  var elements = main.querySelectorAll('.progressbartable');
+  console.log(elements);
+  var header;
+  elements.forEach((div) => {
+  var elementsDiv=div.children;  
+  console.log(elementsDiv);
+  var arraydiv = Array.prototype.slice.call( elementsDiv )
+  var elementNumber=0;
+  arraydiv.forEach((div) => {
+    switch (elementNumber){
+      case 0:
+        header=div.children;
+        elementNumber++;
+        break;    
+    }
+  });
+    //div.setAttribute('hidden','');
+    const progress = document.createElement('div');
+    progress.classList.add('progress');
+    progress.innerHTML = '<div class="progress-value"></div>';
+    div.prepend(header.toString());
+    div.prepend(progress);
+  });
+}
+
 /**
  * Builds all synthetic blocks in a container element.
  * @param {Element} main The container element
@@ -70,6 +97,7 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+  buildProgressBar(main);
 }
 
 /**
