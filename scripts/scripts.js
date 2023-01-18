@@ -101,9 +101,24 @@ function buildProgressBar(main) {
     progressAside2.classList.add('aside');
     progressSubtitle.classList.add('progress-subtitle');
     mainTable.appendChild(progressTitle);
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    style.innerHTML = '.progress-value'+i+' { animation: load'+i+' 3s normal forwards; box-shadow: 0 10px 40px -10px #fff; border-radius: 100px; background: blue; height: 30px; width: 0;}';
+    document.getElementsByTagName('head')[0].appendChild(style);
+    var style2 = document.createElement('style');
+    style2.type = 'text/css';
+    style2.innerHTML = '@keyframes load'+i+' { 0% { width: 0; } 100% { width: '+size+'%; }}';
+    console.log(style2.innerHTML);
+    document.getElementsByTagName('head')[0].appendChild(style2);
+
+
     const progress1 = document.createElement('div');
     progress1.classList.add('progress');
-    progress1.innerHTML = '<div class="progress-value"></div>';
+    const progress2 = document.createElement('div');
+    progress2.classList.add('progress-value'+i);
+    progress1.appendChild(progress2);
+    //progress1.innerHTML = '<div class="progress-value"></div>';
+    //progressAside1.innerHTML = '<div class="progress"> <div class="progress-value"></div>';
     progressAside1.appendChild(progress1);
     console.log(progress1);
     console.log(progressAside1);
@@ -111,15 +126,15 @@ function buildProgressBar(main) {
     mainTable.appendChild(progressAside2);
     mainTable.appendChild(progressSubtitle);
     progressTitle.textContent=title;
-    progressAside1.textContent=title;
+    //progressAside1.textContent=title;
     progressAside2.textContent=size+" "+units;
     progressSubtitle.textContent=subtitle;
     progresstable.prepend(mainTable);
 
-    const progress = document.createElement('div');
+    /** const progress = document.createElement('div');
     progress.classList.add('progress');
     progress.innerHTML = '<div class="progress-value"></div>';
-    progresstable.prepend(progress);
+    progresstable.prepend(progress); */
 
 
     //div.prepend(header);

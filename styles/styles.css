@@ -414,12 +414,17 @@ body.home .section.dark a {
 }
 
 .progress-value {
-  animation: load 3s normal forwards;
-  box-shadow: 0 10px 40px -10px yellow;
+  animation: myload 3s normal forwards;
+  box-shadow: 0 10px 40px -10px #1900ff;
   border-radius: 100px;
   background: red;
   height: 20px;
   width: 0;
+}
+
+@keyframes myload {
+  0% { width: 0; }
+  100% { width: 30%; }
 }
 
 .progress-wrapper {
@@ -456,9 +461,6 @@ body.home .section.dark a {
   .aside { flex: 1 0 0 ; }
 }
 
-@keyframes load {
-  0% { width: 0; }
-  100% { width: 68%; }
-}
+
 
 
