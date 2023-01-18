@@ -5,6 +5,20 @@ header {
   width: 100%;
   position: static;
   z-index: 1;
+  height: var(--nav-height);
+}
+
+html[data-topposition='false'] header {
+  height: var(--nav-shrinked-height);
+}
+
+header > div.header {
+  box-sizing: border-box;
+  width: 100%;
+  position: static;
+  z-index: 2;
+  height: inherit;
+  transition: height .200s ease;
 }
 
 html[data-topposition='false'] header > div.header {
@@ -12,10 +26,8 @@ html[data-topposition='false'] header > div.header {
   position: fixed;
   width: 100%;
   top: 0;
-  z-index: 2;
   background-color: white;
-  max-height: var(--nav-shrinked-height);
-  transition: max-height 0.3s ease-in;
+  height: inherit;
 }
 
 header nav {
@@ -28,14 +40,14 @@ header nav {
   gap: 0 2em;
   margin: 0 auto;
   max-width: 1264px;
-  height: var(--nav-height);
+  height: inherit;
   padding: 0 1rem;
   background-color: var(--primary-background-color);
   font-family: var(--nav-font-family);
 }
 
 html[data-topposition='false'] header nav {
-  height: var(--nav-shrinked-height);
+  height: inherit;
 }
 
 header nav[aria-expanded=true] {
