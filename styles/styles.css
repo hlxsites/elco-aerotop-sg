@@ -277,12 +277,11 @@ main input:hover {
 }
 
 main {
-  margin-top: 75px;
+  margin-top: 0;
 }
 
 main .section {
-  padding: 0 30px;
-  margin-bottom: 100px;
+  padding-top: 0 30px 65px 30px;
 }
 
 main pre {
@@ -339,3 +338,68 @@ main .section[data-section-status='initialized'] {
 main .section.highlight {
   background-color: var(--highlight-background-color);
 }
+
+body > main > div:last-child {
+  margin-bottom: 0;
+}
+
+body > main > div.section > div {
+  padding-top: 45px;
+}
+
+body > main > div:first-child > div {
+  padding-top: 75px;
+}
+
+body.home a {
+  box-sizing: border-box;
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-style: normal;
+  line-height: var(--button-line-height);
+  margin: 0;
+  overflow: hidden;
+  padding: 13px 29px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  transition-duration: .2s;
+  transition-property: all;
+  transition-timing-function: ease;
+  white-space: nowrap; 
+}
+
+.section.dark {
+  background-color: var(--secondary-background-color);
+  color: var(--secondary-text-color);
+  padding-bottom: 65px;    
+}
+
+.section.dark.center {
+  text-align: center; 
+}
+
+.section.dark.center h2 {
+  text-align: center; 
+}
+
+.section.dark a {
+  color: var(--primary-color-active);    
+}
+
+body.home .section a {
+  background-color: var(--primary-button-background-color);
+  border: var(--button-border-size) solid var(--primary-button-border-color);
+  color: var(--primary-background-color);
+}
+
+body.home .section.dark a {
+  background-color: var(--secondary-button-background-color);
+  border: var(--button-border-size) solid var(--secondary-button-border-color);
+  color: var(--primary-background-color);
+}
+
+
