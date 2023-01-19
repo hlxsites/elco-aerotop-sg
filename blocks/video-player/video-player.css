@@ -1,0 +1,25 @@
+/* video-player specific style */
+
+/* hide first child as it only contains the video url */
+.video-player.block > div:first-child {
+    display: none;
+}
+
+.video-player-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    background: #000;
+    z-index: 100;
+}
+
+.video-player-iframe {
+    position: fixed;
+    z-index: 103;
+    display: block;
+    top: 469px;
+    left: 41px;
+}
