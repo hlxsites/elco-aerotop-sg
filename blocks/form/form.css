@@ -1,0 +1,131 @@
+main .form {
+  background-color: #f7f7f7;
+  padding: var(--spacing-m);
+  box-shadow: 0 1px 6px rgb(34 34 34 / 10%);
+}
+
+main .form input,
+main .form textarea,
+main .form select {
+  border: 1px solid var(--primary-border-color);
+  padding: 0 1em;
+  border-radius: 0;
+  width: 100%;
+  height: 40px;
+  max-width: 50rem;
+  box-sizing: border-box;
+  margin-top: 4px;
+  transition: all .2s ease;
+  font-size: 1.125em;
+  font-family: var(--body-font-family);
+}
+
+main .form textarea {
+  min-height: 100px;
+  height: unset;
+  padding: 1em;
+}
+
+main .form input:hover,
+main .form textarea:hover,
+main .form select:hover {
+  border-color: #D2D2D27F;
+}
+
+main .form label {
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  font-weight: 800;
+}
+
+main .form label.required::after {
+  content: "*";
+  color: red;
+  padding-left: 5px;
+}
+
+main .form .field-wrapper {
+  margin-bottom: 20px;
+}
+
+main .form .form-checkbox-wrapper {
+  display: flex;
+}
+
+main .form .form-checkbox-wrapper input[type='checkbox'] {
+  position: absolute;
+  margin: 5px 0 0 2px;
+  height: 14px;
+  width: unset;
+  outline: none;
+  opacity: 0;
+}
+
+main .form .form-checkbox-wrapper label::before {
+  content: '';
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  border: 1px solid var(--primary-border-color);
+  border-radius: 4px;
+  transition: all .2s ease;
+}
+
+main .form .form-checkbox-wrapper input:checked + label::before {
+  border: 1px solid #d2d2d2;
+}
+
+main .form .form-checkbox-wrapper input:hover:not(:checked) + label::before {
+  border-color: rgb(210 210 210 / 50%);
+}
+
+main .form .form-checkbox-wrapper input:checked + label::after {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 7px;
+  left: 4px;
+  background: #d2d2d2;
+  border-radius: 2px;
+  top: 12px;
+  transform: translateY(-50%);
+}
+
+main .form .form-checkbox-wrapper label {
+  padding-left: 2em;
+  display: block;
+  position: relative;
+}
+
+
+main .form .form-submit-wrapper .button {
+  background-color: var(--primary-color-active);
+  border: var(--button-border-size) solid var(--primary-button-border-color);
+  box-sizing: border-box;
+  color: var(--primary-background-color);
+  cursor: pointer;
+  display: inline-block;
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-style: normal;
+  line-height: var(--button-line-height);
+  margin: 0;
+  overflow: hidden;
+  padding: 13px 29px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  text-overflow: ellipsis;
+  transition-duration: .2s;
+  transition-property: all;
+  transition-timing-function: ease;
+  white-space: nowrap;
+}
+
+main .form .form-submit-wrapper .button:hover {
+  background-color: var(--primary-button-background-color);
+  cursor: pointer;
+}

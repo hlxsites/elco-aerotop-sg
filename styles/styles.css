@@ -102,6 +102,9 @@
   --heading-line-height-s: 1.5em;
   --heading-line-height-xs: 1.5em;
 
+  /* spacings */
+  --spacing-m: 30px;
+
   /* button sizes */
   --button-border-size: 2px;
   --button-font-size: var(--body-font-size-s);
@@ -369,25 +372,25 @@ body.home a {
   transition-duration: .2s;
   transition-property: all;
   transition-timing-function: ease;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .section.dark {
   background-color: var(--secondary-background-color);
   color: var(--secondary-text-color);
-  padding-bottom: 65px;    
+  padding-bottom: 65px;
 }
 
 .section.dark.center {
-  text-align: center; 
+  text-align: center;
 }
 
 .section.dark.center h2 {
-  text-align: center; 
+  text-align: center;
 }
 
 .section.dark a {
-  color: var(--primary-color-active);    
+  color: var(--primary-color-active);
 }
 
 body.home .section a {
