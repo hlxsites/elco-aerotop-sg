@@ -55,6 +55,11 @@
   --secondary-background-color: #000;
   --secondary-text-color: #fff;
   --secondary-border-color: #f4f4f4;
+  --form-background-color: #f7f7f7;
+  --form-shadow-color: #22222219;
+  --form-checked-border-color: #d2d2d2;
+  --form-input-border-color: var(--primary-border-color);
+  --form-input-border-color-hover: var(--primary-border-color-active);
 
   /* feature colors */
   --primary-button-background-color: var(--primary-color);
@@ -75,11 +80,15 @@
   --secondary-heading-font-family: 'AvenirNextLTPro-Demi', arial, helvetica, sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
   --nav-font-family: 'OpenSans-Regular', arial, helvetica, sans-serif;
+  --form-input-font-family: var(--body-font-family);
 
   /* body font sizes */
   --body-font-size-m: 16px;
   --body-font-size-s: 14px;
   --body-font-size-xs: 12px;
+
+  /* form font sizes */
+  --form-input-size: 1.125em;
 
   /* heading font sizes */
   --heading-font-size-xxl: 60px;
