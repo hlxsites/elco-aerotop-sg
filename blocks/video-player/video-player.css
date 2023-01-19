@@ -30,3 +30,23 @@
     border: none;
     box-shadow: 0 0 15px hsl(0deg 0% 0% / 80%);
 }
+
+.video-player-toolbar {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 11px;
+    left: 10px;
+    z-index: 110;
+    width: 25px;
+    height: 23px;
+    background: #000;
+}
+
+.video-player-close {
+    content: url("../../icons/close.svg");
+    padding: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 12px;
+}
