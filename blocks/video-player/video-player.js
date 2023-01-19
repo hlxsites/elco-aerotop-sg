@@ -8,7 +8,6 @@ function loadVideo(videoURL, block) {
 
   const videoIframe = document.createElement('iframe');
   videoIframe.classList.add('video-player-iframe');
-  // only for youtube videos for now:
   videoIframe.src = `${VIDEO_HOST}/embed${videoURL.pathname}`;
 
   block.appendChild(videoIframe);

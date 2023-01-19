@@ -18,8 +18,15 @@
 
 .video-player-iframe {
     position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 103;
     display: block;
-    top: 469px;
-    left: 41px;
+    width: 1280px;
+    max-width: 90%;
+    max-height: 90%;
+    aspect-ratio: 1280/720;
+    border: none;
+    box-shadow: 0 0 15px hsl(0deg 0% 0% / 80%);
 }
