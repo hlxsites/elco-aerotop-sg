@@ -1,0 +1,71 @@
+
+.progress {
+  background: rgba(255,255,255,0.1);
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 20px;
+  width: auto;
+}
+
+.progress-value {
+  animation: myload 3s normal forwards;
+  box-shadow: 0 10px 40px -10px #1900ff;
+  border-radius: 100px;
+  background: red;
+  height: 20px;
+  width: 0;
+}
+
+@keyframes myload {
+  0% { width: 0; }
+  100% { width: 30%; }
+}
+
+.progress-wrapper {
+  display: flex;  
+  flex-flow: row wrap;
+  text-align: center; 
+}
+
+.progress-wrapper > * {
+  padding: 10px;
+  flex: 100%;
+}
+
+.progress-title {
+  background: lightblue;
+    text-align: left;
+    border-bottom: 0;
+    padding: 0;
+}
+
+.progress-description {
+  background: lightblue;
+    text-align: left;
+    padding: 0;
+    border: 0;
+    margin: 0;
+}
+
+.progress-subtitle {
+  background: lightgreen;
+    text-align: left;
+}
+
+.progress-aside-1 {
+  background: gold;
+}
+
+.progress-aside-2 {
+  background: rgb(211, 135, 230);
+    text-align: left;
+}
+
+@media all and (min-width: 600px) {
+  .aside { flex: 1 0 0 ; }
+  .progress-aside-2{ flex: 0.2 0 0 ; }
+}
