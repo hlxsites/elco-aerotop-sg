@@ -1,0 +1,28 @@
+.image-gallery-wrapper {
+    padding-top: 0 !important;
+}
+
+.image-gallery.block > div {
+    display: flex;
+}
+
+.image-gallery.block > div > div {
+    flex: 1;
+}
+
+.image-gallery.block > div > div:first-child {
+    margin-right: 4%;
+}
+
+.image-gallery.block > div > div:has(picture) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 10px;
+}
+
+.image-gallery.block > div > div > picture {
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+}
+
+
