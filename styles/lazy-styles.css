@@ -1,1 +1,43 @@
 /* below the fold CSS goes here */
+
+@font-face {
+  font-family: awb-icons;
+  src: url("/fonts/awb-icons.woff") format("woff");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+#back-to-top a {
+  background-color: var(--link-color);
+  border-radius: 4px 4px 0 0;
+  bottom: 0;
+  height: 35px;
+  position: fixed;
+  right: 75px;
+  text-align: center;
+  padding: 0 17px;
+  pointer-events: auto;
+  width: 48px;
+  opacity: 0;
+  z-index: 100000;
+  transition: opacity .4s ease-in-out,background .2s ease-in-out;
+  line-height: 1;
+}
+
+#back-to-top a:hover {
+  background-color: var(--primary-color-active);
+}
+
+#back-to-top a::before {
+  line-height: 35px;
+  content: "\f106";
+  -webkit-font-smoothing: antialiased;
+  font-family: awb-icons, sans-serif;
+  font-size: 22px;
+  color: #fff;
+}
+
+#back-to-top.back-to-top-active a {
+  opacity: .9;
+}
