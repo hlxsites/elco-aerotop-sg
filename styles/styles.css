@@ -80,6 +80,7 @@
   --secondary-heading-font-family: 'AvenirNextLTPro-Demi', arial, helvetica, sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
   --nav-font-family: 'OpenSans-Regular', arial, helvetica, sans-serif;
+  --nav-mobile-font-family: 'PT Sans', arial, helvetica, sans-serif;
   --form-input-font-family: var(--body-font-family);
 
   /* body font sizes */
@@ -121,6 +122,7 @@
 
   /* nav height */
   --nav-height: 72px;
+  --nav-mobile-height: 42px;
   --nav-shrinked-height: 65px;
   --nav-dropdown-font-size: 13px;
   --nav-dropdown-font-weight: 500;
