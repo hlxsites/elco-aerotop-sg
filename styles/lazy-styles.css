@@ -35,7 +35,7 @@
   -webkit-font-smoothing: antialiased;
   font-family: awb-icons, sans-serif;
   font-size: 22px;
-  color: #fff;
+  color: var(--secondary-text-color);
 }
 
 #back-to-top.back-to-top-active a {
