@@ -293,7 +293,7 @@ main {
 }
 
 main .section {
-  padding-top: 0 30px 65px 30px;
+  padding: 0 30px 65px;
 }
 
 main pre {
