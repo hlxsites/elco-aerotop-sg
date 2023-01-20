@@ -122,7 +122,7 @@ function addBackToTop(main) {
   backToTop.append(link);
   main.append(backToTop);
 
-  document.addEventListener('scroll', (e) => {
+  document.addEventListener('scroll', () => {
     // back to top only appears after a bit of scrolling
     if (window.scrollY <= 200) {
       backToTop.classList.remove('back-to-top-active');
