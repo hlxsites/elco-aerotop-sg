@@ -5,5 +5,3 @@ import { sampleRUM } from './lib-franklin.js';
 sampleRUM('cwv');
 
 // add more delayed functionality here
-
-// eslint-disable-next-line import/prefer-default-export
