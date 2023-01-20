@@ -1,5 +1,4 @@
 function loadVideo(videoURL, block) {
-  const VIDEO_HOST = 'https://www.youtube.com';
   const overlay = document.createElement('div');
   overlay.classList.add('youtube-player-overlay');
   block.parentElement.appendChild(overlay);
@@ -14,7 +13,7 @@ function loadVideo(videoURL, block) {
   const videoIframe = document.createElement('iframe');
   videoIframe.classList.add('youtube-player-iframe');
   videoIframe.setAttribute('allowfullscreen', '');
-  videoIframe.src = `${VIDEO_HOST}/embed${videoURL.pathname}`;
+  videoIframe.src = `https://www.youtube.com/embed${videoURL.pathname}`;
 
   block.appendChild(videoIframe);
   function escEvent(e) {
