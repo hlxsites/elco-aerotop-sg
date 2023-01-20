@@ -1,18 +1,18 @@
 function loadVideo(videoURL, block) {
   const VIDEO_HOST = 'https://www.youtube.com';
   const overlay = document.createElement('div');
-  overlay.classList.add('video-player-overlay');
+  overlay.classList.add('youtube-player-overlay');
   block.parentElement.appendChild(overlay);
 
   const toolbar = document.createElement('div');
-  toolbar.classList.add('video-player-toolbar');
+  toolbar.classList.add('youtube-player-toolbar');
   const toolbarClose = document.createElement('div');
-  toolbarClose.classList.add('video-player-close');
+  toolbarClose.classList.add('youtube-player-close');
   toolbar.appendChild(toolbarClose);
   block.parentElement.appendChild(toolbar);
 
   const videoIframe = document.createElement('iframe');
-  videoIframe.classList.add('video-player-iframe');
+  videoIframe.classList.add('youtube-player-iframe');
   videoIframe.setAttribute('allowfullscreen', '');
   videoIframe.src = `${VIDEO_HOST}/embed${videoURL.pathname}`;
 
@@ -42,6 +42,5 @@ function loadVideo(videoURL, block) {
 
 export default async function decorate(block) {
   const videoURL = new URL(block.getElementsByTagName('a')[0].innerText);
-
   block.addEventListener('click', () => loadVideo(videoURL, block));
 }

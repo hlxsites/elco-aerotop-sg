@@ -1,11 +1,11 @@
-/* video-player specific style */
+/* youtube-player specific style */
 
 /* hide first child as it only contains the video url */
-.video-player.block > div:first-child {
+.youtube-player.block > div:first-child {
     display: none;
 }
 
-.video-player-overlay {
+.youtube-player-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -16,7 +16,7 @@
     z-index: 100;
 }
 
-.video-player-iframe {
+.youtube-player-iframe {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -31,7 +31,7 @@
     box-shadow: 0 0 15px hsl(0deg 0% 0% / 80%);
 }
 
-.video-player-toolbar {
+.youtube-player-toolbar {
     display: flex;
     justify-content: center;
     position: fixed;
@@ -43,7 +43,7 @@
 }
 
 @media (min-width: 980px) {
-    .video-player-toolbar {
+    .youtube-player-toolbar {
         top: 11px;
         left: 10px;
         width: 25px;
@@ -52,7 +52,7 @@
 }
 
 
-.video-player-close {
+.youtube-player-close {
     content: url("close.svg");
     padding: 0;
     cursor: pointer;
@@ -61,7 +61,7 @@
 }
 
 @media (min-width: 980px) {
-    .video-player-close {
+    .youtube-player-close {
         width: 12px;
     }
 }
