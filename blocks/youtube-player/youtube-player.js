@@ -16,18 +16,24 @@ function loadVideo(videoURL, block) {
   videoIframe.src = `https://www.youtube.com/embed${videoURL.pathname}`;
 
   block.appendChild(videoIframe);
-  function escEvent(e) {
-    if (e.key === 'Escape' || e.key === 'Esc') {
-      // eslint-disable-next-line no-use-before-define
-      removeVideo();
-    }
+
+  function createEscEvent(fn) {
+    return (e) => {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        fn();
+      }
+    };
   }
+
+  let escEvent;
   function removeVideo() {
     block.parentElement.removeChild(overlay);
     block.parentElement.removeChild(toolbar);
     block.removeChild(videoIframe);
     window.removeEventListener('keydown', escEvent);
   }
+
+  escEvent = createEscEvent(removeVideo);
 
   window.addEventListener('keydown', escEvent);
 
