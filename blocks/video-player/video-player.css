@@ -53,7 +53,7 @@
 
 
 .video-player-close {
-    content: url("../../icons/close.svg");
+    content: url("close.svg");
     padding: 0;
     cursor: pointer;
     border-radius: 3px;

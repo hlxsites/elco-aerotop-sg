@@ -17,16 +17,26 @@ function loadVideo(videoURL, block) {
   videoIframe.src = `${VIDEO_HOST}/embed${videoURL.pathname}`;
 
   block.appendChild(videoIframe);
+  function escEvent(e) {
+    if (e.key === 'Escape' || e.key === 'Esc') {
+      // eslint-disable-next-line no-use-before-define
+      removeVideo();
+    }
+  }
+  function removeVideo() {
+    block.parentElement.removeChild(overlay);
+    block.parentElement.removeChild(toolbar);
+    block.removeChild(videoIframe);
+    window.removeEventListener('keydown', escEvent);
+  }
+
+  window.addEventListener('keydown', escEvent);
 
   overlay.addEventListener('click', () => {
-    block.parentElement.removeChild(overlay);
-    block.parentElement.removeChild(toolbar);
-    block.removeChild(videoIframe);
+    removeVideo();
   });
   toolbarClose.addEventListener('click', () => {
-    block.parentElement.removeChild(overlay);
-    block.parentElement.removeChild(toolbar);
-    block.removeChild(videoIframe);
+    removeVideo();
   });
 }
 
