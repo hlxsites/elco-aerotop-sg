@@ -13,10 +13,6 @@
   color: var(--progress-bar-greyed-color);
 }
 
-.dark .progress-aside-21 h2 {
-  color: var(--progress-bar-greyed-color);
-}
-
 .dark .progress-aside-12 h2 {
   color: var(--progress-bar-greyed-color);
 }
@@ -64,14 +60,6 @@
   color: var(--progress-bar-greyed-color);
 }
 
-.progress-description-1 {
-  color: var(--progress-bar-greyed-color);
-}
-
-.progress-subtitle-1 {
-  color: var(--progress-bar-greyed-color);
-}
-
 .dark .progress-aside-21 h2 {
   color: var(--progress-bar-greyed-color);
 }
@@ -89,6 +77,7 @@
 }
 
 .progress-description-1 {
+  color: var(--progress-bar-greyed-color);
   text-align: left;
   padding: 0;
   border: 0;
@@ -103,6 +92,7 @@
 }
 
 .progress-subtitle-1 {
+  color: var(--progress-bar-greyed-color);
   padding-left: 0;
   text-align: left;
 }
@@ -135,9 +125,11 @@
   .aside {
     flex: 1 0 0;
   }
+
   .progress-aside-21 {
     flex: 0.3 0 0;
   }
+  
   .progress-aside-22 {
     flex: 0.3 0 0;
   }
