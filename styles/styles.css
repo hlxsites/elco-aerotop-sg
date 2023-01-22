@@ -68,6 +68,8 @@
   --navigation-dropdown-background-color: #f2efef;
   --navigation-dropdown-border-color: #dcdadb;
   --navigation-dropdown-hover-color: #f8f8f8;
+  --progress-bar-greyed-color: #9d9d9c;
+  --progress-bar-green-color: #95c11f;
 
   /* fonts */
   --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;
@@ -400,10 +402,3 @@ body.home .section.dark a {
   border: var(--button-border-size) solid var(--secondary-button-border-color);
   color: var(--primary-background-color);
 }
-
-
-
-
-
-
-
