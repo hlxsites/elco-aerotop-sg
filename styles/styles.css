@@ -60,6 +60,7 @@
   --form-checked-border-color: #d2d2d2;
   --form-input-border-color: var(--primary-border-color);
   --form-input-border-color-hover: var(--primary-border-color-active);
+  --progress-bar-first-row-color: #9d9d9c;
 
   /* feature colors */
   --primary-button-background-color: var(--primary-color);
@@ -73,8 +74,7 @@
   --navigation-dropdown-background-color: #f2efef;
   --navigation-dropdown-border-color: #dcdadb;
   --navigation-dropdown-hover-color: #f8f8f8;
-  --progress-bar-greyed-color: #9d9d9c;
-  --progress-bar-green-color: #95c11f;
+  --progress-bar-dark-second-row-color: #95c11f;
 
   /* fonts */
   --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;
