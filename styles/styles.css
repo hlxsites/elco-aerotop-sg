@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-@font-face {
+ @font-face {
   font-family: AvenirNextLTPro-Demi;
   src: url("/fonts/AvenirNextLTPro-Demi.woff2") format("woff2");
   font-display: swap;
@@ -55,6 +55,11 @@
   --secondary-background-color: #000;
   --secondary-text-color: #fff;
   --secondary-border-color: #f4f4f4;
+  --form-background-color: #f7f7f7;
+  --form-shadow-color: #22222219;
+  --form-checked-border-color: #d2d2d2;
+  --form-input-border-color: var(--primary-border-color);
+  --form-input-border-color-hover: var(--primary-border-color-active);
 
   /* feature colors */
   --primary-button-background-color: var(--primary-color);
@@ -68,8 +73,6 @@
   --navigation-dropdown-background-color: #f2efef;
   --navigation-dropdown-border-color: #dcdadb;
   --navigation-dropdown-hover-color: #f8f8f8;
-  --progress-bar-greyed-color: #9d9d9c;
-  --progress-bar-green-color: #95c11f;
 
   /* fonts */
   --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;
@@ -77,11 +80,15 @@
   --secondary-heading-font-family: 'AvenirNextLTPro-Demi', arial, helvetica, sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
   --nav-font-family: 'OpenSans-Regular', arial, helvetica, sans-serif;
+  --form-input-font-family: var(--body-font-family);
 
   /* body font sizes */
   --body-font-size-m: 16px;
   --body-font-size-s: 14px;
   --body-font-size-xs: 12px;
+
+  /* form font sizes */
+  --form-input-size: 1.125em;
 
   /* heading font sizes */
   --heading-font-size-xxl: 60px;
@@ -104,6 +111,9 @@
   --heading-line-height-s: 1.5em;
   --heading-line-height-xs: 1.5em;
 
+  /* spacings */
+  --spacing-m: 30px;
+
   /* button sizes */
   --button-border-size: 2px;
   --button-font-size: var(--body-font-size-s);
@@ -111,6 +121,7 @@
 
   /* nav height */
   --nav-height: 72px;
+  --nav-shrinked-height: 65px;
   --nav-dropdown-font-size: 13px;
   --nav-dropdown-font-weight: 500;
   --nav-dropdown-element-font-weight: 400;
