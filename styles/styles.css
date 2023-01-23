@@ -282,7 +282,7 @@ main {
 }
 
 main .section {
-  padding-top: 0 30px 65px;
+  padding: 0 30px 65px;
 }
 
 main pre {
@@ -352,7 +352,7 @@ body > main > div:first-child > div {
   padding-top: 75px;
 }
 
-body.home  > main a,
+body.home > main a,
 body.home > footer a {
   box-sizing: border-box;
   cursor: pointer;
@@ -381,12 +381,12 @@ body.home > footer a {
 }
 
 .section.dark.center {
-text-align: center;
+  text-align: center;
 }
 
 .section.dark.center h2 {
   text-align: center;
-  }
+}
 
 .section.dark a {
   color: var(--primary-color-active);
@@ -403,3 +403,5 @@ body.home .section.dark a {
   border: var(--button-border-size) solid var(--secondary-button-border-color);
   color: var(--primary-background-color);
 }
+
+
