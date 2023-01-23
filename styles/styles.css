@@ -282,7 +282,7 @@ main {
 }
 
 main .section {
-  padding-top: 0 30px 65px 30px;
+  padding-top: 0 30px 65px;
 }
 
 main pre {
@@ -340,19 +340,20 @@ main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 
-body > main > div> div {
-  padding-top: 45px;
-}
-
 body > main > div:last-child {
   margin-bottom: 0;
+}
+
+body > main > div.section > div {
+  padding-top: 45px;
 }
 
 body > main > div:first-child > div {
   padding-top: 75px;
 }
 
-body.home a {
+body.home  > main a,
+body.home > footer a {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
@@ -370,25 +371,25 @@ body.home a {
   transition-duration: .2s;
   transition-property: all;
   transition-timing-function: ease;
-  white-space: nowrap; 
+  white-space: nowrap;
 }
 
 .section.dark {
   background-color: var(--secondary-background-color);
   color: var(--secondary-text-color);
-  padding-bottom: 65px;    
+  padding-bottom: 65px;
 }
 
 .section.dark.center {
-text-align: center; 
+text-align: center;
 }
 
 .section.dark.center h2 {
-  text-align: center; 
+  text-align: center;
   }
 
 .section.dark a {
-  color: var(--primary-color-active);    
+  color: var(--primary-color-active);
 }
 
 body.home .section a {
