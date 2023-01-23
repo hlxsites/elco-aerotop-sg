@@ -11,7 +11,7 @@ function calculateRatioPost(elements) {
 
   const progress1 = parseFloat(childNodes1[7].textContent.substring(0, childNodes1[7].textContent.indexOf(' ')));
   const progress2 = parseFloat(childNodes2[7].textContent.substring(0, childNodes1[7].textContent.indexOf(' ')));
-  
+
   if (progress2 > progress1) {
     ratio1 = Math.floor((progress1 * 100) / progress2);
   } else {
@@ -89,7 +89,7 @@ function buildProgressBarTable(block) {
     progresschildNodes[9].classList.add(`progress-subtitle-${i}`);
   });
 }
-  
+
 export default async function decorate(block) {
   buildProgressBarTable(block);
   addObserver(block);
