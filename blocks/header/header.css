@@ -5,7 +5,7 @@ header {
   width: 100%;
   position: static;
   z-index: 1;
-  height: auto;
+  height: 82px;
 }
 
 html[data-topposition='false'] header {
