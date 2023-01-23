@@ -5,11 +5,10 @@ header {
   width: 100%;
   position: static;
   z-index: 1;
-  height: 82px;
 }
 
-html[data-topposition='false'] header {
-  height: var(--nav-shrinked-height);
+header[aria-expanded=true] {
+  height: auto;
 }
 
 header > div.header {
@@ -39,14 +38,9 @@ header nav {
   align-items: center;
   margin: 0 auto;
   max-width: 1260px;
-  height: inherit;
+  height: auto;
   background-color: var(--primary-background-color);
   font-family: var(--nav-mobile-font-family);
-  padding-top: 20px;
-}
-
-header nav[aria-expanded=false] {
-  padding: 20px 0;
 }
 
 html[data-topposition='false'] header nav {
@@ -61,10 +55,6 @@ header nav[aria-expanded=true] {
 }
 
 @media (min-width: 800px) {
-  header {
-    height: var(--nav-height);
-  }
-
   header nav {
     display: flex;
     justify-content: space-between;
@@ -94,7 +84,6 @@ header nav .nav-hamburger {
   display: flex;
   align-items: center;
   justify-self: end;
-  align-self: start;
   margin-right: 33px;
 }
 
@@ -177,7 +166,6 @@ header nav .nav-sections {
   flex: 1 1 auto;
   display: none;
   visibility: hidden;
-  margin-top: 6px;
 }
 
 header nav[aria-expanded=true] .nav-sections {
@@ -193,6 +181,7 @@ header nav .nav-sections ul  {
   font-weight: var(--nav-dropdown-element-font-weight);
   line-height: 35px;
   border-top: 1px solid #dadada;
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -254,6 +243,10 @@ header nav .nav-sections > ul > li.nav-drop[aria-expanded=false] > ul {
 /* SECTIONS DESKTOP5 */
 
 @media (min-width: 800px) {
+  html[data-topposition='false'] header {
+    height: var(--nav-shrinked-height);
+  }
+
   header nav .nav-sections {
     box-sizing: border-box;
     display: flex;

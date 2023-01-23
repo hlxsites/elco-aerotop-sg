@@ -6,6 +6,7 @@ const MQ = window.matchMedia('(min-width: 800px)');
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
+    const header = document.getElementsByTagName('header');
     const nav = document.getElementById('nav');
     const navSections = nav.querySelector('.nav-sections');
     const navSectionExpanded = navSections.querySelector('[aria-expanded="true"]');
@@ -15,7 +16,7 @@ function closeOnEscape(e) {
       navSectionExpanded.focus();
     } else if (!MQ.matches) {
       // eslint-disable-next-line no-use-before-define
-      toggleMenu(nav, navSections);
+      toggleMenu(header, nav, navSections);
       nav.querySelector('button').focus();
     }
   }
@@ -53,10 +54,11 @@ function toggleAllNavSections(sections, expanded = false) {
  * @param {Element} navSections The nav sections within the container element
  * @param {*} forceExpanded Optional param to force nav expand behavior when not null
  */
-function toggleMenu(nav, navSections, forceExpanded = null) {
+function toggleMenu(header, nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
   document.body.style.overflowY = (expanded || MQ.matches) ? '' : 'hidden';
+  header.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, false);
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
@@ -119,6 +121,8 @@ export default async function decorate(block) {
   const config = readBlockConfig(block);
   block.textContent = '';
 
+  const header = document.querySelector('header');
+
   // fetch nav content
   const navPath = config.nav || '/nav';
   const resp = await fetch(`${navPath}.plain.html`);
@@ -171,13 +175,13 @@ export default async function decorate(block) {
     hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
         <span class="nav-hamburger-icon"></span>
       </button>`;
-    hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
+    hamburger.addEventListener('click', () => toggleMenu(header, nav, navSections));
     nav.append(hamburger);
     nav.setAttribute('aria-expanded', 'false');
     // prevent mobile nav behavior on window resize
-    toggleMenu(nav, navSections, MQ.matches);
+    toggleMenu(header, nav, navSections, MQ.matches);
     MQ.addEventListener('change', () => {
-      toggleMenu(nav, navSections, MQ.matches);
+      toggleMenu(header, nav, navSections, MQ.matches);
       console.log('here');
       navDropdowns.forEach((navSection) => changeDropdownBehavior(navSection, MQ.matches));
     });
