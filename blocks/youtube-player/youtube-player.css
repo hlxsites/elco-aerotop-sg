@@ -1,0 +1,67 @@
+/* youtube-player specific style */
+
+/* hide first child as it only contains the video url */
+.youtube-player.block > div:first-child {
+    display: none;
+}
+
+.youtube-player-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    background: var(--secondary-background-color);
+    z-index: 100;
+}
+
+.youtube-player-iframe {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 103;
+    display: block;
+    width: 1280px;
+    max-width: 90%;
+    max-height: 90%;
+    aspect-ratio: 1280/720;
+    border: none;
+    box-shadow: 0 0 15px hsl(0deg 0% 0% / 80%);
+}
+
+.youtube-player-toolbar {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    bottom: 0;
+    height: 40px;
+    width: 100%;
+    background: var(--secondary-background-color);
+    z-index: 110;
+}
+
+@media (min-width: 980px) {
+    .youtube-player-toolbar {
+        top: 11px;
+        left: 10px;
+        width: 25px;
+        height: 23px;
+    }
+}
+
+
+.youtube-player-close {
+    content: url("close.svg");
+    padding: 0;
+    cursor: pointer;
+    border-radius: 3px;
+    width: 30px;
+}
+
+@media (min-width: 980px) {
+    .youtube-player-close {
+        width: 12px;
+    }
+}
