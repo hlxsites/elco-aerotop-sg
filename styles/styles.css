@@ -73,6 +73,10 @@
   --navigation-dropdown-background-color: #f2efef;
   --navigation-dropdown-border-color: #dcdadb;
   --navigation-dropdown-hover-color: #f8f8f8;
+  --mobile-navigation-dropdown-hover-color: #f6f6f6;
+  --mobile-navigation-list-border-color: #dadada;
+  --mobile-navigation-list-backgroud-color: #f9f9f9;
+  --hamburger-button-color: #dadada;
 
   /* fonts */
   --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;

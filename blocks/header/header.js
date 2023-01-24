@@ -4,6 +4,20 @@ import { wrapImgsInLinks } from '../../scripts/scripts.js';
 // media query match that indicates mobile/tablet width
 const MQ = window.matchMedia('(min-width: 800px)');
 
+function initializeHeaderHeights(navSections, isDesktop = false) {
+  if (isDesktop) {
+    navSections.style.height = null;
+    document.querySelector('header').style.height = null;
+  } else {
+    navSections.style.height = '0px';
+    document.querySelector('header').style.height = 'fit-content';
+    Array.from(navSections.querySelectorAll(':scope > ul > li.nav-drop > ul'))
+      .forEach((subMenu) => {
+        subMenu.style.height = '0px';
+      });
+  }
+}
+
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
     const nav = document.getElementById('nav');
@@ -56,7 +70,6 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || MQ.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
   toggleAllNavSections(navSections, false);
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
@@ -88,7 +101,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 
 function handleClick(e) {
   // do not handle clicks on anchors
-  if(e.target.tagName === 'A') {
+  if (e.target.tagName === 'A') {
     return;
   }
 
@@ -158,7 +171,6 @@ export default async function decorate(block) {
 
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-
         // adds current css class to the current page in the navbar
         const navLink = navSection.querySelector(':scope > a');
         if (navLink) {
@@ -189,25 +201,21 @@ export default async function decorate(block) {
       toggleMenu(nav, navSections);
 
       const expanded = nav.getAttribute('aria-expanded') === 'true';
-      navSections.style.height = (expanded ? navSections.scrollHeight : 0 ) + 'px';
+      navSections.style.height = `${(expanded ? navSections.scrollHeight : 0)}px`;
     });
     nav.append(hamburger);
     nav.setAttribute('aria-expanded', 'false');
 
     // set initial heights of dropdown for animation
-    document.querySelector('header').style.height = 'fit-content';
-    navSections.style.height = '0px';
-    Array.from(navSections.querySelectorAll(':scope > ul > li.nav-drop > ul'))
-      .forEach((subMenu) => {
-        subMenu.style.height = '0px';
-
-        const menu = subMenu.closest('li.nav-drop');
+    initializeHeaderHeights(navSections, MQ.matches);
+    Array.from(navSections.querySelectorAll(':scope > ul > li.nav-drop'))
+      .forEach((dropdown) => {
         const arrow = document.createElement('button');
         arrow.setAttribute('type', 'button');
         arrow.setAttribute('aria-controls', 'nav');
         arrow.setAttribute('aria-label', 'Open navigation');
-        arrow.innerHTML = `<span class="nav-arrow-icon"></span>`;
-        menu.prepend(arrow);
+        arrow.innerHTML = '<span class="nav-arrow-icon"></span>';
+        dropdown.prepend(arrow);
       });
 
     // prevent mobile nav behavior on window resize
@@ -215,6 +223,7 @@ export default async function decorate(block) {
     MQ.addEventListener('change', () => {
       toggleMenu(nav, navSections, MQ.matches);
       navDropdowns.forEach((navSection) => changeDropdownBehavior(navSection, MQ.matches));
+      initializeHeaderHeights(navSections, MQ.matches);
     });
 
     wrapImgsInLinks(nav);
