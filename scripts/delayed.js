@@ -1,6 +1,9 @@
 // eslint-disable-next-line import/no-cycle
 import { sampleRUM } from './lib-franklin.js';
 import loadVideoImpl from './video-lib.js';
+import loadCookieConsent from './cookie-consent-lib.js';
+
+loadCookieConsent();
 
 // Core Web Vitals RUM collection
 sampleRUM('cwv');
