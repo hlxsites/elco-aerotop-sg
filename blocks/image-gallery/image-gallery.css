@@ -107,4 +107,36 @@
     top: 0;
 }
 
+.image-viewer-nav {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    top: 0;
+}
 
+.image-viewer-nav button{
+    /* opacity: 0; */
+
+    /* visibility: hidden; */
+    transition: opacity .25s ease 0s;
+    height: 38px;
+    width: 38px;
+    background: rgb(30 30 30 / 60%);
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    z-index: 1010;
+    padding: 7px;
+    margin: 6px;
+}
+
+.image-viewer-nav-right::after {
+    content: url('arrow-right.svg');
+}
+
+.image-viewer-nav-left::after {
+    content: url('arrow-left.svg');
+}
