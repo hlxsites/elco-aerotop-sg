@@ -425,7 +425,7 @@ body.home .section.dark a {
   font-family: AvenirNextLTPro-Regular, sans-serif;
 }
 
-.cc-highlight .cc-btn.cc-customize {
+.cc-highlight .cc-btn.cc-customize, .cc-policies-links.cc-link {
   color: var(--primary-color-active);
 }
 
