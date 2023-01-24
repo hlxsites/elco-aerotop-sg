@@ -1,0 +1,136 @@
+.progress {
+  justify-content: flex-start;
+  border-radius: 100px;
+  align-items: center;
+  position: relative;
+  padding: 0 5px;
+  display: flex;
+  height: 20px;
+  width: auto;
+}
+
+.dark .progress-aside-11 h2 {
+  color: var(--progress-bar-first-row-color);
+}
+
+.dark .progress-aside-12 h2 {
+  color: var(--progress-bar-first-row-color);
+}
+
+.dark .progress-aside-22 h2 {
+  color: var(--progress-bar-dark-second-row-color);
+}
+
+.progress-value-1 {
+  border-radius: 100px;
+  background: var(--progress-bar-first-row-color);
+  height: 15px;
+  width: 0;
+  transition: width 2s ease;
+}
+
+.progress-value-2 {
+  border-radius: 100px;
+  background: var(--primary-color-active);
+  height: 15px;
+  width: 0;
+  transition: width 2s ease;
+}
+
+.dark .progress-value-2 {
+  border-radius: 100px;
+  background: var(--progress-bar-dark-second-row-color);
+  height: 15px;
+  width: 0;
+  transition: width 2s ease;
+}
+
+.progress-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+.progress-wrapper>* {
+  padding: 10px;
+  flex: 100%;
+}
+
+.progress-title-1 h3 {
+  color: var(--progress-bar-first-row-color);
+}
+
+.dark .progress-aside-21 h2 {
+  color: var(--progress-bar-first-row-color);
+}
+
+.progress-title-1 {
+  text-align: left;
+  border-bottom: 0;
+  padding: 0;
+}
+
+.progress-title-2 {
+  text-align: left;
+  border-bottom: 0;
+  padding: 0;
+}
+
+.progress-description-1 {
+  color: var(--progress-bar-first-row-color);
+  text-align: left;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.progress-description-2 {
+  text-align: left;
+  padding: 0;
+  border: 0;
+  margin: 0;
+}
+
+.progress-subtitle-1 {
+  color: var(--progress-bar-first-row-color);
+  padding-left: 0;
+  text-align: left;
+}
+
+.progress-subtitle-2 {
+  padding-left: 0;
+  text-align: left;
+}
+
+.progress-aside-11 {
+  color: var(--primary-color-active);
+  padding-left: 0;
+}
+
+.progress-aside-12 {
+  padding-left: 0;
+}
+
+.progress-aside-21 {
+  justify-content: right;
+  color: var(--progress-bar-first-row-color);
+}
+
+.progress-aside-22 {
+  justify-content: right;
+  color: var(--primary-color-active);
+}
+
+@media all and (min-width: 600px) {
+  .aside {
+    flex: 1 0 0;
+  }
+
+  .progress-aside-21 {
+    flex: 0.3 0 0;
+  }
+  
+  .progress-aside-22 {
+    flex: 0.3 0 0;
+  }
+}

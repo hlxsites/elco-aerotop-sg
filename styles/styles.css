@@ -10,7 +10,7 @@
  * governing permissions and limitations under the License.
  */
 
-@font-face {
+ @font-face {
   font-family: AvenirNextLTPro-Demi;
   src: url("/fonts/AvenirNextLTPro-Demi.woff2") format("woff2");
   font-display: swap;
@@ -60,6 +60,7 @@
   --form-checked-border-color: #d2d2d2;
   --form-input-border-color: var(--primary-border-color);
   --form-input-border-color-hover: var(--primary-border-color-active);
+  --progress-bar-first-row-color: #9d9d9c;
 
   /* feature colors */
   --primary-button-background-color: var(--primary-color);
@@ -73,6 +74,7 @@
   --navigation-dropdown-background-color: #f2efef;
   --navigation-dropdown-border-color: #dcdadb;
   --navigation-dropdown-hover-color: #f8f8f8;
+  --progress-bar-dark-second-row-color: #95c11f;
   --mobile-navigation-dropdown-hover-color: #f6f6f6;
   --mobile-navigation-list-border-color: #dadada;
   --mobile-navigation-list-backgroud-color: #f9f9f9;
