@@ -16,8 +16,9 @@ const configureCookieConsent = () => {
   const CC = window.CookieConsent;
 
   const cc = new CC({
-    // just some default styling
+    // options: https://github.com/sandstreamdev/cookieconsent/blob/dev/src/options/popup.js#L25
     type: 'opt-in',
+    container: document.querySelector('footer'),
     consentSettingsElementId: REVOKE_CONSENT_ELEMENT_ID,
     layout: 'categories',
     showCategories: {
@@ -119,6 +120,7 @@ export default function loadCookieConsent() {
   link.setAttribute('href', '/styles/cookie-consent/cookieconsent.min.css');
 
   const script = document.createElement('script');
+  script.setAttribute('async', 'true');
   script.src = '/scripts/cookie-consent/cookieconsent.min.js';
   script.onload = configureCookieConsent;
 
