@@ -86,7 +86,12 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
-function handleClick() {
+function handleClick(e) {
+  // do not handle clicks on anchors
+  if(e.target.tagName === 'A') {
+    return;
+  }
+
   const expanded = this.getAttribute('aria-expanded') === 'true';
   const navSections = this.closest('.nav-sections');
   const subMenu = this.querySelector(':scope > ul');
@@ -190,9 +195,20 @@ export default async function decorate(block) {
     nav.setAttribute('aria-expanded', 'false');
 
     // set initial heights of dropdown for animation
+    document.querySelector('header').style.height = 'fit-content';
     navSections.style.height = '0px';
     Array.from(navSections.querySelectorAll(':scope > ul > li.nav-drop > ul'))
-      .forEach((subMenu) => subMenu.style.height = '0px');
+      .forEach((subMenu) => {
+        subMenu.style.height = '0px';
+
+        const menu = subMenu.closest('li.nav-drop');
+        const arrow = document.createElement('button');
+        arrow.setAttribute('type', 'button');
+        arrow.setAttribute('aria-controls', 'nav');
+        arrow.setAttribute('aria-label', 'Open navigation');
+        arrow.innerHTML = `<span class="nav-arrow-icon"></span>`;
+        menu.prepend(arrow);
+      });
 
     // prevent mobile nav behavior on window resize
     toggleMenu(nav, navSections, MQ.matches);
