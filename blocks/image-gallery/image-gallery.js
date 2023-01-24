@@ -1,12 +1,18 @@
+import { generateImageOverlay } from '../../scripts/delayed.js';
+
 export default async function decorate(block) {
   const pictures = block.getElementsByTagName('picture');
 
-  Object.values(pictures).forEach((p) => {
-    p.addEventListener('mouseover', () => {
-      p.style.opacity = '0.8';
+  Object.values(pictures).forEach((pic) => {
+    pic.addEventListener('mouseover', () => {
+      pic.style.opacity = '0.8';
     });
-    p.addEventListener('mouseleave', () => {
-      p.style.opacity = '1';
+    pic.addEventListener('mouseleave', () => {
+      pic.style.opacity = '1';
+    });
+
+    pic.addEventListener('click', (e) => {
+      generateImageOverlay(e, block, pictures);
     });
   });
 }
