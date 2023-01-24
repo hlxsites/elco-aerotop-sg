@@ -3,29 +3,30 @@
   top: 0;
   left: 0;
 }
+
 .image-0{
   position: relative;
   top: 0;
   left: 0;
-opacity: 100%;
-}
-.image-1 {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-opacity: 0%;
+opacity: 1;
 }
 
+.image-1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+opacity: 0;
+}
 
 #fade-in > * {animation: 3s autoplay linear; animation-iteration-count: 1; animation-fill-mode: forwards; 
   }
 
-  @keyframes autoplay {
+@keyframes autoplay {
     0% {opacity: 0.0}
     70% {opacity: 0.0}
     94% {opacity: 0.3}
     100% {opacity: 1}
-  }
+}
 
   
 #fade-in  > *:nth-child(0) {animation-delay: 0s;}
