@@ -7,29 +7,30 @@
   position: relative;
   top: 0;
   left: 0;
-  border: 1px solid #000000;
-opacity: 0%;
+opacity: 100%;
 }
 .image-1 {
   position: absolute;
   top: 0px;
   left: 0px;
-  border: 1px solid #000000;
-opacity: 100%;
+opacity: 0%;
 }
 
 
-#fade-in > * {animation: 4s autoplay infinite linear;
+#fade-in > * {animation: 3s autoplay linear; animation-iteration-count: 1; animation-fill-mode: forwards; 
   }
 
   @keyframes autoplay {
     0% {opacity: 0.0}
-    50% {opacity: 1.0}
-    100% {opacity: 0}
+    70% {opacity: 0.0}
+    94% {opacity: 0.3}
+    100% {opacity: 1}
   }
 
-#fade-in  > *:nth-child(0) {animation-delay: 0s}
-#fade-in  > *:nth-child(1) {animation-delay: 10s}
+  
+#fade-in  > *:nth-child(0) {animation-delay: 0s;}
+#fade-in  > *:nth-child(1) {animation-delay: 3s;}
+
 
 
   
