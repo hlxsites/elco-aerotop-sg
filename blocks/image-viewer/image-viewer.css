@@ -1,0 +1,22 @@
+.image-viewer.block > div > div:has(picture) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 4%;
+}
+
+.image-viewer.block > div > div > picture {
+    cursor: pointer;
+}
+
+.image-viewer-overlay {
+    transition: opacity .5s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-viewer-image {
+    width: 90%;
+    transition: opacity .5s ease;
+    transition-delay: .5s;
+}

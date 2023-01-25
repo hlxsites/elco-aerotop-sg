@@ -151,7 +151,7 @@ export default function generateImageOverlayImpl(e, block, pictures) {
       navLeft.style.opacity = '1';
       navRight.style.opacity = '1';
     }, 0);
-    closeButton.addEventListener('click', (e) => {
+    closeButton.addEventListener('click', () => {
       const boundaries = block.getElementsByTagName('picture')[currentImagePos].getBoundingClientRect();
       imageViewer.style.width = `${boundaries.width}px`;
       imageViewer.style.top = `${boundaries.top}px`;
