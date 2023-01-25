@@ -19,3 +19,7 @@
     border: none;
     box-shadow: 0 0 15px hsl(0deg 0% 0% / 80%);
 }
+
+.youtube-player.block {
+    cursor: pointer;
+}
