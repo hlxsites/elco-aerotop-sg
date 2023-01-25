@@ -21,6 +21,9 @@ const configureCookieConsent = () => {
     container: document.querySelector('footer'),
     consentSettingsElementId: REVOKE_CONSENT_ELEMENT_ID,
     layout: 'categories',
+    cookie: {
+      domain: window.location.hostname,
+    },
     showCategories: {
       [CC.UNCATEGORIZED]: false,
       [CC.ESSENTIAL]: true,
