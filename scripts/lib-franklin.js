@@ -148,6 +148,14 @@ export function decorateIcons(element = document) {
   });
 }
 
+export function getPlaceholderOrDefault(key, defaultText) {
+  if (!key) {
+    return defaultText || '';
+  }
+
+  return window.placeholders?.[`/${document.documentElement.lang}`]?.[key] || defaultText || '';
+}
+
 /**
  * Gets placeholders object
  * @param {string} prefix

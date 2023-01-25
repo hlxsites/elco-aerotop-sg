@@ -111,6 +111,28 @@ export function addFavIcon(href) {
   }
 }
 
+function addBackToTop(main) {
+  const backToTop = document.createElement('div');
+  backToTop.setAttribute('id', 'back-to-top');
+
+  const link = document.createElement('a');
+  link.setAttribute('href', '#');
+  link.innerHTML = 'Go to Top';
+
+  backToTop.append(link);
+  main.append(backToTop);
+
+  document.addEventListener('scroll', () => {
+    // back to top only appears after a bit of scrolling
+    if (window.scrollY <= 200) {
+      backToTop.classList.remove('back-to-top-active');
+      return;
+    }
+
+    backToTop.classList.add('back-to-top-active');
+  });
+}
+
 /**
  * loads everything that doesn't need to be delayed.
  */
@@ -130,6 +152,8 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+
+  addBackToTop(main);
 }
 
 /**

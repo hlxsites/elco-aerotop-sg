@@ -2,7 +2,21 @@ import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
 import { wrapImgsInLinks } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
-const MQ = window.matchMedia('(min-width: 900px)');
+const MQ = window.matchMedia('(min-width: 800px)');
+
+function initializeHeaderHeights(navSections, isDesktop = false) {
+  if (isDesktop) {
+    navSections.style.height = null;
+    document.querySelector('header').style.height = null;
+  } else {
+    navSections.style.height = '0px';
+    document.querySelector('header').style.height = 'fit-content';
+    Array.from(navSections.querySelectorAll(':scope > ul > li.nav-drop > ul'))
+      .forEach((subMenu) => {
+        subMenu.style.height = '0px';
+      });
+  }
+}
 
 function closeOnEscape(e) {
   if (e.code === 'Escape') {
@@ -56,9 +70,8 @@ function toggleAllNavSections(sections, expanded = false) {
 function toggleMenu(nav, navSections, forceExpanded = null) {
   const expanded = forceExpanded !== null ? !forceExpanded : nav.getAttribute('aria-expanded') === 'true';
   const button = nav.querySelector('.nav-hamburger button');
-  document.body.style.overflowY = (expanded || MQ.matches) ? '' : 'hidden';
   nav.setAttribute('aria-expanded', expanded ? 'false' : 'true');
-  toggleAllNavSections(navSections, expanded || MQ.matches ? 'false' : 'true');
+  toggleAllNavSections(navSections, false);
   button.setAttribute('aria-label', expanded ? 'Open navigation' : 'Close navigation');
   // enable nav dropdown keyboard accessibility
   const navDrops = navSections.querySelectorAll('.nav-drop');
@@ -83,6 +96,45 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
     window.addEventListener('keydown', closeOnEscape);
   } else {
     window.removeEventListener('keydown', closeOnEscape);
+  }
+}
+
+function handleClick(e) {
+  // do not handle clicks on anchors
+  if (e.target.tagName === 'A') {
+    return;
+  }
+
+  const expanded = this.getAttribute('aria-expanded') === 'true';
+  const navSections = this.closest('.nav-sections');
+  const subMenu = this.querySelector(':scope > ul');
+
+  const menuScrollHeight = subMenu.scrollHeight;
+  const navScrollHeight = navSections.scrollHeight;
+
+  this.setAttribute('aria-expanded', !expanded);
+
+  subMenu.style.height = `${(expanded ? 0 : menuScrollHeight)}px`;
+  navSections.style.height = `${navScrollHeight + (expanded ? -1 : 1) * menuScrollHeight}px`;
+}
+
+function handleMouseEnter() {
+  this.setAttribute('aria-expanded', true);
+}
+
+function handleMouseLeave() {
+  this.setAttribute('aria-expanded', false);
+}
+
+function changeDropdownBehavior(navSection, isDesktop = false) {
+  if (isDesktop) {
+    navSection.removeEventListener('click', handleClick);
+    navSection.addEventListener('mouseenter', handleMouseEnter);
+    navSection.addEventListener('mouseleave', handleMouseLeave);
+  } else {
+    navSection.addEventListener('click', handleClick);
+    navSection.removeEventListener('mouseenter', handleMouseEnter);
+    navSection.removeEventListener('mouseleave', handleMouseLeave);
   }
 }
 
@@ -115,28 +167,10 @@ export default async function decorate(block) {
     const pathName = window.location.pathname;
 
     const navSections = nav.querySelector('.nav-sections');
+    const navDropdowns = [];
+
     if (navSections) {
       navSections.querySelectorAll(':scope > ul > li').forEach((navSection) => {
-        const isDropdownList = navSection.querySelector('ul');
-
-        if (isDropdownList) {
-          navSection.classList.add('nav-drop');
-        }
-
-        navSection.addEventListener('mouseenter', () => {
-          if (MQ.matches && isDropdownList) {
-            toggleAllNavSections(navSections);
-            navSection.setAttribute('aria-expanded', 'true');
-          }
-        });
-
-        navSection.addEventListener('mouseleave', () => {
-          if (MQ.matches && isDropdownList) {
-            toggleAllNavSections(navSections);
-            navSection.setAttribute('aria-expanded', 'false');
-          }
-        });
-
         // adds current css class to the current page in the navbar
         const navLink = navSection.querySelector(':scope > a');
         if (navLink) {
@@ -146,6 +180,15 @@ export default async function decorate(block) {
           }
         }
       });
+
+      Array.from(navSections.querySelectorAll(':scope > ul > li'))
+        .filter((navSection) => navSection.querySelector('ul'))
+        .forEach((navSection) => {
+          navSection.classList.add('nav-drop');
+          changeDropdownBehavior(navSection, MQ.matches);
+
+          navDropdowns.push(navSection);
+        });
     }
 
     // hamburger for mobile
@@ -154,12 +197,34 @@ export default async function decorate(block) {
     hamburger.innerHTML = `<button type="button" aria-controls="nav" aria-label="Open navigation">
         <span class="nav-hamburger-icon"></span>
       </button>`;
-    hamburger.addEventListener('click', () => toggleMenu(nav, navSections));
-    nav.prepend(hamburger);
+    hamburger.addEventListener('click', () => {
+      toggleMenu(nav, navSections);
+
+      const expanded = nav.getAttribute('aria-expanded') === 'true';
+      navSections.style.height = `${(expanded ? navSections.scrollHeight : 0)}px`;
+    });
+    nav.append(hamburger);
     nav.setAttribute('aria-expanded', 'false');
+
+    // set initial heights of dropdown for animation
+    initializeHeaderHeights(navSections, MQ.matches);
+    Array.from(navSections.querySelectorAll(':scope > ul > li.nav-drop'))
+      .forEach((dropdown) => {
+        const arrow = document.createElement('button');
+        arrow.setAttribute('type', 'button');
+        arrow.setAttribute('aria-controls', 'nav');
+        arrow.setAttribute('aria-label', 'Open navigation');
+        arrow.innerHTML = '<span class="nav-arrow-icon"></span>';
+        dropdown.prepend(arrow);
+      });
+
     // prevent mobile nav behavior on window resize
     toggleMenu(nav, navSections, MQ.matches);
-    MQ.addEventListener('change', () => toggleMenu(nav, navSections, MQ.matches));
+    MQ.addEventListener('change', () => {
+      toggleMenu(nav, navSections, MQ.matches);
+      navDropdowns.forEach((navSection) => changeDropdownBehavior(navSection, MQ.matches));
+      initializeHeaderHeights(navSections, MQ.matches);
+    });
 
     wrapImgsInLinks(nav);
     decorateIcons(nav);
