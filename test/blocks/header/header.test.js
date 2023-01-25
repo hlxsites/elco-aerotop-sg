@@ -26,6 +26,7 @@ describe('Header block', () => {
   it('Hamburger shows and hides nav', async () => {
     const hamburger = document.querySelector('.header .nav-hamburger');
     const nav = document.querySelector('.header nav');
+    await setViewport({ width: 799, height: 640 });
     expect(hamburger).to.exist;
     expect(nav).to.exist;
     hamburger.click();
