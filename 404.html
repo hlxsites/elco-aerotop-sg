@@ -25,16 +25,34 @@
   <link rel="stylesheet" href="/styles/styles.css">
   <style>
     main.error {
-      min-height: calc(100vh - var(--nav-height));
       display: flex;
+      line-height: 1;
+    }
+
+    main.error .error-message {
+      font-size: var(--heading-font-size-l);
+    }
+
+    main.error .error-number-container {
+
+    }
+
+    main.error .default-content-wrapper {
+      padding-top: 20px;
+    }
+
+    main.error .error-number-wrapper {
+      padding-top: 0;
     }
 
     main.error .error-number {
       width: 100%;
     }
 
-    main.error .error-number text {
-      font-family: var(--fixed-font-family);
+    main.error .error-number {
+      font-size: 170px;
+      font-weight: 700;
+      color: var(--overlay-background-color);
     }
   </style>
   <link rel="stylesheet" href="/styles/lazy-styles.css">
