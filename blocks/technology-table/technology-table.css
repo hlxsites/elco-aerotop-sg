@@ -6,14 +6,10 @@
     width: 100%;
 }
 
-
 .technology-table.block {
     display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
+    flex-flow: column wrap;
 }
-
-
 
 .technology-table.block > div {
     display: flex;
