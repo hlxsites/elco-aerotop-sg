@@ -11,9 +11,11 @@
   <meta property="og:title" content="Page not found">
   <script src="/scripts/scripts.js" type="module" crossorigin="use-credentials"></script>
   <script type="module">
-    import { getPlaceholderOrDefault, sampleRUM } from '/scripts/lib-franklin.js';
+    import { fetchPlaceholders, getPlaceholderOrDefault, sampleRUM } from '/scripts/lib-franklin.js';
 
-    window.addEventListener('load', () => {
+    window.addEventListener('load', async () => {
+      await fetchPlaceholders(`/${document.documentElement.lang}`);
+
       const errorMessageContainer = document.querySelector('.error-message');
       errorMessageContainer.innerHTML = getPlaceholderOrDefault('errorGeneralPageNotFound', 'Page not found')
 
