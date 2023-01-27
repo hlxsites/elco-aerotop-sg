@@ -57,9 +57,9 @@ export default async function decorate(block) {
 
   window.addEventListener('scroll', () => {
     const { top, width, bottom } = block.getBoundingClientRect();
-    const height = width * 1875 / 2500;
+    const height = width * (1875 / 2500);
 
-    if(top < window.innerHeight && bottom >= 0) {
+    if (top < window.innerHeight && bottom >= 0) {
       const visible = window.innerHeight - top;
       animateSprite(lid, height, visible, 0.3, 0.5, 6, 12);
       animateSprite(vent, height, visible, 0.3, 0.5, 4, 7);
