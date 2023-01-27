@@ -55,6 +55,8 @@ export default async function decorate(block) {
   const vent = block.querySelector(':scope > div:nth-child(2)');
   const texts = block.querySelectorAll(':scope > div:nth-child(n+4)');
 
+  let animation;
+
   window.addEventListener('scroll', () => {
     const { top, width, bottom } = block.getBoundingClientRect();
     const height = width * (1875 / 2500);
@@ -62,19 +64,25 @@ export default async function decorate(block) {
     if (top < window.innerHeight && bottom >= 0) {
       const visible = window.innerHeight - top;
 
-      if (width > 800) {
-        animateSprite(lid, height, visible, 0.3, 0.5, 6, 12);
-        animateSprite(vent, height, visible, 0.3, 0.5, 4, 7);
-        Array.from(texts).forEach((text) => {
-          animateText(text, height, visible, 0.5, 0.6, 0, 1);
-        });
-      } else {
-        animateSprite(lid, height, visible, 0.5, 0.7, 6, 12);
-        animateSprite(vent, height, visible, 0.5, 0.7, 4, 7);
-        Array.from(texts).forEach((text) => {
-          animateText(text, height, visible, 0.7, 0.8, 0, 1);
-        });
+      if (animation) {
+        cancelAnimationFrame(animation);
       }
+
+      animation = requestAnimationFrame(() => {
+        if (width > 800) {
+          animateSprite(lid, height, visible, 0.3, 0.5, 6, 12);
+          animateSprite(vent, height, visible, 0.3, 0.5, 4, 7);
+          Array.from(texts).forEach((text) => {
+            animateText(text, height, visible, 0.5, 0.6, 0, 1);
+          });
+        } else {
+          animateSprite(lid, height, visible, 0.5, 0.7, 6, 12);
+          animateSprite(vent, height, visible, 0.5, 0.7, 4, 7);
+          Array.from(texts).forEach((text) => {
+            animateText(text, height, visible, 0.7, 0.8, 0, 1);
+          });
+        }
+      });
     }
   }, false);
 }

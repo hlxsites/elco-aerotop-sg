@@ -38,11 +38,13 @@
     z-index: 3;
     margin-top: 12%;
     margin-left: -1.5%;
+    transition: margin-top 0.2s ease-out;
 }
 
 .explosion-slider > div:nth-child(2) {
     z-index: 2;
     margin-top: 7%;
+    transition: margin-top 0.2s ease-out;
 }
 
 .explosion-slider > div:nth-child(3) {
@@ -51,6 +53,7 @@
 
 .explosion-slider > div:nth-child(n+4) {
     opacity: 0;
+    transition: opacity 0.2s ease-out;
 }
 
 .explosion-slider > div:nth-child(4) {
