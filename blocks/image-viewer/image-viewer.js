@@ -7,9 +7,11 @@ export default async function decorate(block) {
   const pictures = block.getElementsByTagName('picture');
   Object.values(pictures).forEach((pic) => {
     pic.addEventListener('click', (e) => {
+      const backToTop = document.getElementById('back-to-top');
+      backToTop.style.display = 'none';
+
       const overlay = document.createElement('div');
       overlay.classList.add('asset-viewer-overlay');
-      overlay.classList.add('image-viewer-overlay');
       overlay.style.opacity = 0;
       block.parentElement.appendChild(overlay);
 
@@ -24,15 +26,21 @@ export default async function decorate(block) {
       image.type = originalImage.type;
       image.width = window.innerWidth;
       image.style.opacity = '0';
-      overlay.appendChild(image);
+
+      const imageWrapper = document.createElement('div');
+      imageWrapper.classList.add('image-viewer-overlay');
+      imageWrapper.appendChild(image);
+      block.parentElement.appendChild(imageWrapper);
 
       function removeImage() {
         block.parentElement.removeChild(overlay);
         block.parentElement.removeChild(toolbar);
+        block.parentElement.removeChild(imageWrapper);
         image.remove();
+        backToTop.style.display = 'block';
       }
 
-      overlay.addEventListener('click', () => {
+      imageWrapper.addEventListener('click', () => {
         removeImage();
       });
       toolbarClose.addEventListener('click', () => {
