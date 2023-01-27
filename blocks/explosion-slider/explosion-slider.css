@@ -68,8 +68,20 @@
     margin-top: 15%;
     margin-left: 50%;
     border-bottom: 2px solid;
-    height: 6%;
+    height: 8%;
     width: 36%;
+}
+
+@media (min-width: 500px) {
+    .explosion-slider > div:nth-child(5) {
+        height: 6%;
+    }
+}
+
+@media (min-width: 600px) {
+    .explosion-slider > div:nth-child(5) {
+        height: 6%;
+    }
 }
 
 .explosion-slider > div:nth-child(6) {
@@ -105,9 +117,14 @@
 }
 
 .explosion-slider > div:nth-child(6) > div {
-    margin-bottom: -13%;
+    margin-bottom: -18%;
 }
 
+@media (min-width: 500px) {
+    .explosion-slider > div:nth-child(6) > div {
+        margin-bottom: -13%;
+    }
+}
 
 @media (min-width: 1400px) {
     .explosion-slider > div:nth-child(7) > div {

@@ -61,11 +61,20 @@ export default async function decorate(block) {
 
     if (top < window.innerHeight && bottom >= 0) {
       const visible = window.innerHeight - top;
-      animateSprite(lid, height, visible, 0.3, 0.5, 6, 12);
-      animateSprite(vent, height, visible, 0.3, 0.5, 4, 7);
-      Array.from(texts).forEach((text) => {
-        animateText(text, height, visible, 0.5, 0.6, 0, 1);
-      });
+
+      if (width > 800) {
+        animateSprite(lid, height, visible, 0.3, 0.5, 6, 12);
+        animateSprite(vent, height, visible, 0.3, 0.5, 4, 7);
+        Array.from(texts).forEach((text) => {
+          animateText(text, height, visible, 0.5, 0.6, 0, 1);
+        });
+      } else {
+        animateSprite(lid, height, visible, 0.5, 0.7, 6, 12);
+        animateSprite(vent, height, visible, 0.5, 0.7, 4, 7);
+        Array.from(texts).forEach((text) => {
+          animateText(text, height, visible, 0.7, 0.8, 0, 1);
+        });
+      }
     }
   }, false);
 }
