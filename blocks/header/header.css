@@ -4,14 +4,14 @@ header {
   box-shadow: 0 10px 50px -2px rgb(0 0 0 / 14%);
   width: 100%;
   position: static;
-  z-index: 1;
+  z-index: 11;
 }
 
 header > div.header {
   box-sizing: border-box;
   width: 100%;
   position: static;
-  z-index: 2;
+  z-index: 12;
   height: inherit;
   transition: height .200s ease;
 }
