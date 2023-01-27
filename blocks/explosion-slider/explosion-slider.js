@@ -14,8 +14,6 @@ function animateSprite(sprite, height, visible, from, to, minMargin, maxMargin, 
 
   const step = (maxMargin - minMargin) / (stopAnimate - startAnimate);
 
-  console.log(`start: ${startAnimate}, stop: ${stopAnimate}, visible: ${visible}, step: ${step}`);
-
   if (visible < startAnimate) {
     sprite.style.transform = `scale(1.09) translate(${translate}%) translateY(${maxMargin}%)`;
   } else if (visible > stopAnimate) {
@@ -56,10 +54,15 @@ export default async function decorate(block) {
   const vent = block.querySelector(':scope > div:nth-child(2)');
   const texts = block.querySelectorAll(':scope > div:nth-child(n+4)');
 
-  let ventAnimation, lidAnimation;
+  let ventAnimation;
+  let lidAnimation;
 
   window.addEventListener('scroll', () => {
-    const { top, width, bottom } = block.getBoundingClientRect();
+    const {
+      top,
+      width,
+      bottom,
+    } = block.getBoundingClientRect();
     const height = width * (1875 / 2500);
 
     if (top < window.innerHeight && bottom >= 0) {
