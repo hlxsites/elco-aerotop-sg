@@ -67,5 +67,4 @@ function createTableForMobile(block) {
 export default async function decorate(block) {
   buildTechnologyTable(block);
   createTableForMobile(block);
-  block.parentElement.appendChild(document.createElement('div'));
 }
