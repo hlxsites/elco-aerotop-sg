@@ -8,19 +8,21 @@
  * @param minMargin min margin value of the DOM element at the beginning of animation
  * @param maxMargin max margin value of the DOM element at the beginning of animation
  */
-function animateSprite(sprite, height, visible, from, to, minMargin, maxMargin) {
+function animateSprite(sprite, height, visible, from, to, minMargin, maxMargin, translate) {
   const startAnimate = height * from;
   const stopAnimate = height * to;
 
   const step = (maxMargin - minMargin) / (stopAnimate - startAnimate);
 
+  console.log(`start: ${startAnimate}, stop: ${stopAnimate}, visible: ${visible}, step: ${step}`);
+
   if (visible < startAnimate) {
-    sprite.style.marginTop = `${maxMargin}%`;
+    sprite.style.transform = `scale(1.09) translate(${translate}%) translateY(${maxMargin}%)`;
   } else if (visible > stopAnimate) {
-    sprite.style.marginTop = `${minMargin}%`;
+    sprite.style.transform = `scale(1.09) translate(${translate}%) translateY(${minMargin}%)`;
   } else {
     const overlap = visible - startAnimate;
-    sprite.style.marginTop = `${maxMargin - overlap * step}%`;
+    sprite.style.transform = `scale(1.09) translate(${translate}%) translateY(${maxMargin - step * overlap}%)`;
   }
 }
 
@@ -39,7 +41,6 @@ function animateText(text, height, visible, from, to, minOpacity, maxOpacity) {
   const stopAnimate = height * to;
 
   const step = (maxOpacity - minOpacity) / (stopAnimate - startAnimate);
-
   if (visible < startAnimate) {
     text.style.opacity = `${minOpacity}`;
   } else if (visible > stopAnimate) {
@@ -71,27 +72,27 @@ export default async function decorate(block) {
         }
 
         lidAnimation = requestAnimationFrame(() => {
-          animateSprite(lid, height, visible, 0.3, 0.6, 6, 12);
+          animateSprite(lid, height, visible, 0.3, 0.5, 8, 12, -5);
         });
         ventAnimation = requestAnimationFrame(() => {
-          animateSprite(vent, height, visible, 0.3, 0.6, 4, 7);
+          animateSprite(vent, height, visible, 0.3, 0.5, -4.5, 0, -4);
         });
-        Array.from(texts)
-          .forEach((text) => {
-            animateText(text, height, visible, 0.6, 0.7, 0, 1);
-          });
+        // Array.from(texts)
+        //   .forEach((text) => {
+        //     animateText(text, height, visible, 0.6, 0.7, 0, 1);
+        //   });
       } else {
         lidAnimation = requestAnimationFrame(() => {
-          animateSprite(lid, height, visible, 0.5, 0.8, 6, 12);
+          animateSprite(lid, height, visible, 0.5, 0.8, 8, 12, -5);
         });
         ventAnimation = requestAnimationFrame(() => {
-          animateSprite(vent, height, visible, 0.5, 0.8, 4, 7);
+          animateSprite(vent, height, visible, 0.5, 0.8, -4.5, 0, -4);
         });
-
-        Array.from(texts)
-          .forEach((text) => {
-            animateText(text, height, visible, 0.8, 1, 0, 1);
-          });
+        //
+        // Array.from(texts)
+        //   .forEach((text) => {
+        //     animateText(text, height, visible, 0.8, 1, 0, 1);
+        //   });
       }
     }
   }, false);
