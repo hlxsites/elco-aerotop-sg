@@ -486,7 +486,7 @@ body.home .section a {
   border: var(--button-border-size) solid var(--primary-button-border-color);
   color: var(--primary-background-color);
   max-width: 90%;
-  margin: 20px 0 20px;
+  margin: 20px 0;
 }
 
 body.home .section.dark a {
