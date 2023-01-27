@@ -382,8 +382,7 @@ body > main > div:first-child > div {
   padding-top: 75px;
 }
 
-body.home > main a,
-body.home > footer a {
+body.home > main a {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
