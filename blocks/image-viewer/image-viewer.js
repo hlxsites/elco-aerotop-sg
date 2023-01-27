@@ -17,6 +17,10 @@ export default async function decorate(block) {
 
       const { toolbar, toolbarClose } = createOverlay(block);
 
+      const toolbarFullScreen = document.createElement('div');
+      toolbarFullScreen.classList.add('asset-viewer-fullscreen');
+      toolbar.appendChild(toolbarFullScreen);
+
       const originalImage = e.currentTarget.getElementsByTagName('img')[0];
 
       const image = document.createElement('img');
@@ -32,7 +36,11 @@ export default async function decorate(block) {
       imageWrapper.appendChild(image);
       block.parentElement.appendChild(imageWrapper);
 
-      function removeImage() {
+      async function removeImage() {
+        if (document.fullscreenElement) {
+          await document.exitFullscreen();
+          block.style.display = 'block';
+        }
         block.parentElement.removeChild(overlay);
         block.parentElement.removeChild(toolbar);
         block.parentElement.removeChild(imageWrapper);
@@ -45,6 +53,15 @@ export default async function decorate(block) {
       });
       toolbarClose.addEventListener('click', () => {
         removeImage();
+      });
+
+      toolbarFullScreen.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+          block.style.display = 'none';
+          block.parentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
       });
 
       setTimeout(() => {

@@ -28,18 +28,35 @@
         width: 25px;
         height: 23px;
     }
+
+    .asset-viewer-toolbar:has(div:first-child):nth-last-child(2) {
+        width: 50px;
+    }
 }
 
 .asset-viewer-close {
     content: url("close.svg");
-    padding: 0;
+}
+
+.asset-viewer-close,
+.asset-viewer-fullscreen {
     cursor: pointer;
     border-radius: 3px;
-    width: 30px;
+    width: 50px;
+    padding: 8px;
+}
+
+.asset-viewer-fullscreen {
+    content: url("full-screen.svg");
+    width: 25px;
+    padding: 10px;
 }
 
 @media (min-width: 980px) {
-    .asset-viewer-close {
-        width: 12px;
+    .asset-viewer-close,
+    .asset-viewer-fullscreen {
+        width: 25px;
+        padding: 5px;
+        filter: contrast(0.5);
     }
 }
