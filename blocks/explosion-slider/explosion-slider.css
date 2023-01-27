@@ -61,7 +61,7 @@
     z-index: 4;
     margin-top: 42%;
     border-top: 2px solid;
-    width: 38%;
+    width: 33%;
     padding-top: 1%;
 }
 
@@ -81,7 +81,7 @@
     flex-direction: column-reverse;
     z-index: 4;
     margin-top: 42%;
-    margin-left: 22%;
+    margin-left: 18%;
     border-right: 2px solid;
     border-bottom: 2px solid;
     height: 20%;

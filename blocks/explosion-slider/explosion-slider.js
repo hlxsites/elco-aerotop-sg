@@ -77,10 +77,10 @@ export default async function decorate(block) {
         ventAnimation = requestAnimationFrame(() => {
           animateSprite(vent, height, visible, 0.3, 0.5, -4.5, 0, -4);
         });
-        // Array.from(texts)
-        //   .forEach((text) => {
-        //     animateText(text, height, visible, 0.6, 0.7, 0, 1);
-        //   });
+        Array.from(texts)
+          .forEach((text) => {
+            animateText(text, height, visible, 0.5, 0.6, 0, 1);
+          });
       } else {
         lidAnimation = requestAnimationFrame(() => {
           animateSprite(lid, height, visible, 0.5, 0.8, 8, 12, -5);
@@ -88,11 +88,11 @@ export default async function decorate(block) {
         ventAnimation = requestAnimationFrame(() => {
           animateSprite(vent, height, visible, 0.5, 0.8, -4.5, 0, -4);
         });
-        //
-        // Array.from(texts)
-        //   .forEach((text) => {
-        //     animateText(text, height, visible, 0.8, 1, 0, 1);
-        //   });
+
+        Array.from(texts)
+          .forEach((text) => {
+            animateText(text, height, visible, 0.8, 1, 0, 1);
+          });
       }
     }
   }, false);
