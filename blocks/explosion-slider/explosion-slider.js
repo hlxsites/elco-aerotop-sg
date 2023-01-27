@@ -55,7 +55,7 @@ export default async function decorate(block) {
   const vent = block.querySelector(':scope > div:nth-child(2)');
   const texts = block.querySelectorAll(':scope > div:nth-child(n+4)');
 
-  let animation;
+  let ventAnimation, lidAnimation;
 
   window.addEventListener('scroll', () => {
     const { top, width, bottom } = block.getBoundingClientRect();
@@ -64,25 +64,35 @@ export default async function decorate(block) {
     if (top < window.innerHeight && bottom >= 0) {
       const visible = window.innerHeight - top;
 
-      if (animation) {
-        cancelAnimationFrame(animation);
-      }
-
-      animation = requestAnimationFrame(() => {
-        if (width > 800) {
-          animateSprite(lid, height, visible, 0.3, 0.5, 6, 12);
-          animateSprite(vent, height, visible, 0.3, 0.5, 4, 7);
-          Array.from(texts).forEach((text) => {
-            animateText(text, height, visible, 0.5, 0.6, 0, 1);
-          });
-        } else {
-          animateSprite(lid, height, visible, 0.5, 0.7, 6, 12);
-          animateSprite(vent, height, visible, 0.5, 0.7, 4, 7);
-          Array.from(texts).forEach((text) => {
-            animateText(text, height, visible, 0.7, 0.8, 0, 1);
-          });
+      if (width > 800) {
+        if (ventAnimation || lidAnimation) {
+          cancelAnimationFrame(ventAnimation);
+          cancelAnimationFrame(lidAnimation);
         }
-      });
+
+        lidAnimation = requestAnimationFrame(() => {
+          animateSprite(lid, height, visible, 0.3, 0.6, 6, 12);
+        });
+        ventAnimation = requestAnimationFrame(() => {
+          animateSprite(vent, height, visible, 0.3, 0.6, 4, 7);
+        });
+        Array.from(texts)
+          .forEach((text) => {
+            animateText(text, height, visible, 0.6, 0.7, 0, 1);
+          });
+      } else {
+        lidAnimation = requestAnimationFrame(() => {
+          animateSprite(lid, height, visible, 0.5, 0.8, 6, 12);
+        });
+        ventAnimation = requestAnimationFrame(() => {
+          animateSprite(vent, height, visible, 0.5, 0.8, 4, 7);
+        });
+
+        Array.from(texts)
+          .forEach((text) => {
+            animateText(text, height, visible, 0.8, 1, 0, 1);
+          });
+      }
     }
   }, false);
 }
