@@ -25,18 +25,17 @@ const callback = (entries) => {
   entries.forEach((entry) => {
     const elements = entry.target.querySelectorAll('.progress-bar-table > div');
     const ratios = calculateRatioPost(elements);
+    const progress1Element = entry.target.querySelectorAll('[class^=progress-value-1]');
+    progress1Element[0].style.width = ('0%');
+    progress1Element[0].style.width = (`${ratios[0]}%`);
 
-    const progress1Element = entry.target.querySelector('.progress-value-1');
-    progress1Element.style.width = ('0%');
-    progress1Element.style.width = (`${ratios[0]}%`);
-
-    const progress2Element = entry.target.querySelector('.progress-value-2');
-    progress2Element.style.width = ('0%');
-    progress2Element.style.width = (`${ratios[1]}%`);
+    const progress2Element = entry.target.querySelectorAll('[class^=progress-value-2]');
+    progress2Element[0].style.width = ('0%');
+    progress2Element[0].style.width = (`${ratios[1]}%`);
 
     if (entries[0].intersectionRatio === 0) {
-      progress1Element.style.width = ('0%');
-      progress2Element.style.width = ('0%');
+      progress1Element[0].style.width = ('0%');
+      progress2Element[0].style.width = ('0%');
     }
   });
 };
@@ -64,22 +63,25 @@ function buildProgressBarTable(block) {
     elements[i].classList.add('progress-wrapper');
 
     const progresschildNodes = elements[i].childNodes;
+    const color = progresschildNodes[11].textContent.toLowerCase().substring(4);
+    progresschildNodes[11].style.display = 'none';
+
     progresschildNodes[1].classList.add(`progress-title-${i}`);
     progresschildNodes[3].classList.add(`progress-description-${i}`);
 
     const ratio = progresschildNodes[5].textContent;
     progresschildNodes[5].textContent = '';
     progresschildNodes[5].classList.add('progress');
-    progresschildNodes[5].classList.add(`progress-aside-1${i}`);
     progresschildNodes[5].classList.add('aside');
+    progresschildNodes[5].classList.add(`progress-aside-1${i}-${color}`);
 
     const progress2 = document.createElement('div');
-    progress2.classList.add(`progress-value-${i}`);
+    progress2.classList.add(`progress-value-${i}-${color}`);
     progress2.style.width = ('0%');
     progresschildNodes[5].appendChild(progress2);
     progresschildNodes[7].classList.add('progress');
-    progresschildNodes[7].classList.add(`progress-aside-2${i}`);
     progresschildNodes[7].classList.add('aside');
+    progresschildNodes[7].classList.add(`progress-aside-2${i}-${color}`);
 
     const progressValue = document.createElement('h2');
     const unitMeasure = progresschildNodes[7].textContent;
