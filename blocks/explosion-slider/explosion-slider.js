@@ -72,7 +72,7 @@ export default async function decorate(block) {
         }
 
         lidAnimation = requestAnimationFrame(() => {
-          animateSprite(lid, height, visible, 0.3, 0.5, 8, 12, -5);
+          animateSprite(lid, height, visible, 0.3, 0.5, 7, 14, -5);
         });
         ventAnimation = requestAnimationFrame(() => {
           animateSprite(vent, height, visible, 0.3, 0.5, -4.5, 0, -4);
@@ -83,7 +83,7 @@ export default async function decorate(block) {
           });
       } else {
         lidAnimation = requestAnimationFrame(() => {
-          animateSprite(lid, height, visible, 0.5, 0.8, 8, 12, -5);
+          animateSprite(lid, height, visible, 0.5, 0.8, 7, 14, -5);
         });
         ventAnimation = requestAnimationFrame(() => {
           animateSprite(vent, height, visible, 0.5, 0.8, -4.5, 0, -4);
