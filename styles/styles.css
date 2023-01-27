@@ -63,7 +63,7 @@
   --progress-bar-first-row-color: #9d9d9c;
 
   /* feature colors */
-  --primary-button-background-color: var(--primary-color);
+  --primary-button-background-color: #bd3826;;
   --primary-button-border-color: var(--primary-background-color);
   --secondary-button-background-color: var(--secondary-color);
   --secondary-button-border-color: var(--primary-background-color);
@@ -174,12 +174,6 @@ h1 {
   text-align: center;
 }
 
-@media (max-width: 800px) {
-  h1 {
-    font-size: 10vw;
-  }
-}
-
 h2 {
   font-family: var(--secondary-heading-font-family);
   font-size: var(--heading-font-size-xl);
@@ -206,6 +200,20 @@ h5 {
 h6 {
   font-size: var(--heading-font-size-xs);
   line-height: var(--heading-line-height-xs);
+}
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 10vw;
+  }
+
+  h2 {
+    font-size: 8vw;
+  }
+
+  h3 {
+    font-size: 8vw;
+  }
 }
 
 p, dl, ol, ul, pre, blockquote {
