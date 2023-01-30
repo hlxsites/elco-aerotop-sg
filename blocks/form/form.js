@@ -160,6 +160,7 @@ async function createForm(formURL) {
   const resp = await fetch(pathname);
   const json = await resp.json();
   const form = document.createElement('form');
+  form.id = 'form';
   const rules = [];
 
   [form.dataset.action] = pathname.split('.json');
