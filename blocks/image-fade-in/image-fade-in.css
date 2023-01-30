@@ -4,6 +4,12 @@
   left: 0;
 }
 
+.image-fade-in.block img {
+  max-width: 160%;
+  position: relative;
+  left: -10%;
+}
+
 .image-fade-in  > div:nth-child(1){
   position: relative;
   top: 0;
@@ -30,4 +36,3 @@
 
 
 
-  
