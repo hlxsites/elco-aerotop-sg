@@ -1,0 +1,42 @@
+.technical-data.block > div {
+    display: table-row;
+}
+
+.technical-data.block > div div {
+    padding: 8px;
+}
+
+.technical-data.block > div > div {
+    display: table-cell;
+    border: 1px;
+    border-top: 1px solid #ddd;
+}
+
+.technical-data.block > div > div:has(h2) {
+    background-color: #c9c9c9;
+}
+
+.technical-data.block h2 {
+    font-family: var(--body-font-family);
+    font-weight: 700;
+    font-size: 16px;
+    color: #1d1d1b;
+}
+
+.technical-data.block > div div[data-align="center"] {
+    text-align: center;
+}
+
+.technical-data.block {
+    display: table;
+    border: 1px solid #c9c9c9;
+    background: #fcfcfc;
+}
+
+.technical-data.block > div:first-child > div {
+    border-top: none;
+}
+
+.technical-data.block > div:has(div):has(:first-child > h2) {
+    background: #c9c9c9;
+}

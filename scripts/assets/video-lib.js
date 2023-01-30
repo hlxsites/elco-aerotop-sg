@@ -1,14 +1,13 @@
+import { loadCSS } from '../lib-franklin.js';
+import createOverlay from './asset-lib.js';
+
 export default function loadVideoImpl(videoURL, block) {
+  loadCSS(`${window.hlx.codeBasePath}/styles/asset-viewer/asset-viewer.css`);
   const overlay = document.createElement('div');
-  overlay.classList.add('youtube-player-overlay');
+  overlay.classList.add('asset-viewer-overlay');
   block.parentElement.appendChild(overlay);
 
-  const toolbar = document.createElement('div');
-  toolbar.classList.add('youtube-player-toolbar');
-  const toolbarClose = document.createElement('div');
-  toolbarClose.classList.add('youtube-player-close');
-  toolbar.appendChild(toolbarClose);
-  block.parentElement.appendChild(toolbar);
+  const { toolbar, toolbarClose } = createOverlay(block);
 
   const videoIframe = document.createElement('iframe');
   videoIframe.classList.add('youtube-player-iframe');

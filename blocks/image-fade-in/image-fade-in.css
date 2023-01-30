@@ -1,0 +1,33 @@
+.image-fade-in.block {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image-fade-in  > div:nth-child(1){
+  position: relative;
+  top: 0;
+  left: 0;
+  opacity: 1;
+  animation: 3s autoplay 3s 1 forwards;
+}
+
+.image-fade-in  > div:nth-child(2){
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  animation: 3s autoplay 0s 1 forwards;
+}
+
+@keyframes autoplay {
+  0% {opacity: 0.0}
+  70% {opacity: 0.0}
+  94% {opacity: 0.3}
+  100% {opacity: 1}
+}
+
+
+
+
+  
