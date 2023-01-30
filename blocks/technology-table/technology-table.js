@@ -1,27 +1,25 @@
 function buildTechnologyTable(block) {
-  const firstDivElements = block.querySelectorAll('.technology-table > div');
-  firstDivElements.forEach((element, i) => {
-    const secondLevelDiv = element.querySelectorAll('div > div');
-    secondLevelDiv.forEach((subelement, j) => {
-      if (i === 0) {
-        const TextInDiv = subelement.textContent;
-        subelement.textContent = '';
-        const title = document.createElement('h1');
-        title.textContent = TextInDiv;
-        title.style.fontSize = 'var(--heading-font-size-l)';
-        title.style.textAlign = 'left';
-        subelement.appendChild(title);
-      }
-      if (i === 0) {
-        subelement.classList.add(`techno-table-title-${j}`);
-      } else if (i === 1) {
-        subelement.classList.add(`techno-table-image-${j}`);
-      } else if (i === 2) {
-        subelement.classList.add(`techno-table-description-${j}`);
-      }
+    const rows = block.querySelectorAll('.technology-table > div');
+    rows.forEach((cell, i) => {
+      const secondLevelDiv = cell.querySelectorAll('div > div');
+      secondLevelDiv.forEach((subelement, j) => {
+        if (i === 0) {
+          const textInDiv = subelement.textContent;
+          subelement.textContent = '';
+          const title = document.createElement('h1');
+          title.textContent = textInDiv;
+          title.style.fontSize = 'var(--heading-font-size-l)';
+          title.style.textAlign = 'left';
+          subelement.appendChild(title);
+          subelement.classList.add(`techno-table-title-${j}`);
+        } else if (i === 1) {
+          subelement.classList.add(`techno-table-image-${j}`);
+        } else if (i === 2) {
+          subelement.classList.add(`techno-table-description-${j}`);
+        }
+      });
     });
-  });
-}
+  }
 
 function createTableForMobile(block) {
   const newTableTechnoForMobile = document.createElement('div');
@@ -32,8 +30,8 @@ function createTableForMobile(block) {
   const imageTables = [];
   const descriptionTables = [];
 
-  const firstDivElements = block.querySelectorAll('.technology-table > div');
-  firstDivElements.forEach((element, i) => {
+  const rows = block.querySelectorAll('.technology-table > div');
+  rows.forEach((element, i) => {
     const secondLevelDiv = element.querySelectorAll('div > div');
     secondLevelDiv.forEach((subelement, j) => {
       if (i === 0) {
@@ -47,10 +45,10 @@ function createTableForMobile(block) {
   });
 
   titleTables.forEach((theTitle, i) => {
-    const TextInDiv = titleTables[i].textContent;
+    const textInDiv = titleTables[i].textContent;
     titleTables[i].textContent = '';
     const titleH1 = document.createElement('h1');
-    titleH1.textContent = TextInDiv;
+    titleH1.textContent = textInDiv;
     titleH1.style.fontSize = 'var(--heading-font-size-l)';
     titleH1.style.textAlign = 'left';
     titleTables[i].style.margin = '0 0 20px 0';
