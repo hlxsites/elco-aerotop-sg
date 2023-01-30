@@ -3,6 +3,8 @@ import { wrapImgsInLinks } from '../../scripts/scripts.js';
 
 // media query match that indicates mobile/tablet width
 const MQ = window.matchMedia('(min-width: 800px)');
+const LANG_ONLY_REGEX = /^\/[a-z]{2}\/$/;
+const LANG_PREFIX_REGEX = /^\/[a-z]{2}\//;
 
 function initializeHeaderHeights(navSections, isDesktop = false) {
   if (isDesktop) {
@@ -189,6 +191,15 @@ export default async function decorate(block) {
 
           navDropdowns.push(navSection);
         });
+
+      // link languages to equivalent page
+      navSections.querySelectorAll(':scope > ul > li > ul > li > a').forEach((subLink) => {
+        const href = subLink.getAttribute('href');
+        if (LANG_ONLY_REGEX.test(href)) {
+          const path = pathName.replace(LANG_PREFIX_REGEX, '');
+          subLink.setAttribute('href', `${href}${path}`);
+        }
+      });
     }
 
     // hamburger for mobile
