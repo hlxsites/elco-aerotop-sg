@@ -1,0 +1,39 @@
+.table-techno-mobile  {
+    display: block;
+}
+
+.table-techno-mobile img {
+    width: 100%;
+}
+
+.technology-table.block {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.technology-table.block > div {
+    display: flex;
+}
+
+.technology-table.block > div > div {
+    flex: 1 1 10%;
+    margin-right: 4%;
+}
+
+.technology-table.block > div > div:last-child {
+    margin-right: 0%;
+}
+
+@media only screen and (max-width: 800px) {
+    .technology-table.block div {
+        display: none;
+    }
+    
+}
+
+@media only screen and (min-width: 800px) {
+    .table-techno-mobile div {
+        display: none;
+    }
+    
+}
