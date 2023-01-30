@@ -54,6 +54,7 @@
   /* base colors */
   --primary-color: #bd3826bf;
   --primary-color-active: #bd3826;
+  --primary-color-hover: rgb(189 56 38 / 64%);
   --primary-background-color: #fff;
   --primary-text-color: #1d1d1b;
   --primary-border-color: #cc3939;
@@ -143,6 +144,10 @@
   --nav-dropdown-font-size: 13px;
   --nav-dropdown-font-weight: 500;
   --nav-dropdown-element-font-weight: 400;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -336,6 +341,7 @@ main {
 
 main .section {
   padding: 0 30px 65px;
+  overflow: hidden;
 }
 
 main pre {
@@ -488,10 +494,19 @@ body.home .section a {
   margin: 20px 0;
 }
 
+body.home .section a:hover {
+  background-color: var(--primary-color-hover);
+}
+
 body.home .section.dark a {
   background-color: var(--secondary-button-background-color);
   border: var(--button-border-size) solid var(--secondary-button-border-color);
   color: var(--primary-background-color);
+}
+
+body.home .section.dark a:hover {
+  background-color: var(--primary-background-color);
+  color: var(--secondary-background-color);
 }
 
 body.home .section.url-not-decorated a {
@@ -513,7 +528,7 @@ body.home .section.dark.url-not-decorated a {
 }
 
 /* cookie consent styles */
-.cc-window.cc-banner.cc-theme-block {
+.cc-window.cc-theme-block {
   padding: 12px 10px;
   background-color: var(--primary-background-color);
   color: var(--primary-text-color);
