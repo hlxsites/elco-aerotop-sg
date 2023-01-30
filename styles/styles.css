@@ -495,11 +495,12 @@ body.home .section.dark a {
 }
 
 /* cookie consent styles */
-.cc-window.cc-banner.cc-theme-block {
+.cc-window.cc-theme-block {
   padding: 12px 10px;
   background-color: var(--primary-background-color);
   color: var(--primary-text-color);
   font-family: AvenirNextLTPro-Regular, sans-serif;
+
 }
 
 .cc-highlight .cc-btn.cc-customize, .cc-policies-links.cc-link {
