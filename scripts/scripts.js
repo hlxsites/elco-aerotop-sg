@@ -117,7 +117,6 @@ function addBackToTop(main) {
 
   const link = document.createElement('a');
   link.setAttribute('href', '#');
-  link.innerHTML = 'Go to Top';
 
   backToTop.append(link);
   main.append(backToTop);
