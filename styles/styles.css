@@ -340,6 +340,7 @@ main {
 
 main .section {
   padding: 0 30px 65px;
+  overflow: hidden;
 }
 
 main pre {
