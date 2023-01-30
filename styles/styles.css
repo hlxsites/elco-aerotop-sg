@@ -145,6 +145,10 @@
   --nav-dropdown-element-font-weight: 400;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   color: var(--primary-text-color);
   display: none;
