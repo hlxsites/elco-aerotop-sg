@@ -504,11 +504,6 @@ body.home .section.dark a {
   color: var(--primary-background-color);
 }
 
-body.home .section.dark a:hover {
-  background-color: var(--primary-background-color);
-  color: var(--secondary-background-color);
-}
-
 body.home .section.url-not-decorated a {
   color: var( --primary-color-active);
   background-color: var(--primary-background-color);
@@ -525,6 +520,11 @@ body.home .section.dark.url-not-decorated a {
   text-transform: lowercase;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
+}
+
+body.home .section.dark a:hover {
+  background-color: var(--primary-background-color);
+  color: var(--secondary-background-color);
 }
 
 /* cookie consent styles */
