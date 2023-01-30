@@ -2,7 +2,7 @@
 <html>
 
 <head>
-  <title>Page not found</title>
+  <title></title>
   <script type="text/javascript">
     window.isErrorPage = true;
     window.errorCode = '404';
@@ -11,38 +11,63 @@
   <meta property="og:title" content="Page not found">
   <script src="/scripts/scripts.js" type="module" crossorigin="use-credentials"></script>
   <script type="module">
-    import { sampleRUM } from '/scripts/lib-franklin.js';
+    import { fetchPlaceholders, getPlaceholderOrDefault, sampleRUM } from '/scripts/lib-franklin.js';
 
-    window.addEventListener('load', () => {
-      if (document.referrer) {
-        const { origin, pathname } = new URL(document.referrer);
-        if (origin === window.location.origin) {
-          const backBtn = document.createElement('a');
-          backBtn.classList.add('button', 'error-button-back');
-          backBtn.href = pathname;
-          backBtn.textContent = 'Go back';
-          backBtn.title = 'Go back';
-          const btnContainer = document.querySelector('.button-container');
-          btnContainer.append(backBtn);
-        }
-      }
+    window.addEventListener('load', async () => {
+      await fetchPlaceholders(`/${document.documentElement.lang}`);
+
+      const defaultForTitleAndMessage = 'Page not found';
+      const errorTitle = getPlaceholderOrDefault('errorGeneralPageNotFoundTitle', defaultForTitleAndMessage);
+      const errorMessage = getPlaceholderOrDefault('errorGeneralPageNotFound', defaultForTitleAndMessage);
+      const errorMessageContainer = document.querySelector('.error-message');
+
+      document.title = errorTitle;
+      errorMessageContainer.innerHTML = errorMessage;
+
       sampleRUM('404', { source: document.referrer, target: window.location.href });
     });
   </script>
   <link rel="stylesheet" href="/styles/styles.css">
   <style>
     main.error {
-      min-height: calc(100vh - var(--nav-height));
       display: flex;
-      align-items: center;
+      line-height: 1;
+    }
+
+    main.error .error-message {
+      font-size: var(--heading-font-size-l);
+    }
+
+    main.error .error-number-container {
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    main.error .default-content-wrapper {
+      padding-top: 20px;
+      margin-bottom: 20px;
+      min-height: 56px;
+    }
+
+    main.error .error-number-wrapper {
+      padding-top: 0;
     }
 
     main.error .error-number {
       width: 100%;
     }
 
-    main.error .error-number text {
-      font-family: var(--fixed-font-family);
+    main.error .error-number {
+      font-size: 170px;
+      font-weight: 700;
+      color: var(--overlay-background-color);
+    }
+
+    @media (min-width: 900px) {
+      main.error .error-message {
+        font-size: var(--heading-font-size-xl);
+      }
     }
   </style>
   <link rel="stylesheet" href="/styles/lazy-styles.css">
@@ -52,13 +77,8 @@
   <header></header>
   <main class="error">
     <div class="section">
-      <svg viewBox="1 0 38 18" class="error-number">
-        <text x="0" y="17">404</text>
-      </svg>
-      <h2 class="error-message">Page Not Found</h2>
-      <p class="button-container">
-        <a href="/" class="button secondary error-button-home">Go home</a>
-      </p>
+      <h2 class="error-message"></h2>
+      <div class="error-number">404</div>
     </div>
   </main>
   <footer></footer>
