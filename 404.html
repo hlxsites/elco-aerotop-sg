@@ -16,10 +16,12 @@
     window.addEventListener('load', async () => {
       await fetchPlaceholders(`/${document.documentElement.lang}`);
 
-      const errorMessage = getPlaceholderOrDefault('errorGeneralPageNotFound', 'Page not found');
+      const defaultForTitleAndMessage = 'Page not found';
+      const errorTitle = getPlaceholderOrDefault('errorGeneralPageNotFoundTitle', defaultForTitleAndMessage);
+      const errorMessage = getPlaceholderOrDefault('errorGeneralPageNotFound', defaultForTitleAndMessage);
       const errorMessageContainer = document.querySelector('.error-message');
 
-      document.title = errorMessage;
+      document.title = errorTitle;
       errorMessageContainer.innerHTML = errorMessage;
 
       sampleRUM('404', { source: document.referrer, target: window.location.href });
