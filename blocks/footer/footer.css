@@ -42,10 +42,18 @@ footer {
 }
 
 .footer a {
-  font-size: var(--body-font-size-s);
+  cursor: pointer;
+  font-family: var(--body-font-family);
+  font-size: var(--button-font-size);
+  font-style: normal;
+  line-height: var(--button-line-height);
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
   text-decoration: none;
-  color: var(--secondary-color);
   text-transform: uppercase;
+  color: var(--secondary-color);
+  padding: 0;
 }
 
 .footer a:hover {

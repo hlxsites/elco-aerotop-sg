@@ -27,6 +27,14 @@
 }
 
 @font-face {
+  font-family: AvenirNextLTPro-Bold;
+  src: url("/fonts/AvenirNextLTPro-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
   font-family: OpenSans-Regular;
   src: url("/fonts/OpenSans-Regular.woff2") format("woff2");
   font-display: swap;
@@ -83,6 +91,7 @@
   /* fonts */
   --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;
   --heading-font-family: var(--body-font-family);
+  --xxl-heading-font-family: 'AvenirNextLTPro-Bold', arial, helvetica, sans-serif;
   --secondary-heading-font-family: 'AvenirNextLTPro-Demi', arial, helvetica, sans-serif;
   --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
   --nav-font-family: 'OpenSans-Regular', arial, helvetica, sans-serif;
@@ -98,6 +107,7 @@
   --form-input-size: 1.125em;
 
   /* heading font sizes */
+  --heading-font-size-xxxl: 250px;
   --heading-font-size-xxl: 60px;
   --heading-font-size-xl: 40px;
   --heading-font-size-l: 26px;
@@ -178,6 +188,7 @@ h2 {
   font-family: var(--secondary-heading-font-family);
   font-size: var(--heading-font-size-xl);
   line-height: var(--heading-line-height-xl);
+  margin-bottom: 31px;
 }
 
 h3 {
@@ -219,6 +230,10 @@ h6 {
 p, dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+strong {
+  font-family: var(--secondary-heading-font-family);
 }
 
 a:any-link {
@@ -378,6 +393,21 @@ main .section.highlight {
   background-color: var(--highlight-background-color);
 }
 
+.large-header h1 {
+  font-family: var(--xxl-heading-font-family);
+  font-size: var(--heading-font-size-xxxl);
+  text-align: justify;
+  line-height: 1;
+}
+
+.small > div {
+  max-width: 650px;
+}
+
+.extra-small img {
+  width: 37.6%;
+}
+
 body > main > div:last-child {
   margin-bottom: 0;
 }
@@ -390,8 +420,7 @@ body > main > div:first-child > div {
   padding-top: 75px;
 }
 
-body.home > main a,
-body.home > footer a {
+body.home > main a {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
@@ -419,17 +448,31 @@ body.home > footer a {
   }
 }
 
+.gaps h2 {
+  margin-bottom: 95px;
+  margin-top: 120px;
+  font-family: var(--body-font-family);
+}
+
+.gaps h3 {
+  margin: 0 5vw 31px;
+}
+
+.no-padding {
+  padding: 0!important;
+}
+
 .section.dark {
   background-color: var(--secondary-background-color);
   color: var(--secondary-text-color);
   padding-bottom: 65px;
 }
 
-.section.dark.center {
+.section.center {
   text-align: center;
 }
 
-.section.dark.center h2 {
+.section.center h2 {
   text-align: center;
 }
 
@@ -442,6 +485,7 @@ body.home .section a {
   border: var(--button-border-size) solid var(--primary-button-border-color);
   color: var(--primary-background-color);
   max-width: 90%;
+  margin: 20px 0;
 }
 
 body.home .section.dark a {
