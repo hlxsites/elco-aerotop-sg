@@ -51,9 +51,8 @@ function createTableForMobile(block) {
     titleTables[i].textContent = '';
     const titleH1 = document.createElement('h1');
     titleH1.textContent = textInDiv;
-
-
     titleTables[i].appendChild(titleH1);
+
     newTableTechnoForMobile.appendChild(titleTables[i]);
     newTableTechnoForMobile.appendChild(imageTables[i]);
     newTableTechnoForMobile.appendChild(descriptionTables[i]);
