@@ -241,15 +241,6 @@ strong {
   font-family: var(--secondary-heading-font-family);
 }
 
-a:any-link {
-  color: var(--primary-color-active);
-  text-decoration: none;
-}
-
-a:hover {
-  color: var(--link-hover-color);
-}
-
 code, pre, samp {
   font-family: var(--fixed-font-family);
   font-size: var(--body-font-size-s);
@@ -452,6 +443,15 @@ body > main a {
   body.home > footer a {
     white-space: normal;
   }
+}
+
+a:any-link {
+  color: var(--primary-color-active);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--link-hover-color);
 }
 
 .gaps h2 {
