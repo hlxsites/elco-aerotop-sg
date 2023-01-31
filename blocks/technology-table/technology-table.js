@@ -1,26 +1,25 @@
 function buildTechnologyTable(block) {
   const rows = block.querySelectorAll('.technology-table > div');
   rows.forEach((cell, i) => {
-    if (i === 0) {
-      for (let childrenNumber = 0; childrenNumber < cell.children.length; childrenNumber += 1) {
-        const textTitle0 = cell.children.item(childrenNumber).textContent;
-        cell.children.item(childrenNumber).textContent = '';
-        const title0 = document.createElement('h1');
-        title0.textContent = textTitle0;
-        title0.style.fontSize = 'var(--heading-font-size-l)';
-        title0.style.textAlign = 'left';
-        cell.children.item(childrenNumber).appendChild(title0);
-        cell.children.item(childrenNumber).classList.add('techno-table-title');
-      }
-    } else if (i === 1) {
-      for (let childrenNumber = 0; childrenNumber < cell.children.length; childrenNumber += 1) {
-        cell.children.item(childrenNumber).classList.add('techno-table-image');
-      }
-    } else if (i === 2) {
-      for (let childrenNumber = 0; childrenNumber < cell.children.length; childrenNumber += 1) {
-        cell.children.item(childrenNumber).classList.add('techno-table-description');
-      }
-    }
+    Array.from(cell.children)
+      .forEach((child) => {
+        if (i === 0) {
+          const titleText = child.textContent;
+          const title = document.createElement('h1');
+
+          child.textContent = '';
+          title.textContent = titleText;
+          title.style.fontSize = 'var(--heading-font-size-l)';
+          title.style.textAlign = 'left';
+
+          child.appendChild(title);
+          child.classList.add('techno-table-title');
+        } else if (i === 1) {
+          child.classList.add('techno-table-image');
+        } else if (i === 2) {
+          child.classList.add('techno-table-description');
+        }
+      });
   });
 }
 
