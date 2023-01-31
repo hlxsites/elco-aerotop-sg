@@ -426,7 +426,7 @@ body > main > div:first-child > div {
   padding-top: 75px;
 }
 
-body.home > main a {
+body > main a {
   box-sizing: border-box;
   cursor: pointer;
   display: inline-block;
@@ -483,7 +483,9 @@ body.home > main a {
 }
 
 .section.dark a {
-  color: var(--primary-color-active);
+  color: var(--primary-background-color);
+  background-color: var(--primary-color-active);
+  max-width: 90%;
 }
 
 body.home .section a {
