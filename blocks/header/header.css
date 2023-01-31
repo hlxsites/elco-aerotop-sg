@@ -3,8 +3,9 @@ header {
   box-sizing: border-box;
   box-shadow: 0 10px 50px -2px rgb(0 0 0 / 14%);
   width: 100%;
-  position: static;
+  position: absolute;
   z-index: 11;
+  background-color: var(--primary-background-color);
 }
 
 header > div.header {

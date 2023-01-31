@@ -337,6 +337,7 @@ main input:hover {
 
 main {
   margin-top: 0;
+  padding-top: 75px;
 }
 
 main .section {
