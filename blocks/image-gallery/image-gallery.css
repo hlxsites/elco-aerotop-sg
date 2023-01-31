@@ -6,6 +6,12 @@
     display: flex;
 }
 
+@media (max-width: 800px) {
+    .image-gallery.block > div {
+        display: block;
+    }
+}
+
 .image-gallery.block > div > div {
     flex: 1;
 }
@@ -14,6 +20,12 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-column-gap: 10px;
+}
+
+@media (max-width: 800px) {
+    .image-gallery.block > div > div:has(picture) {
+        margin: 20px 0;
+    }
 }
 
 .image-gallery.block > div > div:first-child {
