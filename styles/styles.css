@@ -482,10 +482,6 @@ body.home > main a {
   text-align: center;
 }
 
-.section.dark a {
-  color: var(--primary-color-active);
-}
-
 body.home .section a {
   background-color: var(--primary-button-background-color);
   border: var(--button-border-size) solid var(--primary-button-border-color);
@@ -513,6 +509,23 @@ body.home .section.url-not-decorated a {
   font-size: var(--body-font-size-m);
 }
 
+body.home .section.primary-link a {
+  color: var(--primary-background-color);
+  border: var(--primary-color-active);
+  background-color: var(--primary-color-active);
+}
+
+body.home .section.dark a:hover {
+  background-color: var(--primary-background-color);
+  color: var(--secondary-background-color);
+}
+
+body.home .section.primary-link a:hover {
+  color: var(--primary-background-color);
+  border: var(--primary-color-active);
+  background-color: var(--primary-color-active);
+}
+
 body.home .section.dark.url-not-decorated a {
   color: var( --secondary-text-color);
   background-color: var(--secondary-background-color);
@@ -520,11 +533,6 @@ body.home .section.dark.url-not-decorated a {
   text-transform: lowercase;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-}
-
-body.home .section.dark a:hover {
-  background-color: var(--primary-background-color);
-  color: var(--secondary-background-color);
 }
 
 .contact h3 {
