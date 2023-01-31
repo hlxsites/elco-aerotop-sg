@@ -51,11 +51,7 @@ function createTableForMobile(block) {
     titleTables[i].textContent = '';
     const titleH1 = document.createElement('h1');
     titleH1.textContent = textInDiv;
-    titleH1.style.fontSize = 'var(--heading-font-size-l)';
-    titleH1.style.textAlign = 'left';
-    titleTables[i].style.margin = '0 0 20px 0';
 
-    descriptionTables[i].style.margin = '0 0 20px 0';
 
     titleTables[i].appendChild(titleH1);
     newTableTechnoForMobile.appendChild(titleTables[i]);

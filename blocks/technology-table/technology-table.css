@@ -18,6 +18,18 @@
 .technology-table.block > div > div {
     flex: 1 1 10%;
     margin-right: 4%;
+    text-align: left;
+}
+
+.technology-table .table-techno-mobile .techno-table-title h1{
+    text-align: left;
+    margin: 0 0 20px 0;
+    font-size: var(--heading-font-size-l);
+}
+
+.technology-table .table-techno-mobile .techno-table-description {
+    text-align: left;
+    margin: 0 0 20px 0;
 }
 
 .technology-table.block > div > div:last-child {
