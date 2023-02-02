@@ -262,7 +262,7 @@ h6 {
 }
 
 
-p, .block > div > div {
+p {
   margin: 0 0 20px;
   overflow-wrap: break-word;
 }
@@ -443,6 +443,11 @@ main .section.highlight {
 
 .small > div {
   max-width: 650px;
+}
+
+.block > div > div {
+  margin: 0 0 20px;
+  overflow-wrap: break-word;
 }
 
 .extra-small img {
