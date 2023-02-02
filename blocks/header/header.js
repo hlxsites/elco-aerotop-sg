@@ -96,11 +96,6 @@ function handleClick(e) {
   }
 
   const expanded = this.getAttribute('aria-expanded') === 'true';
-  const navSections = this.closest('.nav-sections');
-  const subMenu = this.querySelector(':scope > ul');
-
-  const menuScrollHeight = subMenu.scrollHeight;
-  const navScrollHeight = navSections.scrollHeight;
 
   this.setAttribute('aria-expanded', !expanded);
 
@@ -200,9 +195,6 @@ export default async function decorate(block) {
       </button>`;
     hamburger.addEventListener('click', () => {
       toggleMenu(nav, navSections);
-
-      const expanded = nav.getAttribute('aria-expanded') === 'true';
-      // navSections.style.height = `${(expanded ? navSections.scrollHeight : 0)}px`;
     });
     nav.append(hamburger);
     nav.setAttribute('aria-expanded', 'false');
