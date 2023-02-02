@@ -104,8 +104,8 @@ function handleClick(e) {
 
   this.setAttribute('aria-expanded', !expanded);
 
-  subMenu.style.height = `${(expanded ? 0 : menuScrollHeight)}px`;
-  navSections.style.height = `${navScrollHeight + (expanded ? -1 : 1) * menuScrollHeight}px`;
+  // subMenu.style.height = `${(expanded ? 0 : menuScrollHeight)}px`;
+  // navSections.style.height = `${navScrollHeight + (expanded ? -1 : 1) * menuScrollHeight}px`;
 }
 
 function handleMouseEnter() {
@@ -202,7 +202,7 @@ export default async function decorate(block) {
       toggleMenu(nav, navSections);
 
       const expanded = nav.getAttribute('aria-expanded') === 'true';
-      navSections.style.height = `${(expanded ? navSections.scrollHeight : 0)}px`;
+      // navSections.style.height = `${(expanded ? navSections.scrollHeight : 0)}px`;
     });
     nav.append(hamburger);
     nav.setAttribute('aria-expanded', 'false');

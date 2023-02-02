@@ -76,6 +76,9 @@ div.header.block {
   border-color: var(--primary-background-color);
   border-top-width: 3px;
   border-top-style: solid;
+  transition-property: color, background-color, border-color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
 }
 
 #nav .nav-drop > ul > li {
@@ -113,7 +116,7 @@ div.header.block {
 }
 
 #nav .nav-drop > ul {
-  display: none;
+  visibility: hidden;
   position: absolute;
   top: 100%;
   right: 0;
@@ -121,11 +124,16 @@ div.header.block {
   border-color: var(--primary-color-active);
   border-top-width: 3px;
   border-top-style: solid;
+  transition-property: color, opacity, background-color, border-color;
+  transition-duration: .2s;
+  transition-timing-function: linear;
+  opacity: 0;
 }
 
 #nav .nav-drop:hover > ul,
 #nav .nav-drop[aria-expanded=true] > ul {
-  display: block;
+  visibility: visible;
+  opacity: 1;
   background-color: var(--navigation-dropdown-background-color);
 }
 
@@ -216,15 +224,15 @@ div.header.block {
   }
 
   #nav .nav-drop > ul {
-    display: none;
+    visibility: hidden;
   }
 
   #nav .nav-drop[aria-expanded=false] > ul {
-    display: none;
+    visibility: hidden;
   }
 
   #nav .nav-drop:hover[aria-expanded=false] > ul {
-    display: none;
+    visibility: hidden;
   }
 
   #nav .nav-sections > ul > li.nav-drop button {
