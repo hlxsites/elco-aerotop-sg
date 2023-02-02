@@ -24,8 +24,11 @@ div.header.block {
   background-color: var(--primary-background-color);
   width: 100%;
   height: var(--nav-height);
-  box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
   position: fixed;
+}
+
+html[data-topposition='false'] div.header.block {
+  box-shadow: rgb(0 0 0 / 12%) 0 1px 3px;
 }
 
 #nav {
