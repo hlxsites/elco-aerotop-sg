@@ -423,7 +423,7 @@ body > main > div.section > div {
 }
 
 body > main > div:first-child > div {
-  padding-top: 75px;
+  padding-top: 60px;
 }
 
 body.home > main a {
