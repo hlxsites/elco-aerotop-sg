@@ -374,8 +374,13 @@ main {
   margin-top: 0;
 }
 
-main .section {
+main .section:first-child {
   padding: 0 30px 65px;
+  overflow: hidden;
+}
+
+main .section {
+  padding: 45px 30px 65px;
   overflow: hidden;
 }
 
@@ -459,7 +464,7 @@ body > main > div:last-child {
 }
 
 body > main > div.section > div {
-  padding-top: 45px;
+
 }
 
 body > main > div:first-child > div {
