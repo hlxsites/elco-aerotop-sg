@@ -25,7 +25,7 @@ function googleTagManager() {
 function googleAnalytics() {
   const script = document.createElement('script');
   script.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5TC8B0GX4';
-  script.setAttribute('async');
+  script.setAttribute('async', '');
   document.body.appendChild(script);
 
   window.dataLayer = window.dataLayer || [];
