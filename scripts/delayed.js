@@ -54,7 +54,7 @@ sampleRUM('cwv');
 // MarTech integrations
 googleTagManager();
 googleAnalytics();
-// hotjar();
+hotjar();
 
 export default function loadVideo(videoURL, block) {
   loadVideoImpl(videoURL, block);
