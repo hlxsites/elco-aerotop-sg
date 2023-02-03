@@ -24,14 +24,14 @@ function createExternalScriptElement(url) {
   script.type = 'text/partytown';
   script.src = url;
   script.setAttribute('async', '');
-  document.body.appendChild(script);
+  document.head.appendChild(script);
 }
 
 function createInlineScriptElement(innerHTML) {
   const script = document.createElement('script');
   script.type = 'text/partytown';
   script.innerHTML = innerHTML;
-  document.body.appendChild(script);
+  document.head.appendChild(script);
 }
 
 export default function integrateMartech() {
