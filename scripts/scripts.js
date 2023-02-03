@@ -135,7 +135,7 @@ function addBackToTop(main) {
 function initPartytown() {
   window.partytown = {
     lib: '/scripts/',
-    forward: ['dataLayer.push', 'hj.q'],
+    forward: ['dataLayer.push', 'hj.q.push'],
   };
   import('./partytown.js');
 }
