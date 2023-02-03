@@ -51,6 +51,10 @@
 }
 
 :root {
+  /* viewport sizes */
+  --min-viewport-size: 360;
+  --max-viewport-size: 800;
+
   /* base colors */
   --primary-color: #bd3826bf;
   --primary-color-active: #bd3826;
@@ -109,10 +113,10 @@
 
   /* heading font sizes */
   --heading-font-size-xxxl: 250px;
-  --heading-font-size-xxl: 60px;
-  --heading-font-size-xl: 40px;
-  --heading-font-size-l: 26px;
-  --heading-font-size-m: 16px;
+  --heading-font-size-xxl: 60;
+  --heading-font-size-xl: 40;
+  --heading-font-size-l: 26;
+  --heading-font-size-m: 16;
   --heading-font-size-s: 12px;
   --heading-font-size-xs: 12px;
 
@@ -122,12 +126,18 @@
   --heading-font-weight-s: 400;
 
   /* heading line heights */
-  --heading-line-height-xxl: 1.4em;
-  --heading-line-height-xl: 1.4em;
-  --heading-line-height-l: 1.5em;
-  --heading-line-height-m: 1.5em;
+  --heading-line-height-xxl: 1.4;
+  --heading-line-height-xl: 1.4;
+  --heading-line-height-l: 1.5;
+  --heading-line-height-m: 1.5;
   --heading-line-height-s: 1.5em;
   --heading-line-height-xs: 1.5em;
+
+  /* typography related */
+  --base-font-size: 16;
+  --typography-factor: 0.50;
+  --typography-sensitivity: 0.50;
+  --min-font-size: calc(var(--typography-factor) * var(--base-font-size));
 
   /* spacings */
   --spacing-m: 30px;
@@ -144,6 +154,26 @@
   --nav-dropdown-font-size: 13px;
   --nav-dropdown-font-weight: 500;
   --nav-dropdown-element-font-weight: 400;
+}
+
+@media screen and (min-width: 800px) {
+  :root {
+    /* viewport sizes */
+    --max-viewport-size: 1000;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  :root {
+    /* viewport sizes */
+    --max-viewport-size: 30720;
+
+    /* heading font sizes */
+    --heading-font-size-xxl: 60px;
+    --heading-font-size-xl: 40px;
+    --heading-font-size-l: 26px;
+    --heading-font-size-m: 16px;
+  }
 }
 
 html {
@@ -175,6 +205,7 @@ header {
 
 h1, h2, h3,
 h4, h5, h6 {
+  font-size: calc((var(--font-size) * 1px) - (var(--typography-sensitivity) * (var(--font-size) - var(--min-font-size)) * (var(--min-viewport-size) * 1px - 100vw)) / (var(--max-viewport-size) - var(--min-viewport-size)) - (var(--font-size) - var(--min-font-size)) * var(--typography-sensitivity) * 1px);
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
   letter-spacing: normal;
@@ -184,25 +215,30 @@ h4, h5, h6 {
 }
 
 h1 {
-  font-size: var(--heading-font-size-xxl);
+  --font-size: var(--heading-font-size-xxl);
+
   line-height: var(--heading-line-height-xxl);
   text-align: center;
 }
 
 h2 {
+  --font-size: var(--heading-font-size-xl);
+
   font-family: var(--secondary-heading-font-family);
-  font-size: var(--heading-font-size-xl);
   line-height: var(--heading-line-height-xl);
   margin-bottom: 31px;
 }
 
 h3 {
-  font-size: var(--heading-font-size-l);
+  --font-size: var(--heading-font-size-l);
+
   line-height: var(--heading-line-height-l);
+  margin-bottom: 20px;
 }
 
 h4 {
-  font-size: var(--heading-font-size-m);
+  --font-size: var(--heading-font-size-m);
+
   font-weight: var(--heading-font-weight-m);
   line-height: var(--heading-line-height-m);
 }
@@ -218,21 +254,20 @@ h6 {
   line-height: var(--heading-line-height-xs);
 }
 
-@media (max-width: 460px) {
-  h1 {
-    font-size: 10vw;
-  }
-
-  h2 {
-    font-size: 8vw;
-  }
-
-  h3 {
-    font-size: 6vw;
+@media (min-width: 1000px) {
+  h1, h2, h3,
+  h4, h5, h6 {
+    font-size: var(--font-size);
   }
 }
 
-p, dl, ol, ul, pre, blockquote {
+
+p {
+  margin: 0 0 20px;
+  overflow-wrap: break-word;
+}
+
+dl, ol, ul, pre, blockquote {
   margin-top: 1em;
   margin-bottom: 1em;
 }
@@ -408,6 +443,11 @@ main .section.highlight {
 
 .small > div {
   max-width: 650px;
+}
+
+.block > div > div {
+  margin: 0 0 20px;
+  overflow-wrap: break-word;
 }
 
 .extra-small img {
