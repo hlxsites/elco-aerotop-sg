@@ -150,6 +150,8 @@
   /* nav height */
   --nav-height: 72px;
   --nav-mobile-height: 82px;
+  --nav-mobile-grid-height: 35px;
+  --nav-side-padding: 30px;
   --nav-shrinked-height: 65px;
   --nav-dropdown-font-size: 13px;
   --nav-dropdown-font-weight: 500;
