@@ -135,7 +135,7 @@ function addBackToTop(main) {
 function initPartytown() {
   window.partytown = {
     lib: '/scripts/',
-    forward: ['dataLayer.push'],
+    forward: ['dataLayer.push', 'hj.q'],
   };
   import('./partytown.js');
 }
@@ -162,7 +162,7 @@ async function loadLazy(doc) {
 
   addBackToTop(main);
 
-  // initPartytown();
+  initPartytown();
 }
 
 /**
