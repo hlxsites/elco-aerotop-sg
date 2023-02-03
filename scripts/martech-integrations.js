@@ -8,17 +8,16 @@ const GTAG_URL = 'https://www.googletagmanager.com/gtag/js?id=G-Y5TC8B0GX4';
 const GOOGLE_ANALYTICS_SCRIPT = `window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-Y5TC8B0GX4');`
+    gtag('config', 'G-Y5TC8B0GX4');`;
 
 const HOTJAR_SCRIPT = `(function(h,o,t,j,a,r){
     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-    h._hjSettings={hjid:2763082,hjsv:6};
+    h._hjSettings={hjid:3351234,hjsv:6};
     a=o.getElementsByTagName('head')[0];
     r=o.createElement('script');r.async=1;
     r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
     a.appendChild(r);
   })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');`;
-
 
 function createExternalScriptElement(url) {
   const script = document.createElement('script');
@@ -39,7 +38,7 @@ export default function integrateMartech() {
   createInlineScriptElement(GOOGLE_TAG_MANAGER_SCRIPT);
 
   createExternalScriptElement(GTAG_URL);
-  createInlineScriptElement(GOOGLE_ANALYTICS_SCRIPT)
+  createInlineScriptElement(GOOGLE_ANALYTICS_SCRIPT);
 
-  createInlineScriptElement(HOTJAR_SCRIPT)
+  createInlineScriptElement(HOTJAR_SCRIPT);
 }

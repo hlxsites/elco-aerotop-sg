@@ -1,3 +1,4 @@
 helix-importer-ui
 /styles/**/*.min.css
 /scripts/**/*.min.js
+/scripts/partytown*.js
