@@ -379,6 +379,11 @@ main .section {
   overflow: hidden;
 }
 
+main .section.bigger-padding{
+  padding-right: 10vw;
+  padding-left: 10vw;
+}
+
 main pre {
   background-color: var(--overlay-background-color);
   padding: 1em;
