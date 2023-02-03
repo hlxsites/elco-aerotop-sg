@@ -379,7 +379,7 @@ main .section {
   overflow: hidden;
 }
 
-main .section.bigger-padding{
+main .section.wide-padding{
   padding-right: 10vw;
   padding-left: 10vw;
 }
