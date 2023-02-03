@@ -11,6 +11,7 @@ import {
   loadBlocks,
   loadCSS,
 } from './lib-franklin.js';
+import integrateMartech from './martech-integrations.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'elco-aerotop-sg'; // add your RUM generation information here
@@ -132,6 +133,14 @@ function addBackToTop(main) {
   });
 }
 
+function initPartytown() {
+  window.partytown = {
+    lib: '/scripts/',
+    // forward: window.hlx.offload.forward || [],
+  };
+  import('./partytown.js');
+}
+
 /**
  * loads everything that doesn't need to be delayed.
  */
@@ -153,6 +162,9 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
   addBackToTop(main);
+
+  initPartytown();
+  integrateMartech();
 }
 
 /**
@@ -161,9 +173,8 @@ async function loadLazy(doc) {
  */
 function loadDelayed() {
   // eslint-disable-next-line import/no-cycle
-  window.addEventListener('load', () => {
-    window.setTimeout(() => import('./delayed.js'), 3000)
-  });
+  window.setTimeout(() => import('./delayed.js'), 3000)
+
   // load anything that can be postponed to the latest here
 }
 
