@@ -6,10 +6,6 @@
   padding-top: 0;
 }
 
-.hero-container {
-  position: relative;
-}
-
 .hero.block h1 {
   --font-size: var(--heading-font-size-xl);
 
