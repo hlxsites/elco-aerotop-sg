@@ -162,7 +162,7 @@ async function loadLazy(doc) {
 
   addBackToTop(main);
 
-  initPartytown();
+  // initPartytown();
 }
 
 /**

@@ -13,7 +13,7 @@ loadCookieConsent();
 // Core Web Vitals RUM collection
 sampleRUM('cwv');
 
-integrateMartech();
+// integrateMartech();
 
 export default function loadVideo(videoURL, block) {
   loadVideoImpl(videoURL, block);

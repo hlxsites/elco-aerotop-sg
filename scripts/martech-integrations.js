@@ -21,7 +21,7 @@ const HOTJAR_SCRIPT = `(function(h,o,t,j,a,r){
 
 function createExternalScriptElement(url) {
   const script = document.createElement('script');
-  script.type = 'text/partytown';
+  // script.type = 'text/partytown';
   script.src = url;
   script.setAttribute('async', '');
   document.head.appendChild(script);
@@ -29,7 +29,7 @@ function createExternalScriptElement(url) {
 
 function createInlineScriptElement(innerHTML) {
   const script = document.createElement('script');
-  script.type = 'text/partytown';
+  // script.type = 'text/partytown';
   script.innerHTML = innerHTML;
   document.head.appendChild(script);
 }
