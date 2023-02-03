@@ -6,7 +6,7 @@ import loadCookieConsent from './cookie-consent-lib.js';
 
 function googleTagManager() {
   const script = document.createElement('script');
-  script.setAttribute('async', '');
+  script.setAttribute('type', 'text/partytown');
   script.innerHTML = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
@@ -17,12 +17,13 @@ function googleTagManager() {
 
 function googleAnalytics() {
   const asyncScript = document.createElement('script');
+  asyncScript.setAttribute('type', 'text/partytown');
   asyncScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-Y5TC8B0GX4';
   asyncScript.setAttribute('async', '');
   document.body.appendChild(asyncScript);
 
   const script = document.createElement('script');
-  script.setAttribute('async', '');
+  script.setAttribute('type', 'text/partytown');
   script.innerHTML = `window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
@@ -32,6 +33,7 @@ function googleAnalytics() {
 
 function hotjar() {
   const script = document.createElement('script');
+  script.setAttribute('type', 'text/partytown');
   script.innerHTML = `(function(h,o,t,j,a,r){
     h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
     h._hjSettings={hjid:2763082,hjsv:6};
@@ -54,7 +56,7 @@ sampleRUM('cwv');
 // MarTech integrations
 googleTagManager();
 googleAnalytics();
-hotjar();
+// hotjar();
 
 export default function loadVideo(videoURL, block) {
   loadVideoImpl(videoURL, block);
