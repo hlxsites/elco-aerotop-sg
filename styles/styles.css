@@ -374,13 +374,13 @@ main {
   margin-top: 0;
 }
 
-main .section:first-child {
-  padding: 0 30px 65px;
+main .section {
+  padding: 45px 30px 65px;
   overflow: hidden;
 }
 
-main .section {
-  padding: 45px 30px 65px;
+main .section:first-child {
+  padding: 0 30px 65px;
   overflow: hidden;
 }
 
@@ -461,10 +461,6 @@ main .section.highlight {
 
 body > main > div:last-child {
   margin-bottom: 0;
-}
-
-body > main > div.section > div {
-
 }
 
 body > main > div:first-child > div {
