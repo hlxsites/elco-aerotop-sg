@@ -207,7 +207,6 @@ header {
 
 h1, h2, h3,
 h4, h5, h6 {
-  font-size: calc((var(--font-size) * 1px) - (var(--typography-sensitivity) * (var(--font-size) - var(--min-font-size)) * (var(--min-viewport-size) * 1px - 100vw)) / (var(--max-viewport-size) - var(--min-viewport-size)) - (var(--font-size) - var(--min-font-size)) * var(--typography-sensitivity) * 1px);
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
   letter-spacing: normal;
@@ -227,6 +226,7 @@ h2 {
   --font-size: var(--heading-font-size-xl);
 
   font-family: var(--secondary-heading-font-family);
+  font-size: var(--heading-font-size-xl);
   line-height: var(--heading-line-height-xl);
   margin-bottom: 31px;
 }
@@ -512,6 +512,10 @@ body.home > main a {
   margin: 0 5vw 31px;
 }
 
+.gaps p {
+  margin: 0 5vw 31px;
+}
+
 .no-padding {
   padding: 0!important;
 }
@@ -528,6 +532,23 @@ body.home > main a {
 
 .section.center h2 {
   text-align: center;
+}
+
+body.home .section p {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  font-size: var(--heading-font-size-l);
+  line-height: var(--heading-line-height-l);
+}
+
+body.home .columns p,
+body.home .progress-bar-table p,
+body.home .small p {
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  letter-spacing: 0;
+  font-style: normal;
+  font-size: var(--heading-font-size-m);
 }
 
 body.home .section a {
@@ -557,23 +578,6 @@ body.home .section.url-not-decorated a {
   font-size: var(--body-font-size-m);
 }
 
-body.home .section.primary-link a {
-  color: var(--primary-background-color);
-  border: var(--primary-color-active);
-  background-color: var(--primary-color-active);
-}
-
-body.home .section.dark a:hover {
-  background-color: var(--primary-background-color);
-  color: var(--secondary-background-color);
-}
-
-body.home .section.primary-link a:hover {
-  color: var(--primary-background-color);
-  border: var(--primary-color-active);
-  background-color: var(--primary-color-active);
-}
-
 body.home .section.dark.url-not-decorated a {
   color: var( --secondary-text-color);
   background-color: var(--secondary-background-color);
@@ -583,10 +587,12 @@ body.home .section.dark.url-not-decorated a {
   font-size: var(--body-font-size-m);
 }
 
-.contact h3 {
-  text-transform: uppercase;
-  color: var(--primary-color-active);
-  margin-bottom: 31px;
+.contact h1 {
+  --font-size: var(--heading-font-size-xl);
+  font-family: var(--secondary-heading-font-family);
+  line-height: var(--heading-line-height-xl);
+  margin: 10px 0 31px;
+  text-align: unset;
 }
 
 .contact .columns-wrapper  {
@@ -617,4 +623,3 @@ body.home .section.dark.url-not-decorated a {
 .cc-btn.cc-save {
   padding: 13px 29px;
 }
-
