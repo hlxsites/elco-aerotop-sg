@@ -207,7 +207,6 @@ header {
 
 h1, h2, h3,
 h4, h5, h6 {
-  font-size: calc((var(--font-size) * 1px) - (var(--typography-sensitivity) * (var(--font-size) - var(--min-font-size)) * (var(--min-viewport-size) * 1px - 100vw)) / (var(--max-viewport-size) - var(--min-viewport-size)) - (var(--font-size) - var(--min-font-size)) * var(--typography-sensitivity) * 1px);
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
   letter-spacing: normal;
@@ -227,6 +226,7 @@ h2 {
   --font-size: var(--heading-font-size-xl);
 
   font-family: var(--secondary-heading-font-family);
+  font-size: var(--heading-font-size-xl);
   line-height: var(--heading-line-height-xl);
   margin-bottom: 31px;
 }
@@ -513,6 +513,10 @@ body.home > main a {
   margin: 0 5vw 31px;
 }
 
+.gaps p {
+  margin: 0 5vw 31px;
+}
+
 .no-padding {
   padding: 0!important;
 }
@@ -544,6 +548,23 @@ body.home .section.dark h3 {
   color: var(--secondary-text-color);
 }
 
+body.home .section p {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  font-size: var(--heading-font-size-l);
+  line-height: var(--heading-line-height-l);
+}
+
+body.home .columns p,
+body.home .progress-bar-table p,
+body.home .small p {
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  letter-spacing: 0;
+  font-style: normal;
+  font-size: var(--heading-font-size-m);
+}
+
 body.home .section a {
   background-color: var(--primary-button-background-color);
   border: var(--button-border-size) solid var(--primary-button-border-color);
@@ -569,23 +590,6 @@ body.home .section.url-not-decorated a {
   text-transform: lowercase;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-}
-
-body.home .section.primary-link a {
-  color: var(--primary-background-color);
-  border: var(--primary-color-active);
-  background-color: var(--primary-color-active);
-}
-
-body.home .section.dark a:hover {
-  background-color: var(--primary-background-color);
-  color: var(--secondary-background-color);
-}
-
-body.home .section.primary-link a:hover {
-  color: var(--primary-background-color);
-  border: var(--primary-color-active);
-  background-color: var(--primary-color-active);
 }
 
 body.home .section.dark.url-not-decorated a {
