@@ -232,10 +232,11 @@ h2 {
 }
 
 h3 {
-  --font-size: var(--heading-font-size-l);
-
-  line-height: var(--heading-line-height-l);
+  --font-size: var(--heading-font-size-m);
+  line-height: var(--heading-line-height-m);
   margin-bottom: 20px;
+  color: var(--primary-color-active);
+  letter-spacing: 0;
 }
 
 h4 {
