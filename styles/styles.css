@@ -531,6 +531,21 @@ body.home > main a {
   text-align: center;
 }
 
+body.home h3 {
+  font-size: var(--heading-font-size-l);
+  line-height: var(--heading-line-height-l);
+  color: var(--primary-text-color);
+  margin-bottom: 20px;
+}
+
+body.home .section.dark h3 {
+  font-size: var(--heading-font-size-l);
+  line-height: var(--heading-line-height-l);
+  color: var(--secondary-text-color);
+}
+
+var(--secondary-text-color);
+
 body.home .section a {
   background-color: var(--primary-button-background-color);
   border: var(--button-border-size) solid var(--primary-button-border-color);
