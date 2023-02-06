@@ -117,16 +117,3 @@
         font-size: 86px;
     }
 }
-
-.explosion-slider-container > .default-content-wrapper > h2 {
-    font-size: 40px;
-    line-height: 1.4;
-    text-align: center;
-}
-
-.explosion-slider-container > .default-content-wrapper > p {
-    font-size: 26px;
-    line-height: 1.5;
-    text-align: center;
-    margin: 30px 5vw 0;
-}

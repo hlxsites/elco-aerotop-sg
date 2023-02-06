@@ -1,40 +1,26 @@
-/* block specific CSS goes here */
-
-main .hero-container > div {
-    max-width: unset;
-}
-  
-main .hero-container {
-    padding: 0;
-}
-  
-main .hero {
-    position: relative;
-    padding: 32px;
-    min-height: 300px;
+.section.hero-container {
+  padding-bottom: 0;
 }
 
-main .hero h1 {
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    color: white;
+.section.hero-container .hero-wrapper {
+  padding-top: 0;
 }
 
+.hero.block h1 {
+  --font-size: var(--heading-font-size-xl);
 
-main .hero picture {
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    object-fit: cover;
-    box-sizing: border-box;
+  font-family: var(--secondary-heading-font-family);
+  line-height: var(--heading-line-height-xl);
+  margin: 10px 0 31px;
+  text-align: unset;
 }
 
-main .hero img {
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
+.hero.block img {
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  max-width: 100vw;
 }
