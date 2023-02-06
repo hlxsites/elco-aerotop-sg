@@ -544,8 +544,6 @@ body.home .section.dark h3 {
   color: var(--secondary-text-color);
 }
 
-var(--secondary-text-color);
-
 body.home .section a {
   background-color: var(--primary-button-background-color);
   border: var(--button-border-size) solid var(--primary-button-border-color);
