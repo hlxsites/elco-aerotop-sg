@@ -224,7 +224,7 @@ h1 {
 
 h2 {
   --font-size: var(--heading-font-size-xl);
-
+  
   font-family: var(--secondary-heading-font-family);
   font-size: var(--heading-font-size-xl);
   line-height: var(--heading-line-height-xl);
@@ -233,6 +233,7 @@ h2 {
 
 h3 {
   --font-size: var(--heading-font-size-m);
+  
   line-height: var(--heading-line-height-m);
   margin-bottom: 20px;
   color: var(--primary-color-active);
@@ -241,7 +242,7 @@ h3 {
 
 h4 {
   --font-size: var(--heading-font-size-m);
-
+  
   font-weight: var(--heading-font-weight-m);
   line-height: var(--heading-line-height-m);
 }
@@ -263,7 +264,6 @@ h6 {
     font-size: var(--font-size);
   }
 }
-
 
 p {
   margin: 0 0 20px;
@@ -588,7 +588,7 @@ body.home .section.dark.url-not-decorated a {
 }
 
 .contact h1 {
-  --font-size: var(--heading-font-size-xl);
+  font-size: var(--heading-font-size-xl);
   font-family: var(--secondary-heading-font-family);
   line-height: var(--heading-line-height-xl);
   margin: 10px 0 31px;
