@@ -232,10 +232,12 @@ h2 {
 }
 
 h3 {
-  --font-size: var(--heading-font-size-l);
+  --font-size: var(--heading-font-size-m);
 
-  line-height: var(--heading-line-height-l);
+  line-height: var(--heading-line-height-m);
   margin-bottom: 20px;
+  color: var(--primary-color-active);
+  letter-spacing: 0;
 }
 
 h4 {
@@ -533,6 +535,21 @@ body.home > main a {
   text-align: center;
 }
 
+body.home h3 {
+  --font-size: var(--heading-font-size-l);
+
+  line-height: var(--heading-line-height-l);
+  color: var(--primary-text-color);
+  margin-bottom: 20px;
+}
+
+body.home .section.dark h3 {
+  --font-size: var(--heading-font-size-l);
+
+  line-height: var(--heading-line-height-l);
+  color: var(--secondary-text-color);
+}
+
 body.home .section p {
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
@@ -586,10 +603,13 @@ body.home .section.dark.url-not-decorated a {
   font-size: var(--body-font-size-m);
 }
 
-.contact h3 {
-  text-transform: uppercase;
-  color: var(--primary-color-active);
-  margin-bottom: 31px;
+.contact h1 {
+  --font-size: var(--heading-font-size-xl);
+
+  font-family: var(--secondary-heading-font-family);
+  line-height: var(--heading-line-height-xl);
+  margin: 10px 0 31px;
+  text-align: unset;
 }
 
 .contact .columns-wrapper  {
@@ -620,4 +640,3 @@ body.home .section.dark.url-not-decorated a {
 .cc-btn.cc-save {
   padding: 13px 29px;
 }
-
