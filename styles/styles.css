@@ -207,6 +207,7 @@ header {
 
 h1, h2, h3,
 h4, h5, h6 {
+  font-size: calc((var(--font-size) * 1px) - (var(--typography-sensitivity) * (var(--font-size) - var(--min-font-size)) * (var(--min-viewport-size) * 1px - 100vw)) / (var(--max-viewport-size) - var(--min-viewport-size)) - (var(--font-size) - var(--min-font-size)) * var(--typography-sensitivity) * 1px);
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
   letter-spacing: normal;
@@ -226,7 +227,6 @@ h2 {
   --font-size: var(--heading-font-size-xl);
 
   font-family: var(--secondary-heading-font-family);
-  font-size: var(--heading-font-size-xl);
   line-height: var(--heading-line-height-xl);
   margin-bottom: 31px;
 }
