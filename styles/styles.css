@@ -537,8 +537,8 @@ body.home > main a {
 body.home .section p {
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
-  font-size: var(--heading-font-size-l);
-  line-height: var(--heading-line-height-l);
+  font-size: var(--heading-font-size-m);
+  line-height: var(--heading-line-height-m);
 }
 
 body.home .columns p,
