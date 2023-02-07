@@ -132,14 +132,6 @@ function addBackToTop(main) {
   });
 }
 
-function initPartytown() {
-  window.partytown = {
-    lib: '/scripts/',
-    forward: ['dataLayer.push'],
-  };
-  import('./partytown.js');
-}
-
 /**
  * loads everything that doesn't need to be delayed.
  */
@@ -161,8 +153,6 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
   addBackToTop(main);
-
-  initPartytown();
 }
 
 /**
