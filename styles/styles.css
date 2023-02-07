@@ -532,14 +532,16 @@ body.home > main a {
 }
 
 body.home h3 {
-  font-size: var(--heading-font-size-l);
+  --font-size: var(--heading-font-size-l);
+
   line-height: var(--heading-line-height-l);
   color: var(--primary-text-color);
   margin-bottom: 20px;
 }
 
 body.home .section.dark h3 {
-  font-size: var(--heading-font-size-l);
+  --font-size: var(--heading-font-size-l);
+
   line-height: var(--heading-line-height-l);
   color: var(--secondary-text-color);
 }
@@ -598,7 +600,8 @@ body.home .section.dark.url-not-decorated a {
 }
 
 .contact h1 {
-  font-size: var(--heading-font-size-xl);
+  --font-size: var(--heading-font-size-xl);
+
   font-family: var(--secondary-heading-font-family);
   line-height: var(--heading-line-height-xl);
   margin: 10px 0 31px;
