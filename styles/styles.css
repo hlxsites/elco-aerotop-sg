@@ -150,6 +150,8 @@
   /* nav height */
   --nav-height: 72px;
   --nav-mobile-height: 82px;
+  --nav-mobile-grid-height: 35px;
+  --nav-side-padding: 30px;
   --nav-shrinked-height: 65px;
   --nav-dropdown-font-size: 13px;
   --nav-dropdown-font-weight: 500;
@@ -384,6 +386,11 @@ main .section:first-child {
   overflow: hidden;
 }
 
+main .section.wide-padding{
+  padding-right: 10vw;
+  padding-left: 10vw;
+}
+
 main pre {
   background-color: var(--overlay-background-color);
   padding: 1em;
@@ -505,6 +512,10 @@ body.home > main a {
   margin: 0 5vw 31px;
 }
 
+.gaps p {
+  margin: 0 5vw 31px;
+}
+
 .no-padding {
   padding: 0!important;
 }
@@ -521,6 +532,23 @@ body.home > main a {
 
 .section.center h2 {
   text-align: center;
+}
+
+body.home .section p {
+  font-family: var(--heading-font-family);
+  font-weight: var(--heading-font-weight);
+  font-size: var(--heading-font-size-l);
+  line-height: var(--heading-line-height-l);
+}
+
+body.home .columns p,
+body.home .progress-bar-table p,
+body.home .small p {
+  font-family: var(--body-font-family);
+  font-weight: 400;
+  letter-spacing: 0;
+  font-style: normal;
+  font-size: var(--heading-font-size-m);
 }
 
 body.home .section a {
@@ -548,23 +576,6 @@ body.home .section.url-not-decorated a {
   text-transform: lowercase;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-}
-
-body.home .section.primary-link a {
-  color: var(--primary-background-color);
-  border: var(--primary-color-active);
-  background-color: var(--primary-color-active);
-}
-
-body.home .section.dark a:hover {
-  background-color: var(--primary-background-color);
-  color: var(--secondary-background-color);
-}
-
-body.home .section.primary-link a:hover {
-  color: var(--primary-background-color);
-  border: var(--primary-color-active);
-  background-color: var(--primary-color-active);
 }
 
 body.home .section.dark.url-not-decorated a {
