@@ -344,12 +344,6 @@ button:disabled, button:disabled:hover {
   color: var(--primary-background-color);
 }
 
-.section.dark a.button:hover, .section.dark a.button:focus, .section.dark button:hover, .section.dark button:focus {
-  background-color: var(--primary-background-color);
-  color: var(--secondary-color);
-  cursor: pointer;
-}
-
 a.button.secondary, button.secondary {
   background-color: unset;
   border: 2px solid currentcolor;
@@ -602,6 +596,12 @@ body.home .section.dark.url-not-decorated a {
   text-transform: lowercase;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
+}
+
+body.home .section.dark a:hover, body.home .section.dark a:focus, .section.dark button:hover, .section.dark button:focus {
+  background-color: var(--primary-background-color);
+  color: var(--secondary-color);
+  cursor: pointer;
 }
 
 .contact h1 {
