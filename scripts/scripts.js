@@ -29,12 +29,12 @@ function buildHeroBlock(main) {
   }
 }
 
-async function initPartytown() {
+function initPartytown() {
   window.partytown = {
     lib: '/scripts/',
     forward: ['dataLayer.push'],
   };
-  await import('./partytown.js');
+  import('./partytown.js');
 }
 
 /**
@@ -144,7 +144,7 @@ function addBackToTop(main) {
  * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
-  await initPartytown();
+  initPartytown();
   const main = doc.querySelector('main');
   await loadBlocks(main);
 
