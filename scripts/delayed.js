@@ -3,15 +3,6 @@ import { fetchPlaceholders, sampleRUM } from './lib-franklin.js';
 import loadVideoImpl from './assets/video-lib.js';
 import generateImageOverlayImpl from './assets/image-lib.js';
 import loadCookieConsent from './cookie-consent-lib.js';
-/*
-function initPartytown() {
-  window.partytown = {
-    lib: '/scripts/',
-    forward: ['dataLayer.push'],
-  };
-  import('./partytown.js');
-}
-*/
 
 // used by cookie-consent so far
 await fetchPlaceholders(`/${document.documentElement.lang}`);
@@ -20,8 +11,6 @@ loadCookieConsent();
 
 // Core Web Vitals RUM collection
 sampleRUM('cwv');
-
-// initPartytown();
 
 export default function loadVideo(videoURL, block) {
   loadVideoImpl(videoURL, block);
