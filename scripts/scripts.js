@@ -34,7 +34,7 @@ async function initPartytown() {
     lib: '/scripts/',
     forward: ['dataLayer.push'],
   };
-  import('./partytown.js');
+  await import('./partytown.js');
 }
 
 /**
