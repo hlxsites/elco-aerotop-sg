@@ -1,0 +1,24 @@
+sitemaps:
+  example:
+    origin: https://www.aerotop-sg.com
+    languages:
+      de:
+        source: /de/query-index.json
+        destination: /sitemap.xml
+        hreflang: de
+        alternate: /de/{path}
+      en:
+        source: /en/query-index.json
+        destination: /sitemap.xml
+        hreflang: en
+        alternate: /en/{path}
+      fr:
+        source: /fr/query-index.json
+        destination: /sitemap.xml
+        hreflang: fr
+        alternate: /fr/{path}
+      it:
+        source: /it/query-index.json
+        destination: /sitemap.xml
+        hreflang: it
+        alternate: /it/{path}
