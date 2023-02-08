@@ -379,6 +379,11 @@ main {
 }
 
 main .section {
+  padding: 45px 30px 65px;
+  overflow: hidden;
+}
+
+main .section:first-child {
   padding: 0 30px 65px;
   overflow: hidden;
 }
@@ -467,10 +472,6 @@ body > main > div:last-child {
   margin-bottom: 0;
 }
 
-body > main > div.section > div {
-  padding-top: 45px;
-}
-
 body > main > div:first-child > div {
   padding-top: 60px;
 }
@@ -553,8 +554,8 @@ body.home .section.dark h3 {
 body.home .section p {
   font-family: var(--heading-font-family);
   font-weight: var(--heading-font-weight);
-  font-size: var(--heading-font-size-l);
-  line-height: var(--heading-line-height-l);
+  font-size: var(--heading-font-size-m);
+  line-height: var(--heading-line-height-m);
 }
 
 body.home .columns p,
