@@ -29,6 +29,14 @@ function buildHeroBlock(main) {
   }
 }
 
+async function initPartytown() {
+  window.partytown = {
+    lib: '/scripts/',
+    forward: ['dataLayer.push'],
+  };
+  import('./partytown.js');
+}
+
 /**
  * Wraps images followed by links within a matching <a> tag.
  * @param {Element} container The container element
@@ -136,6 +144,7 @@ function addBackToTop(main) {
  * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
+  await initPartytown();
   const main = doc.querySelector('main');
   await loadBlocks(main);
 
