@@ -144,6 +144,7 @@ function addBackToTop(main) {
  * loads everything that doesn't need to be delayed.
  */
 async function loadLazy(doc) {
+  initPartytown();
   const main = doc.querySelector('main');
   await loadBlocks(main);
 
@@ -161,7 +162,6 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
   addBackToTop(main);
-  initPartytown();
 }
 
 /**
