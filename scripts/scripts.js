@@ -30,6 +30,18 @@ function buildHeroBlock(main) {
 }
 
 function initPartytown() {
+  document.createElement = function(create) {
+    return function() {
+      console.log(`creating ${ret.tagName}`);
+      var ret = create.apply(this, arguments);
+      if (ret.tagName.toLowerCase() === "div") {
+        ret.setAttribute("foo", "bar");
+      }
+      return ret;
+    };
+  }(document.createElement);
+
+
   window.partytown = {
     lib: '/scripts/',
     forward: ['dataLayer.push'],
@@ -161,7 +173,7 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
   addBackToTop(main);
-  // initPartytown();
+  initPartytown();
 }
 
 /**
