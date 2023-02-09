@@ -161,7 +161,7 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
   addBackToTop(main);
-  initPartytown();
+  // initPartytown();
 }
 
 /**
