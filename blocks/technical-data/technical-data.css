@@ -1,3 +1,7 @@
+.technical-data.block h2 {
+    margin-bottom: 0;
+}
+
 .technical-data.block > div {
     display: table-row;
 }
