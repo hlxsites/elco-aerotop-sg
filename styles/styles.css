@@ -458,6 +458,10 @@ main .section.highlight {
   overflow-wrap: break-word;
 }
 
+.block > div > [data-align$="right"] {
+  text-align: right;
+}
+
 .extra-small img {
   width: 37.6%;
 }
@@ -590,19 +594,26 @@ body.home .section.url-not-decorated a {
   font-size: var(--body-font-size-m);
 }
 
+body.home .section.dark a:hover, body.home .section.dark a:focus, .section.dark button:hover, .section.dark button:focus {
+  background-color: var(--primary-background-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
 body.home .section.dark.url-not-decorated a {
-  color: var( --secondary-text-color);
+  color: var( --primary-color-active);
   background-color: var(--secondary-background-color);
   border: none;
   text-transform: lowercase;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
+  margin:0;
+  padding:0;
 }
 
-body.home .section.dark a:hover, body.home .section.dark a:focus, .section.dark button:hover, .section.dark button:focus {
-  background-color: var(--primary-background-color);
-  color: var(--secondary-color);
-  cursor: pointer;
+body.home .section.dark.url-not-decorated a:hover {
+  color: var( --primary-color-active);
+  background-color: var(--secondary-background-color);
 }
 
 .contact h1 {
