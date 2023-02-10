@@ -1,10 +1,15 @@
 /* explosion slider styles */
+
+.explosion-slider-container .default-content-wrapper {
+    position: relative;
+    z-index: 1000;
+}
+
 .explosion-slider {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 1fr;
     grid-gap: 0;
-    overflow: hidden;
 }
 
 .explosion-slider div {
