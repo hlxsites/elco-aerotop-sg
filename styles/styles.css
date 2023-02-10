@@ -560,6 +560,7 @@ body.home .small p {
   letter-spacing: 0;
   font-style: normal;
   font-size: var(--heading-font-size-m);
+  text-align: left;
 }
 
 body.home .section a {
