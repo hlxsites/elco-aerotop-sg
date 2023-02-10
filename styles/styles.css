@@ -530,6 +530,14 @@ body.home > main a {
   text-align: center;
 }
 
+.contact h2 {
+  --font-size: var(--heading-font-size-l);
+
+  font-family: var(--body-font-family);
+  line-height: var(--heading-line-height-l);
+  color: var(--primary-color-active);
+}
+
 .section.center h2 {
   text-align: center;
 }
@@ -583,6 +591,10 @@ body.home .section.dark a {
   background-color: var(--secondary-button-background-color);
   border: var(--button-border-size) solid var(--secondary-button-border-color);
   color: var(--primary-background-color);
+}
+
+body.home .section.dark p:has(a) {
+  text-align: center;
 }
 
 body.home .section.url-not-decorated a {
