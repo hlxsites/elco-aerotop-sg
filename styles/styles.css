@@ -459,10 +459,7 @@ main .section.highlight {
 }
 
 .block > div > [data-align$="right"] {
-  margin: 0 0 20px;
-  overflow-wrap: break-word;
   text-align: right;
-  padding: 0;
 }
 
 .extra-small img {
@@ -596,6 +593,12 @@ body.home .section.url-not-decorated a {
   font-size: var(--body-font-size-m);
 }
 
+body.home .section.dark a:hover, body.home .section.dark a:focus, .section.dark button:hover, .section.dark button:focus {
+  background-color: var(--primary-background-color);
+  color: var(--secondary-color);
+  cursor: pointer;
+}
+
 body.home .section.dark.url-not-decorated a {
   color: var( --primary-color-active);
   background-color: var(--secondary-background-color);
@@ -607,10 +610,9 @@ body.home .section.dark.url-not-decorated a {
   padding:0;
 }
 
-body.home .section.dark a:hover, body.home .section.dark a:focus, .section.dark button:hover, .section.dark button:focus {
-  background-color: var(--primary-background-color);
-  color: var(--secondary-color);
-  cursor: pointer;
+body.home .section.dark.url-not-decorated a:hover {
+  color: var( --primary-color-active);
+  background-color: var(--secondary-background-color);
 }
 
 .contact h1 {
