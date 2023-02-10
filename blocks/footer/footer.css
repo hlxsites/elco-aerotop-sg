@@ -75,4 +75,5 @@ footer {
   font-size: var(--body-font-size-s);
   text-align: center;
   flex-grow: 1;
+  margin: 0;
 }
