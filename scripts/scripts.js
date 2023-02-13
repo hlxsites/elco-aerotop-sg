@@ -12,6 +12,8 @@ import {
   loadCSS,
 } from './lib-franklin.js';
 
+import { integrateMartech } from './third-party.js';
+
 const LCP_BLOCKS = []; // add your LCP blocks to the list
 window.hlx.RUM_GENERATION = 'elco-aerotop-sg'; // add your RUM generation information here
 
@@ -160,8 +162,10 @@ async function loadLazy(doc) {
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
 
-  addBackToTop(main);
+  integrateMartech();
   initPartytown();
+
+  addBackToTop(main);
 }
 
 /**
