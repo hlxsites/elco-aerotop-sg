@@ -1,3 +1,4 @@
+
 .technical-data.block > div {
     display: table-row;
 }
@@ -21,6 +22,7 @@
     font-weight: 700;
     font-size: 16px;
     color: #1d1d1b;
+    margin-bottom: 0;
 }
 
 .technical-data.block > div div[data-align="center"] {

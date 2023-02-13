@@ -458,6 +458,10 @@ main .section.highlight {
   overflow-wrap: break-word;
 }
 
+.block > div > [data-align$="right"] {
+  text-align: right;
+}
+
 .extra-small img {
   width: 37.6%;
 }
@@ -526,6 +530,14 @@ body.home > main a {
   text-align: center;
 }
 
+.contact h2 {
+  --font-size: var(--heading-font-size-l);
+
+  font-family: var(--body-font-family);
+  line-height: var(--heading-line-height-l);
+  color: var(--primary-color-active);
+}
+
 .section.center h2 {
   text-align: center;
 }
@@ -560,6 +572,7 @@ body.home .small p {
   letter-spacing: 0;
   font-style: normal;
   font-size: var(--heading-font-size-m);
+  text-align: left;
 }
 
 body.home .section a {
@@ -580,6 +593,10 @@ body.home .section.dark a {
   color: var(--primary-background-color);
 }
 
+body.home .section.dark p:has(a) {
+  text-align: center;
+}
+
 body.home .section.url-not-decorated a {
   color: var( --primary-color-active);
   background-color: var(--primary-background-color);
@@ -587,21 +604,29 @@ body.home .section.url-not-decorated a {
   text-transform: lowercase;
   font-family: var(--body-font-family);
   font-size: var(--body-font-size-m);
-}
-
-body.home .section.dark.url-not-decorated a {
-  color: var( --secondary-text-color);
-  background-color: var(--secondary-background-color);
-  border: none;
-  text-transform: lowercase;
-  font-family: var(--body-font-family);
-  font-size: var(--body-font-size-m);
+  padding: 0;
 }
 
 body.home .section.dark a:hover, body.home .section.dark a:focus, .section.dark button:hover, .section.dark button:focus {
   background-color: var(--primary-background-color);
   color: var(--secondary-color);
   cursor: pointer;
+}
+
+body.home .section.dark.url-not-decorated a {
+  color: var( --primary-color-active);
+  background-color: var(--secondary-background-color);
+  border: none;
+  text-transform: lowercase;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  margin:0;
+  padding:0;
+}
+
+body.home .section.dark.url-not-decorated a:hover {
+  color: var( --primary-color-active);
+  background-color: var(--secondary-background-color);
 }
 
 .contact h1 {
