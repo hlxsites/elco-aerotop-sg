@@ -8,7 +8,7 @@ const GA_SCRIPT = `window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', 'G-Y5TC8B0GX4');`
+  gtag('config', 'G-Y5TC8B0GX4');`;
 
 function createInlineScript(innerHTML, parent) {
   const script = document.createElement('script');
@@ -17,7 +17,7 @@ function createInlineScript(innerHTML, parent) {
   parent.appendChild(script);
 }
 
-export function integrateMartech() {
+export default function integrateMartech() {
   createInlineScript(GTM_SCRIPT, document.body);
   createInlineScript(GA_SCRIPT, document.body);
 }
