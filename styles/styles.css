@@ -10,44 +10,40 @@
  * governing permissions and limitations under the License.
  */
 
- @font-face {
-  font-family: AvenirNextLTPro-Demi;
-  src: url("/fonts/AvenirNextLTPro-Demi.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
+
+/* fallback font for AvenirNextLTPro-Demi (normal - 400) */
+@font-face {
+  font-family: "avenirnextltpro-demi-normal-400-fallback";
+  size-adjust: 103.741%;
+  src: local("Helvetica");
 }
 
+/* fallback font for AvenirNextLTPro-Regular (normal - 400) */
 @font-face {
-  font-family: AvenirNextLTPro-Regular;
-  src: url("/fonts/AvenirNextLTPro-Regular.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
+  font-family: "avenirnextltpro-regular-normal-400-fallback";
+  size-adjust: 101%;
+  src: local("Helvetica");
 }
 
+/* fallback font for AvenirNextLTPro-Bold (normal - 400) */
 @font-face {
-  font-family: AvenirNextLTPro-Bold;
-  src: url("/fonts/AvenirNextLTPro-Bold.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
+  font-family: "avenirnextltpro-bold-normal-400-fallback";
+  size-adjust: 108.991%;
+  src: local("Helvetica");
 }
 
+/* fallback font for OpenSans-Regular (normal - 400) */
 @font-face {
-  font-family: OpenSans-Regular;
-  src: url("/fonts/OpenSans-Regular.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
+  font-family: "opensans-regular-normal-400-fallback";
+  size-adjust: 104.7%;
+  src: local("Helvetica");
 }
 
+/* fallback font for PTSans-Regular (normal - 400) */
 @font-face {
-  font-family: PTSans-Regular;
-  src: url("/fonts/PTSans-Regular.woff2") format("woff2");
-  font-display: swap;
-  font-style: normal;
-  font-weight: 400;
+  font-family: "ptsans-regular-normal-400-fallback";
+  size-adjust: 95.499%;
+  src: local("Helvetica");
 }
 
 :root {
@@ -94,13 +90,13 @@
   --hamburger-button-color: #dadada;
 
   /* fonts */
-  --body-font-family: 'AvenirNextLTPro-Regular', arial, helvetica, sans-serif;
+  --body-font-family: "AvenirNextLTPro-Regular", "avenirnextltpro-regular-normal-400-fallback", sans-serif;
   --heading-font-family: var(--body-font-family);
-  --xxl-heading-font-family: 'AvenirNextLTPro-Bold', arial, helvetica, sans-serif;
-  --secondary-heading-font-family: 'AvenirNextLTPro-Demi', arial, helvetica, sans-serif;
-  --fixed-font-family: 'Roboto Mono', menlo, consolas, 'Liberation Mono', monospace;
-  --nav-font-family: 'OpenSans-Regular', arial, helvetica, sans-serif;
-  --nav-mobile-font-family: 'PT Sans', arial, helvetica, sans-serif;
+  --xxl-heading-font-family: "AvenirNextLTPro-Bold", "avenirnextltpro-bold-normal-400-fallback", sans-serif;
+  --secondary-heading-font-family: "AvenirNextLTPro-Demi", "avenirnextltpro-demi-normal-400-fallback", sans-serif;
+  --fixed-font-family: "Roboto Mono", menlo, consolas, 'Liberation Mono', monospace;
+  --nav-font-family: "OpenSans-Regular", "opensans-regular-normal-400-fallback", sans-serif;
+  --nav-mobile-font-family: "PTSans-Regular", "ptsans-regular-normal-400-fallback", sans-serif;
   --form-input-font-family: var(--body-font-family);
 
   /* body font sizes */

@@ -1,4 +1,42 @@
-/* below the fold CSS goes here */
+@font-face {
+  font-family: AvenirNextLTPro-Demi;
+  src: url("/fonts/AvenirNextLTPro-Demi.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: AvenirNextLTPro-Regular;
+  src: url("/fonts/AvenirNextLTPro-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: AvenirNextLTPro-Bold;
+  src: url("/fonts/AvenirNextLTPro-Bold.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: OpenSans-Regular;
+  src: url("/fonts/OpenSans-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: PTSans-Regular;
+  src: url("/fonts/PTSans-Regular.woff2") format("woff2");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
 
 @font-face {
   font-family: awb-icons;
