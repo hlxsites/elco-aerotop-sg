@@ -1,3 +1,6 @@
+.technical-data-container > div:not(:first-child) {
+    padding-top: 0;
+}
 
 .technical-data.block > div {
     display: table-row;
@@ -17,6 +20,10 @@
     background-color: #c9c9c9;
 }
 
+.technical-data.block > div > div.connected-cell {
+    border-top: none;
+}
+
 .technical-data.block h2 {
     font-family: var(--body-font-family);
     font-weight: 700;
@@ -33,6 +40,7 @@
     display: table;
     border: 1px solid #c9c9c9;
     background: #fcfcfc;
+    margin-bottom: 16px;
 }
 
 .technical-data.block > div:first-child > div {
