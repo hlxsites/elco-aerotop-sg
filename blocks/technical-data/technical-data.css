@@ -1,3 +1,6 @@
+.technical-data-container > div:not(:first-child) {
+    padding-top: 0;
+}
 
 .technical-data.block > div {
     display: table-row;
@@ -37,6 +40,7 @@
     display: table;
     border: 1px solid #c9c9c9;
     background: #fcfcfc;
+    margin-bottom: 16px;
 }
 
 .technical-data.block > div:first-child > div {
