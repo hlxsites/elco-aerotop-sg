@@ -74,7 +74,7 @@ const configureCookieConsent = () => {
   }
 
   function applyConsent() {
-    if(window.gtag) {
+    if (window.gtag) {
       window.gtag('consent', 'update', {
         analytics_storage: getConsentForCategory(CC.ANALYTICS),
       });
@@ -90,9 +90,8 @@ const configureCookieConsent = () => {
   });
 
   window.addEventListener('gtaginit', () => {
-      applyConsent();
-    }
-  );
+    applyConsent();
+  });
 };
 
 export default function loadCookieConsent() {

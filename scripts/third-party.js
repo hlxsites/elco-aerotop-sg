@@ -14,7 +14,6 @@ const GA_SCRIPT = `window.dataLayer = window.dataLayer || [];
 function createInlineScript(innerHTML, parent) {
   const script = document.createElement('script');
   script.type = 'text/partytown';
-  script.setAttribute('crossorigin', '');
   script.innerHTML = innerHTML;
   parent.appendChild(script);
 }
