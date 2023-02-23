@@ -67,54 +67,32 @@ const configureCookieConsent = () => {
     },
   });
 
-  function isGTMInitialized() {
-    return window.gtmInitialized;
+  function getConsentForCategory(category) {
+    const { consents } = cc;
+
+    return consents[category] === CC.ALLOW ? 'granted' : 'denied';
   }
 
-  function initializeGTM() {
-    if (!isGTMInitialized()) {
-      // window.dataLayer = window.dataLayer || [];
-      // window.dataLayer.push({
-      //   'gtm.start': new Date().getTime(),
-      //   event: 'gtm.js'
-      // });
-      // var f = document.getElementsByTagName('script')[0];
-      // var j = document.createElement('script');
-      // j.async = true;
-      // j.src =
-      //   'https://www.googletagmanager.com/gtm.js?id=[ YOUR_GTM_CONTAINER_ID ]';
-      // f.parentNode.insertBefore(j, f);
-      window.gtmInitialized = true;
+  function applyConsent() {
+    if(window.gtag) {
+      window.gtag('consent', 'update', {
+        analytics_storage: getConsentForCategory(CC.ANALYTICS),
+      });
     }
-  }
-
-  function uninitializeGTM() {
-    // remove cookies
-    cc.deleteCookie('_ga');
-    cc.deleteCookie('_gid');
-    // cc.deleteCookie('_gat_YOUR_GOOGLE_ANALYTICS_TRACKING_ID');
-
-    // reload page to get rid of GTM
-    window.location.reload();
   }
 
   cc.on('initialized', () => {
-    const { consents } = cc;
-
-    if (consents[CC.ANALYTICS] === CC.ALLOW) {
-      initializeGTM();
-    }
+    applyConsent();
   });
 
   cc.on('popupClosed', () => {
-    const { consents } = cc;
-
-    if (consents[CC.ANALYTICS] === CC.ALLOW) {
-      initializeGTM();
-    } else if (isGTMInitialized()) {
-      uninitializeGTM();
-    }
+    applyConsent();
   });
+
+  window.addEventListener('gtaginit', () => {
+      applyConsent();
+    }
+  );
 };
 
 export default function loadCookieConsent() {
