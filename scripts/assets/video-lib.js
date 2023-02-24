@@ -12,6 +12,7 @@ export default function loadVideoImpl(videoURL, block) {
   const videoIframe = document.createElement('iframe');
   videoIframe.classList.add('youtube-player-iframe');
   videoIframe.setAttribute('allowfullscreen', '');
+  videoIframe.setAttribute('credentialless', '');
   videoIframe.src = `https://www.youtube.com/embed${videoURL.pathname}`;
 
   block.appendChild(videoIframe);

@@ -34,7 +34,7 @@ function buildHeroBlock(main) {
 function initPartytown() {
   window.partytown = {
     lib: '/scripts/',
-    forward: ['dataLayer.push'],
+    forward: ['dataLayer.push', 'gtaginit', 'gtag'],
   };
   import('./partytown.js');
 }

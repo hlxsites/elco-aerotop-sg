@@ -6,8 +6,9 @@ const GTM_SCRIPT = `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 
 const GA_SCRIPT = `window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  window.dispatchEvent(new Event('gtaginit'));
   gtag('js', new Date());
-
   gtag('config', 'G-Y5TC8B0GX4');`;
 
 function createInlineScript(innerHTML, parent) {
