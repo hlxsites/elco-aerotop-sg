@@ -69,6 +69,10 @@
     transition-timing-function: linear;
 }
 
+.image-viewer-image img {
+    width: auto;
+}
+
 .image-viewer-toolbar {
     position: absolute;
     top: 0;

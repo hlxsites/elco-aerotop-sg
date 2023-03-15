@@ -6,7 +6,7 @@
     height: 100%;
     opacity: 0.9;
     background: var(--secondary-background-color);
-    z-index: 100;
+    z-index: 12000;
 }
 
 .asset-viewer-toolbar {
