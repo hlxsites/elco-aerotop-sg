@@ -1,17 +1,26 @@
 import { generateImageOverlay } from '../../scripts/delayed.js';
+import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 
 export default async function decorate(block) {
+
+  const breakpoints = [{ media: '(min-width: 1000px)', width: '2000' }, { media: '(min-width: 450px)', width: '750' }, { media: '(min-width: 200px)', width: '450' }, { width: '200' }];
+
+  Array.from(block.getElementsByTagName('picture')).forEach((oldPicture) => {
+    const img = oldPicture.querySelector('img');
+    const picture = createOptimizedPicture(img.src, img.alt, false, breakpoints);
+    oldPicture.replaceWith(picture);
+  });
+
   const pictures = block.getElementsByTagName('picture');
-
-  Object.values(pictures).forEach((pic) => {
-    pic.addEventListener('mouseover', () => {
-      pic.style.opacity = '0.8';
+  Array.from(pictures).forEach((picture) => {
+    picture.addEventListener('mouseover', () => {
+      picture.style.opacity = '0.8';
     });
-    pic.addEventListener('mouseleave', () => {
-      pic.style.opacity = '1';
+    picture.addEventListener('mouseleave', () => {
+      picture.style.opacity = '1';
     });
 
-    pic.addEventListener('click', (e) => {
+    picture.addEventListener('click', (e) => {
       generateImageOverlay(e, block, pictures);
     });
   });
