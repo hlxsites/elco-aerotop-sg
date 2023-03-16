@@ -2,7 +2,12 @@ import { generateImageOverlay } from '../../scripts/delayed.js';
 import { createOptimizedPicture } from '../../scripts/lib-franklin.js';
 
 export default async function decorate(block) {
-  const breakpoints = [{ media: '(min-width: 1000px)', width: '2000' }, { media: '(min-width: 450px)', width: '750' }, { media: '(min-width: 200px)', width: '450' }, { width: '200' }];
+  const breakpoints = [
+    { media: '(min-width: 1200px)', width: '300' },
+    { media: '(min-width: 800px)', width: '250' },
+    { media: '(min-width: 700px)', width: '300' },
+    { media: '(min-width: 500px)', width: '250' },
+    { width: '150' }];
 
   Array.from(block.getElementsByTagName('picture')).forEach((oldPicture) => {
     const i = oldPicture.querySelector('img');

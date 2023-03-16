@@ -1,4 +1,12 @@
+import { createOptimizedPicture } from '../lib-franklin.js';
+
 const PICTURE_ID = 'image-viewer-picture';
+const breakpoints = [
+  { media: '(min-width: 1200px)', width: '1200' },
+  { media: '(min-width: 800px)', width: '800' },
+  { media: '(min-width: 500px)', width: '500' },
+  { media: '(min-width: 300px)', width: '300' },
+  { width: '150' }];
 
 function adjustNavButtonVisibility(pictures, currentImagePos, navLeft, navRight) {
   if (pictures.length === 1) {
@@ -56,7 +64,12 @@ export default function generateImageOverlayImpl(e, block, pictures) {
     // switch image
     adjustNavButtonVisibility(pictures, currentImagePos, navLeft, navRight);
     document.getElementById(PICTURE_ID).remove();
-    const picture = pictures[currentImagePos].cloneNode(true);
+    const oldPicture = pictures[currentImagePos].cloneNode(true);
+
+    const i = oldPicture.querySelector('img');
+    const picture = createOptimizedPicture(i.src, i.alt, false, breakpoints, i.width, i.height);
+    oldPicture.replaceWith(picture);
+
     picture.id = PICTURE_ID;
     picture.style.opacity = '1';
     imageViewer.appendChild(picture);
@@ -79,7 +92,10 @@ export default function generateImageOverlayImpl(e, block, pictures) {
     }
   });
 
-  const picture = e.currentTarget.cloneNode(true);
+  const oldPicture = e.currentTarget.cloneNode(true);
+  const i = oldPicture.querySelector('img');
+  const picture = createOptimizedPicture(i.src, i.alt, false, breakpoints, i.width, i.height);
+  oldPicture.replaceWith(picture);
   picture.id = PICTURE_ID;
 
   // build image viewer
