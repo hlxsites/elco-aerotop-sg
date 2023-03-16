@@ -4,7 +4,7 @@ import createOverlay from '../../scripts/assets/asset-lib.js';
 export default async function decorate(block) {
   loadCSS(`${window.hlx.codeBasePath}/styles/asset-viewer/asset-viewer.css`);
   const breakpoints = [{ media: '(min-width: 1000px)', width: '2000' }, { media: '(min-width: 500px)', width: '750' }, { width: '300' }];
-  block.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, breakpoints, img.width, img.height)));
+  block.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, img.width, img.height, breakpoints)));
 
   const pictures = block.getElementsByTagName('picture');
   Object.values(pictures).forEach((pic) => {

@@ -11,7 +11,7 @@ export default async function decorate(block) {
 
   Array.from(block.getElementsByTagName('picture')).forEach((oldPicture) => {
     const i = oldPicture.querySelector('img');
-    const picture = createOptimizedPicture(i.src, i.alt, false, breakpoints, i.width, i.height);
+    const picture = createOptimizedPicture(i.src, i.alt, false, i.width, i.height, breakpoints);
     oldPicture.replaceWith(picture);
   });
 
