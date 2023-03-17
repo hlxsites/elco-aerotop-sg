@@ -1,3 +1,8 @@
+
+.section.technical-data-container {
+    overflow: scroll !important;
+}
+
 .technical-data-container > div:not(:first-child) {
     padding-top: 0;
 }
