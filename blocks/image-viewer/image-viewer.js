@@ -1,8 +1,10 @@
-import { loadCSS } from '../../scripts/lib-franklin.js';
+import { createOptimizedPicture, loadCSS } from '../../scripts/lib-franklin.js';
 import createOverlay from '../../scripts/assets/asset-lib.js';
 
 export default async function decorate(block) {
   loadCSS(`${window.hlx.codeBasePath}/styles/asset-viewer/asset-viewer.css`);
+  const breakpoints = [{ media: '(min-width: 1000px)', width: '2000' }, { media: '(min-width: 500px)', width: '750' }, { width: '300' }];
+  block.querySelectorAll('img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, img.width, img.height, breakpoints)));
 
   const pictures = block.getElementsByTagName('picture');
   Object.values(pictures).forEach((pic) => {
@@ -21,19 +23,11 @@ export default async function decorate(block) {
       toolbarFullScreen.classList.add('asset-viewer-fullscreen');
       toolbar.appendChild(toolbarFullScreen);
 
-      const originalImage = e.currentTarget.getElementsByTagName('img')[0];
-
-      const image = document.createElement('img');
-      image.classList.add('image-viewer-image');
-      image.src = originalImage.src;
-      image.loading = originalImage.loading;
-      image.type = originalImage.type;
-      image.width = window.innerWidth;
-      image.style.opacity = '0';
+      const viewedImage = e.target.closest('picture').cloneNode(true);
 
       const imageWrapper = document.createElement('div');
       imageWrapper.classList.add('image-viewer-overlay');
-      imageWrapper.appendChild(image);
+      imageWrapper.appendChild(viewedImage);
       block.parentElement.appendChild(imageWrapper);
 
       async function removeImage() {
@@ -44,7 +38,7 @@ export default async function decorate(block) {
         block.parentElement.removeChild(overlay);
         block.parentElement.removeChild(toolbar);
         block.parentElement.removeChild(imageWrapper);
-        image.remove();
+        viewedImage.remove();
         backToTop.style.display = 'block';
       }
 
@@ -66,7 +60,6 @@ export default async function decorate(block) {
 
       setTimeout(() => {
         overlay.removeAttribute('style');
-        image.removeAttribute('style');
       }, 0);
     });
   });
