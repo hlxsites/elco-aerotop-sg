@@ -10,7 +10,7 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 103;
+    z-index: 12001;
     display: block;
     width: 1280px;
     max-width: 90%;
